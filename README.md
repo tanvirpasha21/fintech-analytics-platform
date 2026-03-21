@@ -231,7 +231,11 @@ See `.github/workflows/dbt_ci.yml`.
 
 ---
 
+## Lineage
+
+![dbt Lineage Graph](assets/lineage.png)
+
 ## Author
 
-**MD Tanvir Anjum** — Data Engineering Portfolio  
+**MD Tanvir Anjum** 
 [linkedin.com/in/mdtanviranjum21](https://linkedin.com/in/mdtanviranjum21)
