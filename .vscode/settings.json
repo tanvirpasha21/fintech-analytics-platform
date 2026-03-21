@@ -1,0 +1,12 @@
+{
+    "sqltools.connections": [
+        {
+            "name": "DuckDB",
+            "accessMode": "Read/Write",
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "databaseFilePath": "../data/fintech.duckdb"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

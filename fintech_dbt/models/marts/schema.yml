@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: fct_monthly_payment_performance
+    description: >
+      Monthly aggregated payment KPIs by currency and channel.
+      Primary executive reporting table for payment volume, success rates, and fraud trends.
+    columns:
+      - name: month
+        tests: [not_null]
+      - name: completion_rate
+        description: "Share of transactions that completed. Target > 0.93."
+      - name: fraud_rate
+        description: "Share of transactions flagged as fraudulent."
+
+  - name: dim_customers_360
+    description: >
+      Full customer dimension with LTV segmentation, churn risk, engagement score,
+      and dispute summary. One row per customer.
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+      - name: ltv_tier
+        tests:
+          - accepted_values:
+              values: ['platinum','gold','silver','bronze']
+      - name: churn_risk_segment
+        tests:
+          - accepted_values:
+              values: ['active','cooling','at_risk','churned']
+
+  - name: fct_cohort_retention
+    description: >
+      Monthly cohort retention. Shows % of each signup cohort that transacted in month N after signup.
+    columns:
+      - name: cohort_month
+        tests: [not_null]
+
+  - name: fct_fraud_events
+    description: >
+      Incremental table of fraud-flagged transactions with dispute outcome
+      and 30-day customer velocity signal.
+    columns:
+      - name: transaction_id
+        tests: [unique, not_null]
+      - name: risk_tier
+        tests:
+          - accepted_values:
+              values: ['fraud_flagged','high_risk_cross_border','high_risk_merchant','cross_border','standard']
+
+  - name: dim_merchant_risk_scorecard
+    description: >
+      Per-merchant risk scorecard: fraud rate, dispute rate, volume, and composite risk score.
+    columns:
+      - name: merchant_id
+        tests: [unique, not_null]
+      - name: risk_band
+        tests:
+          - accepted_values:
+              values: ['critical','elevated','standard']

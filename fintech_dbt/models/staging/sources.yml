@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: "Raw ingested data from fintech platform operational systems."
+    tables:
+      - name: customers
+        description: "Customer master records including KYC and tier."
+        columns:
+          - name: customer_id
+            tests: [unique, not_null]
+          - name: email
+            tests: [not_null]
+          - name: kyc_status
+            tests:
+              - accepted_values:
+                  values: ['verified','pending','failed']
+      - name: merchants
+        description: "Merchant records with MCC codes and risk flags."
+        columns:
+          - name: merchant_id
+            tests: [unique, not_null]
+          - name: mcc_code
+            tests: [not_null]
+      - name: transactions
+        description: "All payment transaction events."
+        columns:
+          - name: transaction_id
+            tests: [unique, not_null]
+          - name: customer_id
+            tests: [not_null]
+          - name: merchant_id
+            tests: [not_null]
+          - name: status
+            tests:
+              - accepted_values:
+                  values: ['completed','declined','pending','failed']
+          - name: amount
+            tests: [not_null]
+      - name: fx_rates
+        description: "Daily FX rates relative to GBP."
+        columns:
+          - name: rate_date
+            tests: [not_null]
+          - name: currency
+            tests: [not_null]
+      - name: disputes
+        description: "Customer-raised payment disputes."
+        columns:
+          - name: dispute_id
+            tests: [unique, not_null]
+          - name: transaction_id
+            tests: [not_null]

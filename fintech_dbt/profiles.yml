@@ -1,0 +1,7 @@
+fintech_platform:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('FINTECH_DB_PATH', '../data/fintech.duckdb') }}"
+      threads: 4

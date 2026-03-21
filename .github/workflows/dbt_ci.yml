@@ -1,0 +1,52 @@
+name: dbt CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dbt-ci:
+    name: dbt build + test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate synthetic data + seed DuckDB
+        run: python scripts/generate_data.py
+
+      - name: dbt deps
+        working-directory: fintech_dbt
+        run: dbt deps --profiles-dir .
+
+      - name: dbt build (run + test in one command)
+        working-directory: fintech_dbt
+        run: dbt build --profiles-dir .
+        env:
+          FINTECH_DB_PATH: ../data/fintech.duckdb
+
+      - name: Upload dbt artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbt-artifacts
+          path: |
+            fintech_dbt/target/manifest.json
+            fintech_dbt/target/run_results.json
