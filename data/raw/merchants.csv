@@ -1,301 +1,301 @@
 merchant_id,merchant_name,category,mcc_code,country,is_high_risk,onboarded_date
-115e4975-0d77-4bd7-a725-8240142a5bac,Green Ltd,Retail,5691,US,False,2024-06-07
-e5e3457c-42a6-4279-88c4-cedc17994a60,Baker Inc,Dining,5812,GB,False,2024-06-28
-9876ccc9-1ba5-4de7-a28d-417c8a388660,Wilkinson-Kelly,Dining,5814,GB,False,2023-12-11
-bf2af237-f24d-4c3b-8205-8be0115097bd,Wilson and Sons,Entertainment,7922,US,False,2023-04-23
-461628b6-0c6a-485b-9232-f90127c64cae,"Lamb, Page and Roberts",Groceries,5411,GB,False,2022-09-10
-353c18a4-9e1a-4cab-a884-f5f6b3e43039,"Anderson, Goodwin and Taylor",Transfer,6012,GB,False,2024-04-02
-e90f1d9c-7cc7-4769-8806-567642b59855,Clarke-Rogers,Groceries,5412,US,False,2023-09-20
-0de395b0-3997-4f9b-a6c6-e94e634fcdce,Clements-Jordan,Retail,5691,US,False,2023-07-18
-743bcffe-f50c-4a27-9e4c-22e6da02dbd8,Lord PLC,Healthcare,8049,GB,False,2023-10-02
-f7785e7a-1b29-48d7-ad79-ac6356a5a223,O'Connor-Coleman,Fuel,5541,CA,False,2022-05-19
-e519877a-86b2-441c-89a6-380f17ba6283,"Watson, Smith and Banks",Healthcare,8011,CA,False,2024-02-16
-9c16e030-0cdf-4e5d-bf19-209998297211,Johnson-Taylor,Dining,5812,US,False,2022-12-11
-b491406f-3b39-474d-aa20-a745de11988a,"Allen, Todd and Evans",Travel,4511,US,False,2024-01-30
-21e2157b-2056-4237-a624-a4b57d070641,Evans Inc,Retail,5999,SG,False,2023-03-22
-4c3393e3-4989-400b-bbf0-ef829161e639,Turner Group,Subscription,5968,US,False,2023-05-01
-92e5812b-3664-4baa-8c23-b13c81954b29,Moore-Collins,Groceries,5412,GB,False,2023-09-06
-478b3d92-b2c3-405b-8e62-81103507db0c,Hunt-Charlton,Groceries,5412,DE,False,2022-12-15
-bf4fa825-a96f-4070-ad87-c3954fcc7b17,"Lewis, Bibi and Fletcher",Subscription,5968,DE,False,2023-02-12
-acf902df-8e7b-42b3-a874-357c435811cf,Jones-Chambers,Fuel,5542,CA,False,2022-11-15
-47802003-3e29-4624-97c7-05705149d0e5,Baker-Harrison,Subscription,7372,DE,False,2022-09-11
-fb0252c2-6dd4-408b-a173-567e6daf1402,Hobbs-Wells,Entertainment,7832,AE,False,2024-12-26
-0f615492-0f02-4c9d-a236-0a4462617e78,Williams-Stephens,ATM,6011,GB,False,2022-12-01
-46c902e5-107c-4080-a793-22fcdeb526c5,Moore Ltd,Retail,5999,CA,False,2024-04-13
-bc115636-55d9-4df2-8c87-3a924ec12fa2,Clarke-Thomson,Subscription,7372,AE,False,2024-07-06
-46462b4f-ff3d-4587-b44a-7283b093e52e,"Gregory, Morris and Dyer",Subscription,7372,GB,False,2022-10-28
-d0db30e0-ad60-430f-b691-5c79e1af2f78,"Mitchell, McCarthy and Bennett",Dining,5812,US,False,2022-09-02
-662e30cb-ecec-40c5-8381-5e2e961bc3a5,Cook Inc,Travel,7011,AE,False,2022-09-08
-314fdfc8-9e6b-42b5-8cd2-7d7e4cfeb8cf,Taylor-Harrison,Entertainment,7922,DE,False,2023-06-22
-a097e37c-91fa-4afe-ad1d-291938d34b4e,Morris PLC,Dining,5812,AE,False,2025-01-03
-fd9be706-e30e-4501-8d9d-fbdb52d5c54c,Dixon-Singh,Subscription,7372,SG,False,2023-01-28
-12a49eb7-1fb7-41d3-a08e-100f205e50d9,"Mills, Morris and Smith",Entertainment,7832,US,False,2023-12-13
-88995a3a-424c-4b5e-9db1-7716a7123b55,McKenzie-Leach,Healthcare,8049,SG,False,2023-10-31
-b2757b7e-9f1e-4e96-8d14-eb3c58dce3f3,Armstrong-Wright,Dining,5814,GB,False,2022-12-04
-0287f1a5-75ee-4de1-b8a1-659b0c74e57b,"Mitchell, Reed and Greenwood",Transfer,6012,DE,False,2022-06-13
-49a3094b-a000-417b-b9b4-8536a5a7680d,Evans and Sons,Fuel,5541,AE,False,2024-03-27
-115202c1-d257-4088-a485-34172054be7a,"Barlow, North and Gill",Transfer,6012,GB,False,2024-03-08
-c6ea01a4-a846-4412-90ea-de7bb1a35804,"Hall, Day and Brown",Entertainment,7922,CA,False,2024-08-20
-ffa392c0-247b-4fe1-84c4-9727473265a7,Clarke-Howard,Fuel,5541,US,False,2024-04-15
-88d94f0f-f5a0-4390-9433-4b424ec5595c,Hewitt LLC,Entertainment,7832,GB,False,2023-10-29
-b6539e67-b088-4a34-a126-57613dfe213b,Bradley-Schofield,Subscription,5968,GB,False,2024-12-04
-8af8f242-2769-41b0-ba93-eb6dcb7cf531,Humphreys and Sons,Entertainment,7922,DE,False,2023-05-18
-8f69a7ac-6f8e-41e1-82c0-1f41603f62b1,Allen-Hardy,Retail,5651,DE,False,2025-02-25
-a6cbe922-6293-4303-a671-6323bbdbf838,Matthews-Chapman,Groceries,5412,GB,False,2024-07-09
-83914986-cfd9-403e-b0ab-383739197165,Frost-Turnbull,Dining,5814,CA,False,2023-01-19
-647940a7-4b28-4cc7-a829-23653aa5b8c3,Morris Ltd,Subscription,7372,US,False,2022-09-17
-993a0deb-d8ec-4a75-bb2e-845b7be0fee7,"Doyle, Banks and Martin",Healthcare,8011,CA,False,2024-08-30
-29d166c5-8eee-4c9f-83ba-4dca4cf536c2,"Griffiths, Khan and Begum",Entertainment,7832,DE,False,2024-10-18
-e1557002-7da3-4762-9260-351fffa0b0fa,"Yates, Hodgson and Stevens",Travel,7011,DE,False,2024-09-04
-b962ccda-5515-4034-8c99-998e7793e42c,Lowe-King,Travel,4511,US,False,2025-03-12
-55d1b9e4-d205-4e5f-a8a1-abadd424375b,Clayton Group,Subscription,5968,SG,False,2024-04-28
-350611b2-c516-485f-9a4f-9af0fd4aba5e,Edwards-Sullivan,ATM,6011,GB,False,2022-06-25
-880b8b89-58e7-4447-b2b2-285beaa5683a,Price-Davies,ATM,6011,GB,False,2023-06-14
-3bc00481-40db-4936-b8ab-2029e8c95633,"Wilson, Mills and Foster",Transfer,6012,SG,False,2022-04-25
-804f5e7e-25b2-4bed-bbf1-1a2bd6e78e23,Dean-Stone,Subscription,7372,US,False,2024-07-14
-23d05440-53fe-49dd-9611-f04a04862514,Clark Ltd,Subscription,5968,AE,False,2022-12-16
-06e0dea2-77a4-4d81-a837-5a2a10cfbe14,"Dixon, Grant and Carter",Entertainment,7832,GB,False,2022-06-18
-fda822d8-fd56-4556-aeef-b811b152ed31,Barnes LLC,Dining,5812,GB,False,2022-11-11
-0b2d37aa-f227-491f-992a-23bdf945582d,"Burton, Jones and Roberts",Travel,4511,GB,False,2025-01-31
-a34b65ab-95c6-4a17-ba2d-5bfa26c25ee1,Ashton-Spencer,Travel,4511,GB,False,2022-05-09
-da7b8b31-c088-44a2-bba1-70bda51f5086,"Kaur, Marshall and Nicholson",Fuel,5542,CA,False,2022-05-27
-99c84207-8b10-49d3-80df-703877096724,Taylor Group,Healthcare,8011,GB,False,2024-01-07
-586c61d3-c171-4a41-b52a-1a9b157767f0,Ford LLC,Subscription,5968,DE,False,2024-12-10
-3c1b2cc6-8eb6-4b09-92cd-681aa3321240,Webb Inc,Healthcare,8011,SG,False,2025-02-20
-b1cfcf00-5de3-42e8-99ca-75c23f8f51ee,"Waters, Wright and Moss",Healthcare,8049,US,False,2024-07-12
-6e16cd35-2d80-4c75-80c9-cdfc8fbdee2d,Baker Ltd,Groceries,5411,GB,False,2024-11-29
-e473975d-77cf-4bc0-b57f-c7af15444cce,Lawrence Inc,ATM,6011,GB,False,2022-09-01
-967d5351-95e8-4106-9d0d-9dfb6b04c28f,"Holden, Fletcher and Fletcher",Transfer,6012,GB,False,2022-07-29
-fa7f5a3c-28d6-4bca-8e63-874f9921a1eb,"Watkins, Morris and Ford",Transfer,6012,GB,False,2024-01-29
-eac5a5ea-9eb8-47e1-abf1-5a8b1e91cd1e,Smith and Sons,Healthcare,8049,US,False,2022-08-01
-69f62b73-a907-47ce-9fb3-9e9516e36fbb,Smith Ltd,Dining,5812,US,False,2025-01-07
-761660a6-49fa-4f6c-85f1-b259b81f19fe,Fisher-Gregory,Healthcare,8049,GB,False,2025-03-16
-20ed6a0d-ad8b-4298-9cf8-decbfe276a83,Newton Inc,ATM,6011,SG,False,2023-06-29
-c1277e9b-28cc-49c8-826d-9c73e0ca700c,"Jones, Robinson and Green",Dining,5812,AE,False,2024-09-22
-9adadcd9-0461-4256-a0eb-98dfe154791d,"Spencer, Wall and Palmer",Groceries,5412,SG,False,2022-06-16
-315a086a-0556-475e-acdf-03df89fa3cfc,Gibson-Campbell,Travel,4511,DE,False,2022-06-23
-be75d0a9-c85e-4039-94d5-05a77efc63c2,Clark-Hawkins,Retail,5651,GB,False,2024-07-25
-b6533abf-da2f-44f4-85fb-df8f4f7f5387,Jackson LLC,Retail,5691,CA,False,2024-12-29
-51f9f801-61a4-4425-aab5-0a65e5405dcf,Turner LLC,Groceries,5411,GB,False,2024-12-07
-2ed55e05-2401-440f-9ac8-d7f121e52035,"Taylor, Wade and Begum",ATM,6011,DE,False,2023-11-19
-81910d6a-1f17-4a60-bab3-f587b02822a7,"Nicholson, Green and Daniels",Transfer,6012,DE,False,2023-10-26
-9eb2a4d1-f01f-4785-bc46-54e91b926ce7,"Burns, Khan and Jones",Fuel,5541,DE,False,2024-04-22
-0653b64e-6e26-448c-8e91-9a37079d4874,"Dobson, Williams and Baker",Groceries,5411,GB,False,2023-04-28
-3a4d4859-994e-49ea-9cf1-3d92a9994da5,Harris-Rowe,Entertainment,7832,US,False,2024-01-12
-91d7554d-c62e-431a-b325-046e332959b1,Naylor Inc,Fuel,5542,GB,False,2022-05-01
-7acf926e-52f1-431c-9cee-b0711b06cb2c,"Morley, Flynn and Griffiths",Dining,5814,GB,False,2025-03-04
-f75b25db-2b6a-4296-b14b-de7c96214272,Gill LLC,Travel,7011,US,False,2022-09-22
-c37769d4-8158-48fa-9e1e-ee1d39c55eb1,"Hayes, Stone and Hawkins",Healthcare,8011,US,False,2022-06-12
-b586f082-87f4-4162-bb11-b0950aa4faed,Reeves LLC,Retail,5999,DE,False,2022-11-14
-7b97ad96-f44f-4bca-bdf2-8ae7580081c7,Ali Ltd,Fuel,5541,US,False,2023-07-08
-a0e4a62d-f004-4f14-b3f7-6854321241f4,"Skinner, Collins and French",Healthcare,8049,GB,False,2024-08-28
-22e6e619-9a1f-4625-82fa-8d637817b512,Thompson-Stanley,Dining,5814,GB,False,2024-06-27
-f1eea975-7554-4c43-805d-b55439884bdd,Cox-Lawrence,ATM,6011,GB,False,2022-03-23
-0ad45637-019c-4c1b-b69e-78b6b0cbd9d0,"Evans, Jones and Law",Fuel,5542,SG,False,2025-01-06
-fc75a6fc-6234-4db6-b6e6-c58469303b72,Jackson-Anderson,Entertainment,7922,GB,False,2024-01-21
-c4ca3c3e-1770-42ad-9aca-b1c44945dc27,"Carey, Walker and Pickering",Entertainment,7922,CA,False,2024-01-11
-01cb0a33-38ff-4cfa-924a-ea2c2fbffe24,"Pearce, Giles and Quinn",Dining,5812,US,False,2022-05-23
-3405dd6a-c551-4a20-9e26-e44fbd3ca876,Whitehouse-Scott,Transfer,6012,GB,False,2024-04-26
-12530620-20a1-4593-8f8e-011688225e85,Williams-Godfrey,Transfer,6012,US,False,2024-03-16
-148f6549-ff77-4657-93bd-000ebd3fec83,Martin-Evans,Groceries,5411,GB,False,2023-09-24
-a8a2360e-65b1-4d9c-aee1-2cb8b1a8c101,Barton and Sons,Travel,7011,SG,False,2023-07-24
-63ca2ca1-ad95-4251-87bb-736febc03b9b,"Hopkins, Bryan and Ahmed",ATM,6011,US,False,2024-06-30
-2d8136eb-9871-4f83-8f94-411da7b4b101,Gibbons-Payne,Groceries,5411,DE,False,2023-05-14
-a53bffb9-e327-4966-b7d0-747f3f035ef1,Jones Ltd,Transfer,6012,GB,False,2022-05-06
-e49f709c-b579-4bf9-956d-74f6436b7a7d,Taylor-Lambert,Fuel,5541,DE,False,2023-01-15
-fa2924d6-c95e-48c6-92b7-c87c661809ee,Burgess Group,Subscription,7372,US,False,2023-09-29
-066ad047-154e-4e87-a829-57216b823689,Taylor-Smith,Subscription,5968,GB,False,2024-07-30
-979a0f52-1f17-44a9-9173-aaf369c2f90e,"Williams, Mann and Hawkins",Entertainment,7922,US,False,2022-03-24
-e1e59a30-de08-4dfb-9a49-083d6a7a198e,"Robinson, Ali and Henderson",Retail,5691,SG,False,2022-05-24
-8215757a-9c62-4730-8797-5ef4049bfc73,Scott-Roberts,Dining,5812,DE,False,2022-07-08
-a9a361c5-7062-476b-a159-bf4f64f0bb36,Wilkinson Inc,Travel,4511,GB,False,2023-08-19
-1708cef3-ca64-447b-9cb2-ee6fda7c5e51,Lucas Ltd,Subscription,7372,CA,False,2022-07-20
-f1c0171a-97c0-4a5b-a7bd-1ac4b4ec4f88,Taylor-Knowles,ATM,6011,US,False,2022-08-21
-9166824d-7743-4d73-8770-f734248c28ce,Fisher and Sons,ATM,6011,US,False,2022-09-28
-0399557e-819b-4b57-b5f2-0b9cf62988fa,Abbott PLC,Groceries,5412,DE,False,2023-01-19
-946f08aa-2497-475b-be2b-545fb2bfb139,Taylor-Carey,Entertainment,7832,US,False,2023-04-16
-a4031b6a-dcbf-4b1a-a83c-60d23356be20,"Wright, Jordan and Winter",ATM,6011,GB,False,2022-06-30
-884d73ab-45aa-448e-a3aa-56fbd6be01c0,"Myers, Phillips and Butler",Travel,7011,CA,False,2022-07-25
-a3a8981d-7db0-40dc-a859-78f360890c2f,Ball-Warner,Healthcare,8011,GB,False,2022-07-25
-59dc6c58-66fc-4913-9673-b65c679d62ad,Ward Inc,Entertainment,7832,GB,False,2024-09-10
-0d61451c-6ba6-41ce-b897-c38b3e918ea1,Chamberlain-Morgan,Retail,5651,GB,False,2025-01-17
-a33da0ad-d5ce-4ca2-9935-b10022108c30,O'Brien Ltd,Healthcare,8011,AE,False,2023-10-23
-5c83e367-56ea-47ce-a895-66862b628610,Bennett Inc,ATM,6011,CA,False,2024-08-03
-7690e400-2dc9-4bcb-a435-8c983e29be0f,Barber-Dawson,Subscription,7372,GB,False,2025-01-08
-04abce8c-ef96-4750-b708-e6f2b819e897,Andrews-Humphreys,Fuel,5542,GB,True,2022-05-04
-e5175a62-95c7-438b-ad74-498156684286,Barry-Day,Travel,7011,GB,False,2024-12-29
-e5a0c0ae-d818-4804-b993-c4f5398b0c41,Barton Inc,Subscription,7372,GB,False,2024-11-24
-23e1ecef-561d-4ce9-972b-bd9b68c5a4cd,Johnson Ltd,Travel,7011,GB,False,2025-01-16
-1a695c74-2a66-415f-804d-f1db5cdb18df,Atkins PLC,Travel,7011,GB,False,2023-03-20
-5929eb15-815a-4c5c-a990-f65f18bcf3c7,Fitzgerald PLC,Retail,5691,US,False,2024-07-01
-f520f200-a2a8-47ef-b689-963a40e7990d,Murray LLC,Retail,5651,CA,False,2023-01-30
-d026c2e6-ac93-4534-915b-b6dbf0202e84,"Bolton, Price and Hope",Subscription,7372,GB,False,2024-02-07
-5ac151c4-b651-4942-98b5-46ed5f549b4f,"Fowler, Cunningham and Bond",Groceries,5412,AE,False,2023-11-19
-04b11f66-0a9e-406f-b1dc-bf0589accaae,"Wilson, Cooper and Davey",Dining,5812,GB,False,2023-09-17
-25bd86ec-4bdf-4bbe-8c62-60a227a6dad3,"Graham, Morgan and Davies",Healthcare,8049,AE,False,2022-11-24
-afef2f02-1e81-4851-a537-30078e5b0a1f,"Grant, Clark and Lane",Entertainment,7922,CA,False,2022-11-19
-04f59790-9709-4ae5-a69d-429b5b537948,"Houghton, Franklin and Williams",Dining,5814,US,False,2025-01-03
-730b3d4e-9efd-4f9a-b54c-5f4399a5b85d,Fuller Group,Travel,7011,SG,False,2024-01-02
-178b23f9-eec3-4e76-afb8-621f6d6b231f,Newton LLC,Healthcare,8049,GB,False,2023-11-16
-8f48881b-466d-443e-9b28-ad461c212b82,Austin-Leonard,Groceries,5411,GB,False,2023-12-29
-563258a8-41e3-4a4b-af76-bdd129c62f3b,Harrison-Brown,Entertainment,7832,DE,False,2024-06-29
-566ed63d-c4cc-4d04-b200-9434ed4f7c9b,Allen Ltd,Transfer,6012,US,False,2022-03-21
-23852fc6-ee10-4052-9e76-e1a5e8768ca7,Gibbs-Sykes,Subscription,7372,SG,False,2024-02-17
-1b8bdc61-ba16-43a6-83df-d0457ba3a225,"Jordan, Lawrence and Reynolds",Travel,4511,GB,False,2024-08-14
-70992f41-32f1-4213-97d4-848634fb4a87,Brown-Rice,Retail,5999,GB,False,2022-05-13
-4f3b3d70-b96a-4d86-9c5b-e1933a29329c,Burton-Smith,Entertainment,7922,DE,False,2023-07-29
-a0d53b59-47aa-4d9d-81ef-68d9802f5d63,Hyde-Lawrence,ATM,6011,GB,False,2022-06-19
-0e5f797c-58ab-4e7e-a2cb-76cf99721b43,Connor-Carroll,Travel,4511,GB,False,2024-12-29
-3b25e5d9-cb25-4df1-ac90-75c6952882bd,Adams-Rees,Retail,5651,AE,False,2023-12-24
-467b8be9-1a9c-4729-a370-4be180390bc0,"Howard, Evans and Thomson",Transfer,6012,GB,False,2023-10-02
-38dac58d-8ab3-4e9d-9eeb-caea3380983d,Jones Group,Healthcare,8049,DE,False,2024-01-24
-4a1118af-7da1-4f64-a627-3e8d4c2f95ff,Hart Group,Entertainment,7922,US,False,2023-02-07
-744c4704-821f-46aa-9af9-3dcd37b57f05,Nicholls-Smart,Healthcare,8011,GB,False,2024-10-17
-49ffbb16-bf05-4dd6-832a-e7dfee0c0f88,Stanley Inc,Retail,5691,DE,False,2023-10-23
-3238ee9b-9428-4eb4-99ed-db219d52aaa6,"Gallagher, Reid and Hutchinson",Groceries,5411,GB,False,2022-09-27
-6ffa3323-c4f6-4eb6-a9ca-3a50daf96510,Lewis-Perkins,Fuel,5541,GB,False,2023-01-14
-7ab98941-a4b8-4fbf-9163-f0d64638ac29,Ellis-Brookes,Transfer,6012,US,False,2024-05-17
-26d340cb-de18-42e0-8fd7-0d525bac9a9c,Smith-Wong,Subscription,5968,GB,False,2024-01-07
-367b82eb-a12c-4136-bec7-1a481f90f63f,Wilkinson-Saunders,Groceries,5411,GB,False,2023-01-23
-edb81a31-f64b-45b6-9fcf-1038a22281fb,"Murray, Cooper and Lee",Fuel,5542,GB,False,2023-11-27
-c3edecce-af5c-4339-aa90-dacd5966c3fa,Brown-White,Transfer,6012,GB,False,2023-04-28
-21213eb3-d48e-47d2-87eb-512a007a64da,Smith and Sons,Transfer,6012,GB,False,2022-11-18
-175d42c7-8c9c-4006-b374-a227b2d10a20,Houghton LLC,Entertainment,7832,DE,False,2024-03-29
-3b06faef-a658-4771-b520-ed586f8ff4d0,Evans-Begum,Dining,5814,GB,False,2024-10-04
-5c2e25d8-5896-457d-a116-6d13c259ab0e,Hart-Woodward,Entertainment,7832,GB,False,2022-08-20
-b8a11b77-9c98-425b-8bc8-10e50afc7d13,Wilson-White,ATM,6011,AE,False,2024-12-13
-da967be0-c76d-43ce-96ea-a14b4a037492,Butler Group,ATM,6011,AE,False,2022-10-08
-a9e50b0c-04e0-44b4-bb69-932be37d2655,"Richards, Green and Fraser",Dining,5814,GB,False,2023-09-03
-f75db683-5151-4f35-90d6-3a44fcc6f3c3,Foster and Sons,ATM,6011,GB,False,2022-04-18
-16c7f5c6-9a59-42be-b8ac-717530cde515,Miles PLC,Travel,7011,GB,False,2024-12-30
-8e5a48f6-c01e-4c2a-9087-e46acde452bb,Howe LLC,Entertainment,7922,US,False,2024-04-08
-446896a5-8dd5-4cb9-8760-b3d20265e78b,"Noble, Stevenson and Butler",ATM,6011,GB,False,2023-08-22
-21155935-8518-4658-888e-6c3b95235f46,Frost and Sons,Healthcare,8049,US,False,2024-09-03
-cab439f1-7a97-47df-9535-a43d725cb811,Page Inc,Travel,4511,GB,False,2024-09-24
-1f86aec6-285a-47e3-bd20-04674e671686,"Pope, Thomas and Hill",Groceries,5412,US,False,2025-01-10
-113da0c9-0d91-4855-8104-186eaf3f37de,Bailey-Hayes,Retail,5691,AE,False,2023-06-21
-5cb5691a-e06d-4f75-be85-e5d7a3d1e11d,"Grant, Whitehouse and Smith",Retail,5999,GB,False,2022-12-12
-e04ad0d5-a12c-4b9d-a95e-df15b0f8e814,Hurst-Jones,ATM,6011,GB,False,2023-09-05
-1e9d6729-ce1c-402d-87d0-8844fd776acf,"Long, Tomlinson and Brown",Retail,5651,GB,False,2024-05-05
-cdb698c1-3f65-4392-aaf4-9d78f46f920a,"Cook, Gibson and Lane",Entertainment,7832,US,True,2024-09-27
-e5fa8e8e-407f-418f-a772-cfa1df63a9ce,Edwards-Davies,Fuel,5542,GB,False,2024-04-25
-ea2acabd-218a-4c90-849e-efd095c96032,Lewis LLC,ATM,6011,DE,False,2023-04-12
-6f793819-fb9c-4abf-a129-c9fe90e2a505,"Gordon, Wood and Jackson",Transfer,6012,GB,False,2024-01-30
-a9ab1a52-526b-4acf-b0af-43c255bade20,Wilson LLC,Groceries,5412,GB,False,2024-08-06
-1da917b3-d0a6-426f-b9e5-9cfb51989973,Wood-Stewart,Travel,7011,CA,False,2022-08-17
-5f045fce-8187-49e5-8c69-37dfe0cd5c73,Barlow Group,Transfer,6012,DE,False,2024-03-02
-13d373d8-ef13-4985-bfa8-2a22a9dc6b76,Hall-Gill,Retail,5999,US,False,2024-07-09
-1d800163-53dd-4964-bbe4-8ade7b784eb6,Fry-Harris,Subscription,7372,GB,False,2024-06-01
-ea3555b3-276c-4bae-8ecd-2c0596d85e86,Williams Ltd,Healthcare,8011,US,False,2022-07-28
-6c4f466d-19c2-4fe2-a62c-3c6e97561916,Harding-Parsons,Healthcare,8049,GB,False,2024-04-01
-7aedfc53-3c7c-4d49-b7dd-5b2c547f091c,"Walker, Bell and Davies",Subscription,7372,US,False,2025-02-19
-b6238696-8806-4948-9698-c4deea32f240,Morgan-Ellis,Travel,4511,US,False,2023-03-28
-0de75fc2-01d4-4afc-984e-c0afc671ea3a,Williamson-Jones,Travel,7011,GB,False,2024-11-26
-867ccb62-46c9-4733-a151-f564125ef163,Rice-Payne,Travel,7011,DE,False,2023-12-11
-edf76497-839f-4dcd-a012-af11b4e8ac04,"Hopkins, Harrison and Potter",Travel,4511,US,False,2023-11-10
-7e46ec79-17be-4bc6-9399-b891ae2e775c,Adams-Roberts,Healthcare,8011,DE,False,2024-02-03
-99429845-5bf6-4105-b210-59f4a84a6c9f,Clarke Inc,Groceries,5411,GB,False,2024-03-29
-09c72460-b6c0-45f3-9c34-2e10b972340f,Jones-Kaur,Groceries,5411,GB,False,2024-12-30
-3eb2ede6-4b6b-4cbf-bc91-813aabb26bc5,Cooper Group,Retail,5651,CA,False,2024-02-11
-1a873f59-4935-4db5-b992-6cbfef4f8257,Goodwin and Sons,Groceries,5411,US,False,2022-09-02
-40242197-a1cf-4eff-a749-1288dcfe1a3a,"Jones, Powell and Grant",Dining,5812,GB,False,2022-06-07
-79431e10-ab90-47c2-9e14-40ca6f8b976f,Owens Ltd,Subscription,7372,GB,False,2023-10-07
-6f67bb80-9df7-47e6-bc26-0494939ef1db,Willis-Owen,Entertainment,7832,US,False,2022-11-17
-304d4dae-a2d0-4ff3-a168-cd25d5d29808,Short-Hussain,ATM,6011,GB,False,2022-09-03
-90afb891-5e53-4184-8764-d88873a8feb4,Lucas-Thomas,ATM,6011,GB,False,2025-01-12
-84555569-056e-4fb5-8cc6-70f2f584fd0c,Price LLC,Healthcare,8011,GB,False,2024-07-14
-6b12aca4-64df-4a5c-9fc9-c2dcc16aff6f,Pearce PLC,Entertainment,7922,GB,False,2023-11-29
-7651d103-631e-4c26-a712-584e0e61c77c,"Bray, Smith and Harrison",Retail,5651,AE,False,2022-11-02
-043e9a8e-fc04-4dea-b4ef-0b65a28fd1ae,Williams-Foster,Dining,5814,GB,False,2024-02-04
-ac95807d-3152-49ff-a7ac-955506c1c959,Palmer-Martin,Dining,5814,GB,False,2025-02-16
-6905bc45-69e2-40eb-acea-96fc3f11cdbb,"Edwards, Webb and Slater",Dining,5814,AE,False,2022-10-27
-a21ba451-72e5-4eaa-b7e8-129200dfd79b,"Hughes, Ward and Hammond",Groceries,5411,GB,False,2025-03-04
-276d4875-afbc-4125-8946-e3bcc14b068f,Bell and Sons,Transfer,6012,DE,False,2022-05-05
-5d6c5aa5-647a-42f0-973f-01e0cd47e5af,Marsh Ltd,Retail,5999,SG,False,2024-10-29
-d1dae347-170b-4598-a2f5-50f8cf6d48f0,Roberts-O'Brien,Dining,5814,AE,False,2023-07-02
-d54444bd-6fb1-4bdd-9ddb-14691bed6732,Akhtar-Williams,Retail,5999,SG,False,2024-08-05
-cd2eb166-b2cd-458a-99ee-92b8024c17bc,Carr LLC,Travel,4511,GB,False,2022-05-29
-47ec73d5-847f-42cd-89a6-0eb788e00ebb,Jones LLC,Subscription,7372,GB,False,2023-03-01
-9fc3820a-d670-426c-92a2-6e44a1fbdb77,Quinn-Mann,Retail,5651,GB,False,2022-12-18
-5e2040b2-5a07-498b-8cdc-b7755fcaaef9,Davies-Sinclair,Travel,7011,GB,False,2024-06-20
-04d5448a-7701-453b-930b-485190df5192,"Jones, Craig and Hill",Subscription,5968,US,False,2023-10-01
-b4107368-0af6-4e68-a4fd-730cfa289dfb,"Pickering, O'Brien and Bradley",Travel,4511,GB,False,2023-12-13
-1cc6cda3-c9d4-4bae-bdd9-c03b89285835,"Owen, O'Neill and Parkes",ATM,6011,US,False,2024-02-03
-9830d3da-f9e8-4bab-90c5-a5fa06c92ea7,Bailey-Ali,Healthcare,8011,US,False,2022-08-09
-c412882a-d0da-40f0-ab5b-7d044c3318e0,"Fletcher, Cooper and Murray",Transfer,6012,DE,False,2024-10-16
-e02ad5c3-c6c3-43dd-9bd8-1af9855634b9,Summers Inc,Groceries,5411,CA,False,2024-10-24
-d430c285-a72f-41dd-ba1f-538006089a83,Banks Group,ATM,6011,CA,False,2024-05-07
-8b147bc9-0ed3-4566-926a-0fd7a1f13676,Anderson and Sons,Groceries,5412,GB,False,2024-06-07
-da61d1cf-e162-452d-ae74-f2e454455aeb,"Brown, Williams and Hobbs",Travel,7011,US,False,2022-12-27
-ad2846cc-8b65-4d28-a78b-4c81a08af182,Taylor-Ford,ATM,6011,GB,False,2023-12-11
-f4eacfae-0281-4115-80ed-d749d260fc3c,Williams-Gill,Groceries,5411,GB,False,2023-05-01
-67975556-336b-462d-a990-0f5b0fe76e77,Skinner and Sons,Travel,7011,DE,False,2023-02-04
-4457d178-9cc3-4edf-8628-55fd4ad32a20,Hall-Robinson,Healthcare,8049,GB,False,2024-04-14
-14dfb14f-e4b6-4db6-85da-dc14c93a7dc2,"King, Harrison and Hussain",Transfer,6012,US,False,2023-04-02
-67ae8857-1792-41f5-a929-ae4f0d1255a7,Wood-Hall,Travel,4511,GB,False,2024-11-05
-60d6f4a3-08a0-42b3-85d0-fc65e8e5da6e,Clark-Reynolds,Entertainment,7832,GB,False,2024-04-23
-b6635a12-a463-4015-a5f4-3a71369395ed,Nicholls and Sons,Healthcare,8011,SG,False,2022-11-28
-9eb17f70-eb43-4bcb-9d72-5d88e1b5ea37,"Hill, Green and Price",Travel,7011,US,False,2024-04-04
-48e86ccd-4e3f-45ea-b7f7-0120e30219f7,Russell and Sons,Subscription,7372,GB,False,2023-07-20
-194b777a-77a4-4e25-ae9d-ca93772462ff,"Wallace, Faulkner and Bennett",Groceries,5411,US,False,2024-04-24
-2575df61-e2f6-44d6-8081-6c6c932e5dad,Saunders-Edwards,Healthcare,8049,US,False,2023-05-27
-55c49717-d1d1-45e2-a247-35d35ae09274,Miller-Williams,Transfer,6012,DE,False,2023-05-27
-13d7c79a-0489-4457-8346-8a15d7b8bebc,Yates-Davies,Travel,7011,CA,False,2024-10-05
-92ffc1b0-c321-4484-84aa-0bf370ab42bb,"Pickering, Burgess and Townsend",Travel,4511,US,False,2022-08-19
-3d1f16af-4892-4bf0-9936-57800ff55e4d,Payne Inc,Healthcare,8011,SG,False,2024-11-21
-2674b4bc-c0ce-4f41-962a-53d5e910ed2b,"Davies, Harris and Bell",Transfer,6012,SG,False,2022-08-06
-3a22ca20-e239-4fbb-ad36-246f34185274,Griffin-Taylor,Fuel,5542,SG,False,2022-10-29
-976ca69f-ddd6-4542-8dc8-0eacea73de1f,Davison Group,Fuel,5542,GB,False,2024-03-29
-c8d3b9bb-de55-4c59-81eb-8f66a7b92935,Brown-Pearson,Dining,5814,US,False,2022-09-19
-ee592bf9-df4f-41b3-8e0e-9a67f456930f,"Henderson, Stevenson and Wood",Groceries,5411,GB,False,2024-02-17
-6bc431f3-a75e-4f21-b859-90d81fe4fab6,"Martin, Bailey and Goodwin",Dining,5812,US,False,2024-03-31
-322da973-85df-41d0-9aeb-843b583e45f4,"Bell, Ball and Hawkins",Retail,5651,US,False,2024-01-06
-5638f017-3c85-4d76-b300-e8d7d1cfdbb0,Moore LLC,Groceries,5411,GB,False,2024-12-19
-55ae03b2-880b-41ff-b993-153fba15a71e,Pearce-Lee,Transfer,6012,US,False,2022-07-23
-4d054e77-3fc7-41c0-8664-1d47e97b74eb,Lane PLC,Groceries,5411,GB,False,2023-04-29
-6f7713fb-9f85-4539-b61a-42e5097f3757,Walker and Sons,Groceries,5412,SG,False,2023-05-04
-fdeaecb4-7f7f-4ec6-963c-fee4a0377f6d,"Morgan, Gardiner and Hamilton",ATM,6011,GB,False,2024-11-29
-62d3f7e1-dc41-4431-8d37-a9bfa2b84bdc,Dickinson-Jones,Fuel,5541,DE,False,2024-07-29
-166da745-8967-4fa5-a92f-18bd42f7859f,"Edwards, Lawrence and Graham",Healthcare,8011,US,False,2023-11-03
-af3f8878-5be5-4812-8eb4-4c3836e2697e,Brennan PLC,Groceries,5412,US,False,2024-06-01
-6ebb7f48-3b97-461f-b58b-79f48defa972,"Dawson, Briggs and Fowler",Groceries,5412,GB,False,2022-12-25
-88ec0dcb-7bf1-4926-b852-fa7568ec1dcf,Long Inc,Dining,5812,CA,False,2023-01-12
-3e1e8a34-6acb-4f0e-9f19-4c138c393453,Stone Group,Entertainment,7832,SG,False,2024-11-23
-4f5362a9-12c0-4421-b221-bcd7157648f8,Wallis-Dobson,ATM,6011,US,False,2023-03-17
-354043d1-cc29-4484-9fd6-e61683f8a177,"Thomson, Webb and Lewis",Retail,5691,US,False,2022-11-13
-405d6314-1165-4f24-af10-b3f3a6325def,Murphy-Parsons,Groceries,5412,GB,False,2022-05-14
-4147675e-1a70-431b-8e74-b4e273fb8d12,Johnson Inc,Transfer,6012,CA,False,2022-07-11
-7a2fefe0-468c-4c8b-864e-6a5e01b5e296,Lewis-Stephens,Subscription,7372,SG,False,2023-01-23
-700fa10b-a567-4244-947b-2a1baef9abfe,Jones Group,Retail,5999,AE,False,2023-11-12
-b88f645d-7f30-4689-b9ab-0d4c7a5b4101,Green PLC,Dining,5814,GB,False,2022-04-30
-e4ec0ab7-b4dc-4196-a5ab-97b045d35655,Pearson-Moss,Retail,5651,GB,False,2023-06-07
-4e4adb3b-6dd2-452a-9744-d6f7678ddf34,"Hill, Doherty and Campbell",Fuel,5541,GB,False,2023-09-01
-45c7e1a4-d7c4-4d6d-856c-342a4100e995,Williams Inc,Subscription,5968,CA,False,2023-04-25
-c0252e42-5f24-40b4-a63e-929554f67004,Douglas-Roberts,Subscription,7372,CA,False,2025-02-23
-36c5c3c0-3449-45dc-bbdb-b02c22225171,Cunningham PLC,Subscription,7372,GB,False,2023-08-17
-8aaafde0-4247-4f0d-b339-7bc4cc9b8219,Williams-Jackson,Healthcare,8011,US,False,2024-05-09
-cff10948-9b4a-457f-8d21-3c98b5f1407e,Adams and Sons,Transfer,6012,GB,False,2023-06-17
-32a800fe-226d-4440-91c0-2987f2ca8552,Taylor-Peters,ATM,6011,GB,False,2024-10-22
-54107215-2cab-4463-9f99-500730a69877,Morgan-Wilkinson,Groceries,5411,DE,False,2023-05-05
-4166bb37-5e5c-48a8-8582-0eb19b69edeb,Evans-Powell,ATM,6011,GB,False,2023-12-24
-f97e393a-c878-4731-813a-a2e03d049988,Mills-Cole,Healthcare,8011,US,False,2023-11-08
-e715ebf6-1df8-4760-a89c-c28610979c5f,Hargreaves and Sons,Entertainment,7922,AE,False,2025-03-06
-c62ae387-7fd5-4b6e-967d-a324e264bf64,"Lynch, Welch and Bond",Fuel,5542,US,False,2023-01-24
-2426e175-686d-4505-b7ae-69b7b88547da,Matthews-Sanders,Subscription,7372,GB,False,2023-08-15
-5be8550d-f6d5-435f-8ab2-8506677e7be2,"Jones, Moore and Collins",Healthcare,8049,GB,False,2023-03-17
-05373eae-f5e5-4607-86ac-dc1de672e03f,Murray-Rowe,Fuel,5542,CA,False,2023-09-02
-a219e393-ad86-4a82-bc14-71e82276107a,Burgess and Sons,Subscription,7372,GB,False,2022-03-28
-4838e29b-e75f-41b6-a929-f68914086f72,"Cook, Fraser and Mason",Travel,7011,GB,False,2022-10-02
-a90dcfdc-1395-4b2f-b523-3ef310b1e641,Sykes-Moore,Transfer,6012,CA,False,2024-02-27
-a1036320-bbec-4b9a-a894-fccc15130bd1,Saunders-Dawson,Groceries,5412,SG,False,2024-08-25
-16d9fd18-f45b-4b69-855e-2f0a51722558,"Long, Newton and Gardiner",Entertainment,7832,GB,False,2023-04-30
-c2ed54bd-9faf-4c77-9069-ccf42bd58fe7,Pickering-Morgan,Healthcare,8049,GB,False,2022-03-25
-effe0b20-62a1-482b-8f4f-132ffb8d6fc3,"Jones, Bates and Austin",Travel,4511,GB,False,2023-10-28
-7fe3b54e-4bd1-4bd8-a6e5-aa6f04febc41,"Bennett, Harvey and Atkinson",Subscription,5968,US,False,2022-03-29
-aa0017f0-1236-4db0-8eef-1c921ab6ccac,Miller-Wilson,Retail,5651,SG,False,2024-10-23
-5026e798-b47c-43f0-8e07-40acca876aff,Giles Group,Healthcare,8049,CA,False,2023-08-16
-eef46d97-9e20-4859-9c76-6201d7004046,"Giles, Clark and Shaw",Entertainment,7922,CA,False,2023-09-20
-92daaccc-68cb-461e-9f56-de75fc196d61,Newton Ltd,ATM,6011,CA,False,2024-05-31
-44f48920-f21f-4026-a246-96b98bd5da71,"Pollard, Black and Winter",Transfer,6012,SG,False,2024-01-09
-c2a27653-bfb6-440e-80fe-4cbcc4882703,Williams Inc,Transfer,6012,GB,False,2022-08-28
-0aa9ed1a-a27f-40d2-ba25-3368c1e057d9,Mason Ltd,Transfer,6012,GB,False,2024-10-15
+cff24d85-ebbe-4d33-845f-dc7c998b4e19,Green Ltd,Retail,5691,US,False,2024-06-07
+59d9b6b8-b544-4b54-9c45-4a4e68cc890e,Baker Inc,Dining,5812,GB,False,2024-06-28
+515ae9ac-24c0-4c17-926c-8ec681adf2c1,Wilkinson-Kelly,Dining,5814,GB,False,2023-12-11
+d06cf924-f4b4-4ca9-bd09-aaa81cb13a36,Wilson and Sons,Entertainment,7922,US,False,2023-04-23
+5e160eef-a555-4462-9744-77f923877ce7,"Lamb, Page and Roberts",Groceries,5411,GB,False,2022-09-10
+1235c1d9-cce7-4c6f-95fc-0614580c8f6c,"Anderson, Goodwin and Taylor",Transfer,6012,GB,False,2024-04-02
+865e3418-ad74-4e12-b9e1-0679c3d4fbf3,Clarke-Rogers,Groceries,5412,US,False,2023-09-20
+9057f829-c5fb-43fb-b0bf-b30183e0a4c7,Clements-Jordan,Retail,5691,US,False,2023-07-18
+33c2fcec-d30a-4bb7-9864-5895ec3a7cb9,Lord PLC,Healthcare,8049,GB,False,2023-10-02
+faf1f0c0-e8a1-4d9b-9915-832b06cb20b6,O'Connor-Coleman,Fuel,5541,CA,False,2022-05-19
+b8151e86-e2ea-4e77-82be-4c137f28003d,"Watson, Smith and Banks",Healthcare,8011,CA,False,2024-02-16
+124d0f53-0b61-4cf3-b24c-b7d52a7f6278,Johnson-Taylor,Dining,5812,US,False,2022-12-11
+75bcdbe3-a6c3-4464-84a2-90c24da2c95e,"Allen, Todd and Evans",Travel,4511,US,False,2024-01-30
+872091bd-5294-45cd-a63d-94125aba7c73,Evans Inc,Retail,5999,SG,False,2023-03-22
+e1e1d006-3833-4647-9ee8-0abf944d82b1,Turner Group,Subscription,5968,US,False,2023-05-01
+1d1f61cf-c25d-46b1-9fd1-1424cc30f7cd,Moore-Collins,Groceries,5412,GB,False,2023-09-06
+76f3958c-46b2-42c2-856a-7ee5ac962c28,Hunt-Charlton,Groceries,5412,DE,False,2022-12-15
+5b8b4ff3-6ad8-4295-8b29-8003b4986826,"Lewis, Bibi and Fletcher",Subscription,5968,DE,False,2023-02-12
+65919fcc-631b-4cd8-bf63-45031ca8d812,Jones-Chambers,Fuel,5542,CA,False,2022-11-15
+54595382-8e9d-445e-a35c-8e6c02866578,Baker-Harrison,Subscription,7372,DE,False,2022-09-11
+179cbe78-8370-4a81-a7c2-2c2cf07c7e5f,Hobbs-Wells,Entertainment,7832,AE,False,2024-12-26
+b8497027-00a7-41d5-9f96-a84007afa6f3,Williams-Stephens,ATM,6011,GB,False,2022-12-01
+eaa997d4-d8bd-4fc3-9cab-bd064b1092e8,Moore Ltd,Retail,5999,CA,False,2024-04-13
+1285a256-36b4-4fcc-b10a-610f0e842717,Clarke-Thomson,Subscription,7372,AE,False,2024-07-06
+a01ac476-14e5-4623-8a62-025a948108d7,"Gregory, Morris and Dyer",Subscription,7372,GB,False,2022-10-28
+8c0b58de-637c-4bb7-ae16-6a9a8df877a9,"Mitchell, McCarthy and Bennett",Dining,5812,US,False,2022-09-02
+3d1d8524-6139-468f-91b1-4f4c67610535,Cook Inc,Travel,7011,AE,False,2022-09-08
+bf05846a-8a88-414f-8ef3-eae001adc95e,Taylor-Harrison,Entertainment,7922,DE,False,2023-06-22
+13f49f86-541e-486a-b2f4-a8e3cd8f8aa5,Morris PLC,Dining,5812,AE,False,2025-01-03
+eb6ce0e4-d076-4050-8993-8ff995eaf7f3,Dixon-Singh,Subscription,7372,SG,False,2023-01-28
+ee6ab3fb-9157-464a-b6de-9e114b2442b7,"Mills, Morris and Smith",Entertainment,7832,US,False,2023-12-13
+dfdcb04b-8ad6-4773-8d1c-4f1958761950,McKenzie-Leach,Healthcare,8049,SG,False,2023-10-31
+cccba4d0-f8eb-484a-8b7b-5a0d893306d1,Armstrong-Wright,Dining,5814,GB,False,2022-12-04
+0ac977b4-bb91-4d6b-ae35-f20444e4d116,"Mitchell, Reed and Greenwood",Transfer,6012,DE,False,2022-06-13
+4dfab942-df4a-4f47-85ce-4173a6513935,Evans and Sons,Fuel,5541,AE,False,2024-03-27
+76219014-d87b-4554-9564-1212d05af031,"Barlow, North and Gill",Transfer,6012,GB,False,2024-03-08
+bc33bef8-f16c-4c04-abe3-f47ab4f59a95,"Hall, Day and Brown",Entertainment,7922,CA,False,2024-08-20
+fdd09dae-5a47-44fd-aa70-a5c5742fc3f6,Clarke-Howard,Fuel,5541,US,False,2024-04-15
+0637e264-fed0-4f17-a6d9-7568ae3c180e,Hewitt LLC,Entertainment,7832,GB,False,2023-10-29
+81cb5777-d380-4239-aba8-c3771454d101,Bradley-Schofield,Subscription,5968,GB,False,2024-12-04
+17b1cd9d-ae7c-47a2-a52e-04b725b7d49f,Humphreys and Sons,Entertainment,7922,DE,False,2023-05-18
+f1b5089d-b70d-47c6-92b7-46c48ff4a03f,Allen-Hardy,Retail,5651,DE,False,2025-02-25
+04598eed-c5c7-4de9-ac35-ea47dc3167fa,Matthews-Chapman,Groceries,5412,GB,False,2024-07-09
+eb856870-f0c0-4cb7-830f-e382e73a2cde,Frost-Turnbull,Dining,5814,CA,False,2023-01-19
+a8eea4fb-cbb7-4420-acbd-1f6e6101f7b9,Morris Ltd,Subscription,7372,US,False,2022-09-17
+480b1a17-6f8d-4edc-9b6c-c2d118810286,"Doyle, Banks and Martin",Healthcare,8011,CA,False,2024-08-30
+bd5363c1-fc06-4a87-ac02-a76c23077fdc,"Griffiths, Khan and Begum",Entertainment,7832,DE,False,2024-10-18
+558e2f4c-c23a-4751-8912-cfe6b7cc3dfb,"Yates, Hodgson and Stevens",Travel,7011,DE,False,2024-09-04
+61cde98d-7abe-4074-95b8-c626ab619ab5,Lowe-King,Travel,4511,US,False,2025-03-12
+36dd9138-38ea-4c38-b9ce-f75ec8c6ecb0,Clayton Group,Subscription,5968,SG,False,2024-04-28
+6fb6ccf4-d834-464e-a014-45301e2d2117,Edwards-Sullivan,ATM,6011,GB,False,2022-06-25
+2f7b430b-ae5f-48ec-bd93-9861c76a5a6d,Price-Davies,ATM,6011,GB,False,2023-06-14
+1b370468-4800-4955-baac-03809144efed,"Wilson, Mills and Foster",Transfer,6012,SG,False,2022-04-25
+30ffd6d0-25c3-4290-b8d0-7a0aafe25c05,Dean-Stone,Subscription,7372,US,False,2024-07-14
+9346dcc5-e9cd-49d4-9713-93225bf583bd,Clark Ltd,Subscription,5968,AE,False,2022-12-16
+3c1705b7-a144-4a39-8bb6-d2a0d45a3094,"Dixon, Grant and Carter",Entertainment,7832,GB,False,2022-06-18
+56d2342e-4622-448d-ba0b-b080d6b0fba2,Barnes LLC,Dining,5812,GB,False,2022-11-11
+bf67919e-bba2-413e-aec4-0de19903aa81,"Burton, Jones and Roberts",Travel,4511,GB,False,2025-01-31
+6fb13424-d913-490f-b864-522a0150e7f8,Ashton-Spencer,Travel,4511,GB,False,2022-05-09
+141aa17a-090a-4d4a-ac88-5cb8c5aa7006,"Kaur, Marshall and Nicholson",Fuel,5542,CA,False,2022-05-27
+46df0f55-94ee-4b85-812b-429745c6a720,Taylor Group,Healthcare,8011,GB,False,2024-01-07
+756a6751-d10d-45ac-a0d3-6208b5efe4bc,Ford LLC,Subscription,5968,DE,False,2024-12-10
+883e5492-a67a-4dfb-a8c3-08f6c48dadd7,Webb Inc,Healthcare,8011,SG,False,2025-02-20
+e86a4a34-3c37-46e6-acbe-3418c0749067,"Waters, Wright and Moss",Healthcare,8049,US,False,2024-07-12
+1abbbf5c-5480-41d0-9c1c-9b80c8afb0f4,Baker Ltd,Groceries,5411,GB,False,2024-11-29
+aa796a11-c94f-4a9f-aec8-855c4987ad81,Lawrence Inc,ATM,6011,GB,False,2022-09-01
+e47877dd-d9fd-43ab-8cba-d95f34245cbc,"Holden, Fletcher and Fletcher",Transfer,6012,GB,False,2022-07-29
+3313a26b-5f5c-47e2-a479-b62e0d06caea,"Watkins, Morris and Ford",Transfer,6012,GB,False,2024-01-29
+59f98152-71e7-4063-ad09-da9c221d5566,Smith and Sons,Healthcare,8049,US,False,2022-08-01
+9b53ac3e-8688-4267-b244-a18e09bd7228,Smith Ltd,Dining,5812,US,False,2025-01-07
+86d81382-56b9-4d0d-9cf7-e5e8ff636221,Fisher-Gregory,Healthcare,8049,GB,False,2025-03-16
+f57be056-2af2-4b62-baf8-261b79eea3e8,Newton Inc,ATM,6011,SG,False,2023-06-29
+15c1d472-78a1-4a04-8fd1-1aa23c53320e,"Jones, Robinson and Green",Dining,5812,AE,False,2024-09-22
+d1e96857-47a7-4484-948c-001cfc45b0fd,"Spencer, Wall and Palmer",Groceries,5412,SG,False,2022-06-16
+41495c9a-cc23-479f-817d-45c2a3919e66,Gibson-Campbell,Travel,4511,DE,False,2022-06-23
+a845d4a0-bdf7-4630-92d6-91f7bc28e058,Clark-Hawkins,Retail,5651,GB,False,2024-07-25
+1bff27f2-18a4-4ee7-a47c-384300a1630f,Jackson LLC,Retail,5691,CA,False,2024-12-29
+4233f7a7-a5b4-4ab8-b874-d596da778e83,Turner LLC,Groceries,5411,GB,False,2024-12-07
+1ca45278-d029-463a-9856-9740b6b5edff,"Taylor, Wade and Begum",ATM,6011,DE,False,2023-11-19
+1821bf70-b7af-45cf-ac0c-1ed118588acd,"Nicholson, Green and Daniels",Transfer,6012,DE,False,2023-10-26
+26e8efb4-3005-4ff7-bce2-1ea226222256,"Burns, Khan and Jones",Fuel,5541,DE,False,2024-04-22
+bbe1113b-5ed7-47c2-9e03-988aca2bbc6d,"Dobson, Williams and Baker",Groceries,5411,GB,False,2023-04-28
+0308ebbd-dacf-4dbf-b781-57e49cf3cfd8,Harris-Rowe,Entertainment,7832,US,False,2024-01-12
+18189a11-27b1-4e8c-b9cc-7de4aabbd971,Naylor Inc,Fuel,5542,GB,False,2022-05-01
+5873ab26-3330-48a1-93ee-ad431380e5d4,"Morley, Flynn and Griffiths",Dining,5814,GB,False,2025-03-04
+41e75316-6b40-4048-bd5f-0bb897b343fc,Gill LLC,Travel,7011,US,False,2022-09-22
+3a8bd37b-1480-4050-8c3c-5aebecb48b94,"Hayes, Stone and Hawkins",Healthcare,8011,US,False,2022-06-12
+84b97d8f-6fd9-4ad2-8947-f1178bee2964,Reeves LLC,Retail,5999,DE,False,2022-11-14
+44352abb-a264-4f2b-9129-564e23302076,Ali Ltd,Fuel,5541,US,False,2023-07-08
+a14b2ed3-2474-43fa-abf5-aa091e066378,"Skinner, Collins and French",Healthcare,8049,GB,False,2024-08-28
+635f1f22-9b85-4f4d-bd38-c7bf905e2007,Thompson-Stanley,Dining,5814,GB,False,2024-06-27
+de0605c1-2df0-4544-a27c-3b5ac927dd9a,Cox-Lawrence,ATM,6011,GB,False,2022-03-23
+5616fc8b-1309-4998-a53d-3cfbd8ec7506,"Evans, Jones and Law",Fuel,5542,SG,False,2025-01-06
+1a547b97-9ce2-45ca-a668-b51a02490d89,Jackson-Anderson,Entertainment,7922,GB,False,2024-01-21
+4e3c1ca2-e492-4aa0-ad5a-97d9a28c385e,"Carey, Walker and Pickering",Entertainment,7922,CA,False,2024-01-11
+5bfeb1a6-6708-4e91-9845-aef78b5847c4,"Pearce, Giles and Quinn",Dining,5812,US,False,2022-05-23
+31ca3417-7c44-44d9-8fc6-f274cda79d6a,Whitehouse-Scott,Transfer,6012,GB,False,2024-04-26
+0aa50ecb-4f3e-48c9-9fee-cfaae6262328,Williams-Godfrey,Transfer,6012,US,False,2024-03-16
+757366ea-1f97-4a80-89fa-1bb187169bd3,Martin-Evans,Groceries,5411,GB,False,2023-09-24
+89445285-59df-49c6-b30e-86766ac1ada1,Barton and Sons,Travel,7011,SG,False,2023-07-24
+955e821b-b911-4090-8a37-efe5f67df9d8,"Hopkins, Bryan and Ahmed",ATM,6011,US,False,2024-06-30
+3efdc3ad-289a-44cf-a225-33071f55eccc,Gibbons-Payne,Groceries,5411,DE,False,2023-05-14
+4d36706e-58f7-4906-a079-6c501035b17b,Jones Ltd,Transfer,6012,GB,False,2022-05-06
+d2053c38-93bf-4abe-ba6f-2635c5e16d0d,Taylor-Lambert,Fuel,5541,DE,False,2023-01-15
+3f8c3f84-8122-4b81-adb0-8b6aab5d4db4,Burgess Group,Subscription,7372,US,False,2023-09-29
+cab9eeb8-15ca-44e1-b667-7467ea5ef119,Taylor-Smith,Subscription,5968,GB,False,2024-07-30
+c6b7f7d4-17e8-4316-9a64-f61da5c2fe60,"Williams, Mann and Hawkins",Entertainment,7922,US,False,2022-03-24
+1dc6e3ca-0284-4309-baa8-27293879cf33,"Robinson, Ali and Henderson",Retail,5691,SG,False,2022-05-24
+361cb082-58b2-4497-a0ed-87b25cf549a4,Scott-Roberts,Dining,5812,DE,False,2022-07-08
+074e61fc-c26d-4228-beda-93b02f64f08c,Wilkinson Inc,Travel,4511,GB,False,2023-08-19
+fa5e8e92-4ff5-4ae1-acc7-36e9be4a196f,Lucas Ltd,Subscription,7372,CA,False,2022-07-20
+29e5f3f0-7bdb-4085-8f96-559286d568a3,Taylor-Knowles,ATM,6011,US,False,2022-08-21
+80a029f9-6149-40a7-aaa7-7efaf5fcc124,Fisher and Sons,ATM,6011,US,False,2022-09-28
+2afeeb20-9257-4125-8923-02108c2e53bd,Abbott PLC,Groceries,5412,DE,False,2023-01-19
+99d7231a-9cb5-439c-b51d-fc1d744cba46,Taylor-Carey,Entertainment,7832,US,False,2023-04-16
+d867cca2-905d-4c70-ac54-2615569fb688,"Wright, Jordan and Winter",ATM,6011,GB,False,2022-06-30
+5a895933-07a6-44f0-b377-c0949cfe0a91,"Myers, Phillips and Butler",Travel,7011,CA,False,2022-07-25
+6e7fc679-978d-439a-bca6-c1fa1be52d94,Ball-Warner,Healthcare,8011,GB,False,2022-07-25
+8c3d5ae6-0cd9-4b8b-b2f2-01db76fbd431,Ward Inc,Entertainment,7832,GB,False,2024-09-10
+e6f81b2c-8b71-4ef6-9953-b90eec42e334,Chamberlain-Morgan,Retail,5651,GB,False,2025-01-17
+75234f7a-2302-432c-a330-f408d1d07fb8,O'Brien Ltd,Healthcare,8011,AE,False,2023-10-23
+1ab1e3e8-384e-4dfd-ba7b-649950d9c624,Bennett Inc,ATM,6011,CA,False,2024-08-03
+cb9c431d-a832-449c-aaba-c5651a24fd8c,Barber-Dawson,Subscription,7372,GB,False,2025-01-08
+986c2eab-807b-4361-944b-a339bef13435,Andrews-Humphreys,Fuel,5542,GB,True,2022-05-04
+80ce7996-7c81-4644-b3b6-a164a1da4bc8,Barry-Day,Travel,7011,GB,False,2024-12-29
+b13cdc92-c35f-4072-a49c-c512abd2dbd0,Barton Inc,Subscription,7372,GB,False,2024-11-24
+52231d88-5dc0-41cf-afcb-3d692c42a6fa,Johnson Ltd,Travel,7011,GB,False,2025-01-16
+a720e55c-f8b8-487b-95c1-e7367bb9f7c9,Atkins PLC,Travel,7011,GB,False,2023-03-20
+f9115018-75a9-4908-ab35-1c1fa3381575,Fitzgerald PLC,Retail,5691,US,False,2024-07-01
+6cca8d83-e749-4df3-b9b0-d2771f961a19,Murray LLC,Retail,5651,CA,False,2023-01-30
+e2bd3026-4de6-4543-be41-ce75e4e4be06,"Bolton, Price and Hope",Subscription,7372,GB,False,2024-02-07
+0e4760ea-7dbb-4ca9-a182-50dbd03ca66b,"Fowler, Cunningham and Bond",Groceries,5412,AE,False,2023-11-19
+5b6a188c-19f2-40b8-afdf-6da9c3682178,"Wilson, Cooper and Davey",Dining,5812,GB,False,2023-09-17
+9d76d5cf-e140-4016-ba2e-d205752bb09b,"Graham, Morgan and Davies",Healthcare,8049,AE,False,2022-11-24
+19665d0a-dc6d-49c6-93d5-1ee943fb7623,"Grant, Clark and Lane",Entertainment,7922,CA,False,2022-11-19
+978d9890-0923-4b5e-9a4b-bf7e6dbd5b12,"Houghton, Franklin and Williams",Dining,5814,US,False,2025-01-03
+f581e77e-47c8-4274-b248-7b7102b77d7c,Fuller Group,Travel,7011,SG,False,2024-01-02
+5ca9131e-ada6-472c-9120-78b6f78fb357,Newton LLC,Healthcare,8049,GB,False,2023-11-16
+c9bfff89-4318-4f1d-b5a1-af59fd3edf6d,Austin-Leonard,Groceries,5411,GB,False,2023-12-29
+3641ac76-e75f-4a1a-8f2d-16481a6fcd08,Harrison-Brown,Entertainment,7832,DE,False,2024-06-29
+11f725ac-cd51-439c-8773-f138512fc9cd,Allen Ltd,Transfer,6012,US,False,2022-03-21
+3e6bf1f5-cb49-4ab8-bfee-171ffe1a117e,Gibbs-Sykes,Subscription,7372,SG,False,2024-02-17
+d97ea628-bdc8-469a-8bd0-127ea89a6b85,"Jordan, Lawrence and Reynolds",Travel,4511,GB,False,2024-08-14
+3d4406c5-3e4c-4263-a360-f550aab1f4e2,Brown-Rice,Retail,5999,GB,False,2022-05-13
+4b35bb2c-1517-4faa-9f87-62cc6957ae29,Burton-Smith,Entertainment,7922,DE,False,2023-07-29
+f8fe449b-0b5c-432e-9e61-03b88107db00,Hyde-Lawrence,ATM,6011,GB,False,2022-06-19
+616d4894-e304-4529-955e-482ac35d627f,Connor-Carroll,Travel,4511,GB,False,2024-12-29
+4f130c16-dba7-46d1-8d86-9353a275445a,Adams-Rees,Retail,5651,AE,False,2023-12-24
+99cb7501-6286-4b96-b2cb-1e5d529b22e8,"Howard, Evans and Thomson",Transfer,6012,GB,False,2023-10-02
+04717e49-302d-46b9-ba4f-59745cecbd04,Jones Group,Healthcare,8049,DE,False,2024-01-24
+b569f991-781a-49e9-8d29-c43e90575acf,Hart Group,Entertainment,7922,US,False,2023-02-07
+bcb834e2-e841-48b2-b559-58895663b1d3,Nicholls-Smart,Healthcare,8011,GB,False,2024-10-17
+4bf4fd7d-3210-4ac2-81c9-22240615e289,Stanley Inc,Retail,5691,DE,False,2023-10-23
+2b0e9b0e-6284-46f0-9cfa-4ff220b18ca7,"Gallagher, Reid and Hutchinson",Groceries,5411,GB,False,2022-09-27
+6919fa24-90c1-4a90-8172-525b4d76f471,Lewis-Perkins,Fuel,5541,GB,False,2023-01-14
+a736d5fb-98b0-4e03-8b6a-db7f54113746,Ellis-Brookes,Transfer,6012,US,False,2024-05-17
+6a760ee1-69e2-430f-822c-d21d30708178,Smith-Wong,Subscription,5968,GB,False,2024-01-07
+47d33c0b-3644-497d-9622-d3647288ec8c,Wilkinson-Saunders,Groceries,5411,GB,False,2023-01-23
+66682c0d-0eae-4d7f-bc29-a7e4a581d649,"Murray, Cooper and Lee",Fuel,5542,GB,False,2023-11-27
+e4f683d6-9e42-4ceb-a74d-4527d6f5e908,Brown-White,Transfer,6012,GB,False,2023-04-28
+2c2ac510-55c7-416f-a9a0-6db59a0feb51,Smith and Sons,Transfer,6012,GB,False,2022-11-18
+986684e1-c809-4e6a-9464-5d71dacfb5c4,Houghton LLC,Entertainment,7832,DE,False,2024-03-29
+c9dbf0ea-92c2-43ee-b8fb-7c27c93abf65,Evans-Begum,Dining,5814,GB,False,2024-10-04
+1d7f4cd8-f452-499d-85f9-91ab7bb823a2,Hart-Woodward,Entertainment,7832,GB,False,2022-08-20
+138af8b3-fd5c-44e5-9fd3-103016030637,Wilson-White,ATM,6011,AE,False,2024-12-13
+97ad6d4b-7ca0-4492-bee6-e06b97694df4,Butler Group,ATM,6011,AE,False,2022-10-08
+b16f3d03-ae15-4db6-ab3d-a4b0a136c89b,"Richards, Green and Fraser",Dining,5814,GB,False,2023-09-03
+f1918af8-5b8a-45ed-b06f-627d5f69b977,Foster and Sons,ATM,6011,GB,False,2022-04-18
+3a59c1bb-a332-4326-abb1-f0ba8c6c783c,Miles PLC,Travel,7011,GB,False,2024-12-30
+803fd1e4-1e9c-4b30-9bda-23e08928928b,Howe LLC,Entertainment,7922,US,False,2024-04-08
+12de9184-5426-42be-8685-6e903f590ee0,"Noble, Stevenson and Butler",ATM,6011,GB,False,2023-08-22
+a32f4c54-403c-4f4e-ab69-6be9caca5d50,Frost and Sons,Healthcare,8049,US,False,2024-09-03
+b34dacdc-8b50-4509-8bb6-e0581f10d40c,Page Inc,Travel,4511,GB,False,2024-09-24
+c0e19779-6d77-4ecb-8dc1-18371fa66c82,"Pope, Thomas and Hill",Groceries,5412,US,False,2025-01-10
+c9d64b19-a5f1-4878-9055-2aa6afddfce3,Bailey-Hayes,Retail,5691,AE,False,2023-06-21
+f1cdcef9-5c8a-476b-b25a-bcc0d02987fa,"Grant, Whitehouse and Smith",Retail,5999,GB,False,2022-12-12
+6e3e3062-ac93-442b-abc7-747bf8cc4572,Hurst-Jones,ATM,6011,GB,False,2023-09-05
+4e1869ea-bc4c-4a24-b9f4-ace9332f91cd,"Long, Tomlinson and Brown",Retail,5651,GB,False,2024-05-05
+c034ba38-b164-46be-a44a-93bae956337e,"Cook, Gibson and Lane",Entertainment,7832,US,True,2024-09-27
+2aaf0c61-28d8-4d84-b405-0baea5e8fbff,Edwards-Davies,Fuel,5542,GB,False,2024-04-25
+be89901b-ef7a-4f7f-b425-bf039552a01e,Lewis LLC,ATM,6011,DE,False,2023-04-12
+6ab38ac6-9ddc-4df6-a7dd-9d233a9fe902,"Gordon, Wood and Jackson",Transfer,6012,GB,False,2024-01-30
+d94eae00-880e-4d17-b172-fb415cf60983,Wilson LLC,Groceries,5412,GB,False,2024-08-06
+cad53643-06a7-4f8c-849b-aee0dad8aae2,Wood-Stewart,Travel,7011,CA,False,2022-08-17
+d5299214-7859-4f2b-97ea-6bdaa6de6d73,Barlow Group,Transfer,6012,DE,False,2024-03-02
+f6905ca9-dd0c-4396-9143-dd7bad8b4459,Hall-Gill,Retail,5999,US,False,2024-07-09
+a4a17e29-636a-4774-8a01-71b23f29a008,Fry-Harris,Subscription,7372,GB,False,2024-06-01
+61634fef-2da9-4bac-af3a-e2edbc32f560,Williams Ltd,Healthcare,8011,US,False,2022-07-28
+c7b3b211-546d-4704-8225-fc9ad9b60625,Harding-Parsons,Healthcare,8049,GB,False,2024-04-01
+5a46ba4a-7084-4371-a5c7-24ed0cc7c793,"Walker, Bell and Davies",Subscription,7372,US,False,2025-02-19
+f0257adc-e5d1-4865-badf-0f5e63fb277f,Morgan-Ellis,Travel,4511,US,False,2023-03-28
+d941bbd2-23a2-42f2-871b-716a5267a97f,Williamson-Jones,Travel,7011,GB,False,2024-11-26
+49e207c8-a070-4a8e-b459-1e2fa8e984e5,Rice-Payne,Travel,7011,DE,False,2023-12-11
+247fee18-071b-491f-830f-e04a497e3aa0,"Hopkins, Harrison and Potter",Travel,4511,US,False,2023-11-10
+ad932a46-3aae-4693-8a35-fb40c73b7f42,Adams-Roberts,Healthcare,8011,DE,False,2024-02-03
+2ed22418-d600-40a0-835b-1ba5a83af1d1,Clarke Inc,Groceries,5411,GB,False,2024-03-29
+9b5d1bcf-700c-41db-96cd-f54fd4d61ea0,Jones-Kaur,Groceries,5411,GB,False,2024-12-30
+82dcef5d-4ba9-45dd-9ae1-24a03228c00c,Cooper Group,Retail,5651,CA,False,2024-02-11
+06024f81-2630-4b61-898c-e55b1999fb1b,Goodwin and Sons,Groceries,5411,US,False,2022-09-02
+6747c2a1-9bc5-49b8-8f3d-b59120f0c6d2,"Jones, Powell and Grant",Dining,5812,GB,False,2022-06-07
+1193a069-676b-446e-8336-5164ee254efd,Owens Ltd,Subscription,7372,GB,False,2023-10-07
+ae172fb5-1827-4f3b-912c-eb414721aaf6,Willis-Owen,Entertainment,7832,US,False,2022-11-17
+c669c190-81cb-437e-827b-54a216bdede6,Short-Hussain,ATM,6011,GB,False,2022-09-03
+55b5518f-ace3-4b8d-b795-2800bc73e813,Lucas-Thomas,ATM,6011,GB,False,2025-01-12
+473679a9-5f23-47f5-b397-9237b7bee41e,Price LLC,Healthcare,8011,GB,False,2024-07-14
+4dca3ceb-892e-4b82-936f-8aba80612226,Pearce PLC,Entertainment,7922,GB,False,2023-11-29
+1a2c50e2-6221-40ed-a3cd-b247dbcaae54,"Bray, Smith and Harrison",Retail,5651,AE,False,2022-11-02
+85201e59-72c9-4c2c-8661-b2d724d32489,Williams-Foster,Dining,5814,GB,False,2024-02-04
+975b7587-d38a-4dbd-a47b-530f27868d65,Palmer-Martin,Dining,5814,GB,False,2025-02-16
+039fe3de-6db0-4c29-9f99-d538f59a120e,"Edwards, Webb and Slater",Dining,5814,AE,False,2022-10-27
+272bc77f-d5ff-4e29-9f24-0fa32306255a,"Hughes, Ward and Hammond",Groceries,5411,GB,False,2025-03-04
+12ba1a24-1d92-419c-9f7b-bf3b73c584f9,Bell and Sons,Transfer,6012,DE,False,2022-05-05
+95418e90-0691-4ba7-b6bc-e8150fb11e49,Marsh Ltd,Retail,5999,SG,False,2024-10-29
+e2264623-a49c-43cd-a796-b4f0f30225be,Roberts-O'Brien,Dining,5814,AE,False,2023-07-02
+b44dc825-bf48-4bc4-949d-909adfedc156,Akhtar-Williams,Retail,5999,SG,False,2024-08-05
+78dfcc84-de9d-42d5-8968-e6db9a96b3de,Carr LLC,Travel,4511,GB,False,2022-05-29
+26845b69-a8e8-45c7-8aa9-448c8adc35a4,Jones LLC,Subscription,7372,GB,False,2023-03-01
+3602f4a6-f465-4fa6-b3a2-7a7a62c0c68a,Quinn-Mann,Retail,5651,GB,False,2022-12-18
+8162d255-bf6c-44fb-b526-ff5e0c8bb453,Davies-Sinclair,Travel,7011,GB,False,2024-06-20
+c686c1da-65bd-40fe-b766-697fe91eb75b,"Jones, Craig and Hill",Subscription,5968,US,False,2023-10-01
+17fa7b5c-052e-4764-8e45-58099d573237,"Pickering, O'Brien and Bradley",Travel,4511,GB,False,2023-12-13
+934941a9-364b-41c3-846e-a578da9e0dd5,"Owen, O'Neill and Parkes",ATM,6011,US,False,2024-02-03
+6b917c97-6669-4b7b-8219-f881580e464b,Bailey-Ali,Healthcare,8011,US,False,2022-08-09
+9a2c28db-93e2-4af3-85f6-4f5323fbddef,"Fletcher, Cooper and Murray",Transfer,6012,DE,False,2024-10-16
+c3c34e00-9895-430d-9cc4-495707c5e8e2,Summers Inc,Groceries,5411,CA,False,2024-10-24
+fe4a035c-7796-4b07-9bc4-fa6cec5e110b,Banks Group,ATM,6011,CA,False,2024-05-07
+cdc2a593-8ce5-4217-9f63-447336ddc1a0,Anderson and Sons,Groceries,5412,GB,False,2024-06-07
+977b10cb-4772-4423-b8ad-de77199324ee,"Brown, Williams and Hobbs",Travel,7011,US,False,2022-12-27
+91a4d7db-7a72-468b-9ef3-f844ab44828c,Taylor-Ford,ATM,6011,GB,False,2023-12-11
+8ca005e5-1646-4b70-b70d-468c08b2a84f,Williams-Gill,Groceries,5411,GB,False,2023-05-01
+5bd687fe-5d77-4355-8cf5-c9e4653e3d18,Skinner and Sons,Travel,7011,DE,False,2023-02-04
+b1ada069-7073-43b3-8cc2-365313827441,Hall-Robinson,Healthcare,8049,GB,False,2024-04-14
+dbaab95f-3e5e-40d0-9142-cba4c394f4d3,"King, Harrison and Hussain",Transfer,6012,US,False,2023-04-02
+811e25bb-3371-4631-ab0e-335e9f8238c7,Wood-Hall,Travel,4511,GB,False,2024-11-05
+93d95979-9600-4fb2-a265-9d1cab86c9c6,Clark-Reynolds,Entertainment,7832,GB,False,2024-04-23
+d3ee1399-4391-467b-a72d-bbb4bfef8e6e,Nicholls and Sons,Healthcare,8011,SG,False,2022-11-28
+b128cf3d-c4a2-4ae5-9dd5-0ab921b705f7,"Hill, Green and Price",Travel,7011,US,False,2024-04-04
+48a5ea69-264a-4afd-8aa7-4d709116651a,Russell and Sons,Subscription,7372,GB,False,2023-07-20
+ec565cf8-c821-498f-b21f-ea1dac3a1bf8,"Wallace, Faulkner and Bennett",Groceries,5411,US,False,2024-04-24
+3e476914-dbb7-4ac8-af61-b9a74a1004a1,Saunders-Edwards,Healthcare,8049,US,False,2023-05-27
+e58e952b-fea4-4e3e-aac8-996769a3e856,Miller-Williams,Transfer,6012,DE,False,2023-05-27
+f56e5ad8-31cb-492d-a5dd-286d693d7fb0,Yates-Davies,Travel,7011,CA,False,2024-10-05
+d4f72035-d23f-42a7-a3f9-41fbed1769b7,"Pickering, Burgess and Townsend",Travel,4511,US,False,2022-08-19
+b820ca84-aea6-47aa-b0c0-44e715e47ae3,Payne Inc,Healthcare,8011,SG,False,2024-11-21
+a04437eb-b021-4daa-ba56-1f979280a644,"Davies, Harris and Bell",Transfer,6012,SG,False,2022-08-06
+2131f6d7-d75c-4552-8f2c-4576ee1e1006,Griffin-Taylor,Fuel,5542,SG,False,2022-10-29
+9b299f04-206c-4e0b-9c23-a6f5e70530c8,Davison Group,Fuel,5542,GB,False,2024-03-29
+0f14604b-41a1-4e3a-9d2f-8fa0ad2dec15,Brown-Pearson,Dining,5814,US,False,2022-09-19
+0b8ef499-a76e-4ef4-aac0-5b6a7baacc97,"Henderson, Stevenson and Wood",Groceries,5411,GB,False,2024-02-17
+e562415e-8eac-4e85-a334-c9c014aeff48,"Martin, Bailey and Goodwin",Dining,5812,US,False,2024-03-31
+9deb092e-f7d7-4219-b23a-e959a5073984,"Bell, Ball and Hawkins",Retail,5651,US,False,2024-01-06
+6771fbc9-38e9-44dd-b046-79bfbe184c87,Moore LLC,Groceries,5411,GB,False,2024-12-19
+6e33e844-d38a-4fb0-bf22-4765dc580f44,Pearce-Lee,Transfer,6012,US,False,2022-07-23
+491b89eb-627e-469c-8ec7-953b9abdd2ef,Lane PLC,Groceries,5411,GB,False,2023-04-29
+94a6f439-6ec1-460a-b6ac-570af8712a69,Walker and Sons,Groceries,5412,SG,False,2023-05-04
+3ae02e24-d9c1-4cf3-9818-d1022aca5771,"Morgan, Gardiner and Hamilton",ATM,6011,GB,False,2024-11-29
+89c01f2a-7c14-4f85-8eb2-e74b23c1a659,Dickinson-Jones,Fuel,5541,DE,False,2024-07-29
+dafec211-24b5-4593-8076-93aed9a85ccd,"Edwards, Lawrence and Graham",Healthcare,8011,US,False,2023-11-03
+7a98d43d-4f92-444c-a17d-4d347e3c2c68,Brennan PLC,Groceries,5412,US,False,2024-06-01
+10cf8adb-d204-420c-9da2-93407c3d9414,"Dawson, Briggs and Fowler",Groceries,5412,GB,False,2022-12-25
+f1682b56-c668-487a-a9b2-c213ff3b6e47,Long Inc,Dining,5812,CA,False,2023-01-12
+7ee2e7ec-2f37-4dde-919a-61c77142e55c,Stone Group,Entertainment,7832,SG,False,2024-11-23
+0efac903-b0f1-4bdb-aa58-8e6240d37065,Wallis-Dobson,ATM,6011,US,False,2023-03-17
+802418b9-2747-41cf-a78e-8955a851f7f5,"Thomson, Webb and Lewis",Retail,5691,US,False,2022-11-13
+224deceb-5973-456a-81c9-b5746a258d17,Murphy-Parsons,Groceries,5412,GB,False,2022-05-14
+db0d02de-3c6f-4cbf-afd0-04b4e7a08e09,Johnson Inc,Transfer,6012,CA,False,2022-07-11
+bc25fe49-fcd0-4be6-945b-c50185d89a37,Lewis-Stephens,Subscription,7372,SG,False,2023-01-23
+f6602666-175e-4a4e-af76-afdc35cab5fd,Jones Group,Retail,5999,AE,False,2023-11-12
+12052271-51eb-47e2-af83-bfea90433a65,Green PLC,Dining,5814,GB,False,2022-04-30
+9bae2cf1-ab4f-4ea4-8965-e6f6c7200fac,Pearson-Moss,Retail,5651,GB,False,2023-06-07
+138cac8a-b14e-4b2e-b2e1-d2355a835221,"Hill, Doherty and Campbell",Fuel,5541,GB,False,2023-09-01
+5f32dda9-4bba-42e3-9b6e-9cda250d19ce,Williams Inc,Subscription,5968,CA,False,2023-04-25
+3aa87269-1972-4753-a36e-6d8cb9c9a4ef,Douglas-Roberts,Subscription,7372,CA,False,2025-02-23
+1b292a1a-e40d-4b9b-8430-d9dddd697a0c,Cunningham PLC,Subscription,7372,GB,False,2023-08-17
+1d51a9ef-0d5a-45dd-8a79-a748b531ec30,Williams-Jackson,Healthcare,8011,US,False,2024-05-09
+579a8836-0a69-455b-af92-644099be7ae5,Adams and Sons,Transfer,6012,GB,False,2023-06-17
+99a6cf7d-8a2d-40c4-a122-fc6ccfec3d6c,Taylor-Peters,ATM,6011,GB,False,2024-10-22
+800b3d8a-b48f-48ec-a538-68877ec2f73b,Morgan-Wilkinson,Groceries,5411,DE,False,2023-05-05
+aa0b9c4c-af0e-4ffd-863e-3b9a9e2b4ccf,Evans-Powell,ATM,6011,GB,False,2023-12-24
+54d26b75-9f21-4569-81ab-26f838df6c5c,Mills-Cole,Healthcare,8011,US,False,2023-11-08
+af96a6a7-ddd8-4f69-b76e-207fac5d1380,Hargreaves and Sons,Entertainment,7922,AE,False,2025-03-06
+80be18ca-18d5-4cd3-807f-228c98dc02ff,"Lynch, Welch and Bond",Fuel,5542,US,False,2023-01-24
+a4c3429f-f0da-405f-9d5d-51f5fb10a27f,Matthews-Sanders,Subscription,7372,GB,False,2023-08-15
+e047b134-9f58-4848-bfa6-22d78bdb702b,"Jones, Moore and Collins",Healthcare,8049,GB,False,2023-03-17
+c0c4d23b-b921-4f80-b441-23063bd9c9ad,Murray-Rowe,Fuel,5542,CA,False,2023-09-02
+478c1c85-50ac-46ca-84d1-31221a5e9057,Burgess and Sons,Subscription,7372,GB,False,2022-03-28
+dcc144d5-1fb4-4bb5-8fe0-1f09ec768e2e,"Cook, Fraser and Mason",Travel,7011,GB,False,2022-10-02
+47fb8233-fa67-44c5-aa40-d92534a9675e,Sykes-Moore,Transfer,6012,CA,False,2024-02-27
+7afb1e88-a8f7-48c1-b343-9b25fad2d782,Saunders-Dawson,Groceries,5412,SG,False,2024-08-25
+d5319167-053f-4f56-aaa8-2e2bd0be86b2,"Long, Newton and Gardiner",Entertainment,7832,GB,False,2023-04-30
+e41e1204-262f-4f1d-900b-b0c678374ea8,Pickering-Morgan,Healthcare,8049,GB,False,2022-03-25
+02beb991-22c1-482f-803f-97baf12dcd3b,"Jones, Bates and Austin",Travel,4511,GB,False,2023-10-28
+d9158cd4-5f4e-49f1-a954-7b79ceeaf682,"Bennett, Harvey and Atkinson",Subscription,5968,US,False,2022-03-29
+cc86b97b-dbad-44f4-ba0f-85c762605dbc,Miller-Wilson,Retail,5651,SG,False,2024-10-23
+b1fc71a1-7076-4787-8450-f7c12f78da8f,Giles Group,Healthcare,8049,CA,False,2023-08-16
+c4e0f5ef-34a5-44b8-ae8f-b74f53b78fb4,"Giles, Clark and Shaw",Entertainment,7922,CA,False,2023-09-20
+041475f3-03b0-46f3-8abf-41175e82a953,Newton Ltd,ATM,6011,CA,False,2024-05-31
+ed6061a1-8681-4cea-a3e4-47a8c86e4f0b,"Pollard, Black and Winter",Transfer,6012,SG,False,2024-01-09
+a24702b9-91a4-44d6-a909-5d6af71b284f,Williams Inc,Transfer,6012,GB,False,2022-08-28
+d6e9d87a-b823-468d-966f-acd321bf0fd1,Mason Ltd,Transfer,6012,GB,False,2024-10-15
