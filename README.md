@@ -1,241 +1,347 @@
-# Fintech Payments Analytics Platform
+# Fintech Analytics Platform
 
-A production-grade data engineering portfolio project demonstrating the full modern data stack — from raw data ingestion through to business-ready analytics marts — built entirely with open-source, free tooling.
+End-to-end data engineering portfolio — dbt · DuckDB · Apache Kafka · Apache Airflow · Python · SQL
+
+![dbt CI](https://github.com/tanvirpasha21/fintech-analytics-platform/actions/workflows/dbt_ci.yml/badge.svg)
 
 ---
 
 ## What This Is
 
-This project models the analytics infrastructure of a fictional UK-based fintech company processing payments across multiple currencies, channels, and merchant categories. It covers the three core problems every fintech data team faces:
+A production-grade data engineering platform modelled after a real UK fintech company processing payments across multiple currencies, channels, and merchant categories.
 
-1. **Payment performance** — how healthy is the payment flow? Where are completions failing?
-2. **Customer intelligence** — who are our most valuable customers, and who is about to churn?
-3. **Risk and fraud** — which merchants and customers represent elevated risk?
+It demonstrates the full modern data stack — real-time streaming, batch transformation, data quality testing, orchestration, and an interactive analytics dashboard — built entirely with free, open-source tools.
 
-The answer to each question lives in a clean, tested, documented mart — built on a layered dbt architecture over DuckDB.
+---
+
+## Architecture
+
+```
+                        STREAMING LAYER
+ ┌──────────────────────────────────────────────────────────┐
+ │                                                          │
+ │   transaction_producer.py                                │
+ │   (simulates live payment API)                           │
+ │          │                                               │
+ │          ▼                                               │
+ │   Apache Kafka  (3 topics)                               │
+ │     fintech.transactions   ← all payment events          │
+ │     fintech.fraud_alerts   ← high risk events            │
+ │     fintech.dlq            ← dead letter queue           │
+ │          │                                               │
+ │          ▼                                               │
+ │   transaction_consumer.py                                │
+ │   (micro-batch, manual offset commit)                    │
+ │          │                                               │
+ │          ▼                                               │
+ │   fintech_stream.duckdb                                  │
+ │   stream.raw_transactions                                │
+ └──────────────────────────────────────────────────────────┘
+                        │
+                        │ merge_stream_data (hourly, Airflow)
+                        ▼
+                  BATCH LAYER
+ ┌──────────────────────────────────────────────────────────┐
+ │                                                          │
+ │   fintech.duckdb  (main warehouse)                       │
+ │   raw.transactions  ← batch + merged stream events       │
+ │          │                                               │
+ │          ▼                                               │
+ │   Airflow DAG: fintech_pipeline  (every hour)            │
+ │                                                          │
+ │   check_kafka_health                                     │
+ │       │                                                  │
+ │   health_check  →  validate_raw_data                     │
+ │       │                                                  │
+ │   merge_stream_data  ← pulls Kafka events into warehouse │
+ │       │                                                  │
+ │   dbt staging  →  dbt intermediate                       │
+ │       │                                                  │
+ │   ┌───┴──────────┬──────────────┐                        │
+ │   payments   customers       risk   (parallel)           │
+ │   └───┬──────────┴──────────────┘                        │
+ │       │                                                  │
+ │   dbt tests (30)  →  export dashboard                    │
+ │                                                          │
+ │   Airflow DAG: streaming_monitor  (every 5 min)          │
+ │   check_kafka_lag  →  stream_freshness  →  anomalies     │
+ │                                                          │
+ └──────────────────────────────────────────────────────────┘
+```
 
 ---
 
 ## Stack
 
-| Layer | Tool | Why |
+| Layer | Tool | Purpose |
 |---|---|---|
-| Data Warehouse | **DuckDB** | Columnar, embedded, handles 150k+ rows without a server. Used in production at several fintechs. |
-| Transformation | **dbt Core** | Industry-standard. Staging → Intermediate → Mart layers with full lineage. |
-| Data Generation | **Python + Faker** | 150,000 synthetic transactions across 2,000 customers, 300 merchants, 6 currencies. |
-| CI/CD | **GitHub Actions** | Runs `dbt build` (run + test) on every push and PR. |
-| Language | **SQL + Python** | |
+| Warehouse | DuckDB | Columnar, embedded, zero config |
+| Transformation | dbt Core | 13 models, 3-layer architecture |
+| Streaming | Apache Kafka | Real-time transaction events |
+| Orchestration | Apache Airflow | Scheduled pipeline + monitoring |
+| Metadata DB | PostgreSQL | Airflow backend (enables parallel tasks) |
+| Data Generation | Python + Faker | 150k synthetic transactions |
+| Dashboard | Vanilla JS + Canvas API | Zero-dependency interactive charts |
+| CI/CD | GitHub Actions | dbt build + test + syntax check on every push |
 
 ---
 
 ## Project Structure
 
 ```
-fintech_platform/
+fintech-analytics-platform/
 │
 ├── scripts/
-│   └── generate_data.py          # Synthetic data generator → seeds DuckDB
+│   ├── generate_data.py              # seeds DuckDB with 150k transactions
+│   └── export_dashboard.py           # regenerates dashboard.html from DuckDB
 │
-├── data/
-│   ├── raw/                      # CSV exports (gitignored: .duckdb file)
-│   └── fintech.duckdb            # Local warehouse (regenerated by script)
-│
-├── fintech_dbt/
+├── fintech_dbt/                      # dbt project
 │   ├── models/
-│   │   ├── staging/              # Source → clean typed views (1:1 with source tables)
+│   │   ├── staging/                  # 5 views — clean + type-cast source tables
 │   │   │   ├── stg_customers.sql
 │   │   │   ├── stg_merchants.sql
 │   │   │   ├── stg_transactions.sql
 │   │   │   ├── stg_fx_rates.sql
 │   │   │   ├── stg_disputes.sql
 │   │   │   └── sources.yml
-│   │   │
-│   │   ├── intermediate/         # Business logic, joins, reusable aggregations
-│   │   │   ├── int_transactions_enriched.sql      # FX-normalised, fully enriched txn grain
+│   │   ├── intermediate/             # 2 views — joins, FX conversion, enrichment
+│   │   │   ├── int_transactions_enriched.sql
 │   │   │   └── int_customer_transaction_summary.sql
-│   │   │
-│   │   └── marts/                # Business-facing tables (materialised as TABLE)
+│   │   └── marts/                    # 6 tables — business-facing
 │   │       ├── payments/
 │   │       │   └── fct_monthly_payment_performance.sql
 │   │       ├── customers/
-│   │       │   ├── dim_customers_360.sql           # LTV, churn risk, engagement score
-│   │       │   └── fct_cohort_retention.sql        # Monthly cohort retention matrix
+│   │       │   ├── dim_customers_360.sql
+│   │       │   ├── fct_cohort_retention.sql
+│   │       │   └── fct_rfm_segmentation.sql
 │   │       └── risk/
-│   │           ├── fct_fraud_events.sql            # INCREMENTAL model
-│   │           └── dim_merchant_risk_scorecard.sql # Composite risk scoring
-│   │
-│   ├── macros/
-│   │   └── finance_utils.sql     # safe_divide, pct_of_total, convert_currency, date_spine
-│   │
-│   ├── analyses/
-│   │   └── executive_insights.sql  # 7 business questions answered in SQL
-│   │
-│   ├── dbt_project.yml
-│   └── profiles.yml
+│   │           ├── fct_fraud_events.sql          ← INCREMENTAL model
+│   │           └── dim_merchant_risk_scorecard.sql
+│   └── macros/
+│       └── finance_utils.sql         # safe_divide, pct_of_total, convert_currency
 │
-└── .github/
-    └── workflows/
-        └── dbt_ci.yml            # CI: generate data → dbt build → dbt test
+├── streaming/
+│   ├── producer/
+│   │   └── transaction_producer.py   # Kafka producer — simulates live payment API
+│   └── consumer/
+│       └── transaction_consumer.py   # Kafka → DuckDB micro-batch consumer
+│
+├── airflow/
+│   └── dags/
+│       ├── fintech_pipeline.py       # hourly pipeline DAG (13 tasks)
+│       └── streaming_monitor.py      # 5-min stream health + Kafka lag DAG
+│
+├── docker-compose.yml                # full stack: Kafka + Airflow + PostgreSQL
+├── dashboard.html                    # interactive dashboard (zero dependencies)
+└── requirements.txt
 ```
 
 ---
 
-## Data Model
+## dbt Models
 
-### Lineage
-
-```
-raw.customers  ─────────────────────────────────────────────────────┐
-raw.merchants  ──────────────────────────────────────────────────┐  │
-raw.fx_rates   ──────────────────────────────────────────────┐   │  │
-raw.disputes   ─────────────────────────────────────────┐    │   │  │
-raw.transactions ────────────────────────────────────┐  │    │   │  │
-                                                     │  │    │   │  │
-              stg_transactions ◄────────────────────┘  │    │   │  │
-              stg_disputes     ◄───────────────────────┘    │   │  │
-              stg_fx_rates     ◄────────────────────────────┘   │  │
-              stg_merchants    ◄────────────────────────────────┘  │
-              stg_customers    ◄───────────────────────────────────┘
-                    │
-                    ▼
-        int_transactions_enriched          ← FX normalisation, risk tier, full enrichment
-        int_customer_transaction_summary   ← pre-aggregated customer stats
-                    │
-          ┌─────────┼──────────────┐
-          ▼         ▼              ▼
-  fct_monthly    dim_customers  fct_fraud_events        (INCREMENTAL)
-  _payment       _360           dim_merchant_risk
-  _performance   fct_cohort     _scorecard
-                 _retention
-```
-
-### Key Design Decisions
-
-**Why separate staging and intermediate?**
-Staging models are a 1:1 mapping of source tables — clean types, renamed columns, nothing more. This means if a source changes, you fix it in one place. Business logic (joins, FX conversion, aggregations) lives exclusively in intermediate and marts.
-
-**Why is `fct_fraud_events` incremental?**
-In production, fraud detection runs continuously against a stream of new transactions. The incremental materialisation pattern means only new rows since the last run are processed — critical when you're working at scale. The 30-day velocity window (`count(*) over (partition by customer_id order by transaction_at range between interval '30 days' preceding and current row)`) is a real-world fraud signal.
-
-**Why GBP normalisation in intermediate, not staging?**
-FX conversion requires a join to `stg_fx_rates` on date + currency. Doing this in staging would violate the principle that staging models are single-source. The intermediate layer is where multi-source enrichment belongs.
-
-**Why reusable macros?**
-`safe_divide`, `pct_of_total`, and `convert_currency` are used across multiple models. Writing them as macros means one definition, consistent behaviour everywhere, and easy testing.
+| Model | Layer | Type | Description |
+|---|---|---|---|
+| stg_customers | Staging | View | Cleaned customer records, KYC flags |
+| stg_merchants | Staging | View | Merchant + MCC codes |
+| stg_transactions | Staging | View | Typed transactions with date parts and boolean flags |
+| stg_fx_rates | Staging | View | Daily FX rates with inverse rate |
+| stg_disputes | Staging | View | Customer dispute records |
+| int_transactions_enriched | Intermediate | View | FX-normalised, joined with merchant + customer context, risk tier |
+| int_customer_transaction_summary | Intermediate | View | Pre-aggregated per-customer stats (reused by multiple marts) |
+| fct_monthly_payment_performance | Mart | Table | Monthly KPIs: TPV, completion rate, fraud rate by currency + channel |
+| dim_customers_360 | Mart | Table | LTV tier, churn risk segment, engagement score, dispute summary |
+| fct_cohort_retention | Mart | Table | M0–M12 monthly cohort retention matrix |
+| fct_rfm_segmentation | Mart | Table | RFM scores + 12 named segments + recommended actions |
+| fct_fraud_events | Mart | **Incremental** | Fraud events with dispute match + 30-day velocity window |
+| dim_merchant_risk_scorecard | Mart | Table | Composite risk score, fraud rate, dispute rate per merchant |
 
 ---
 
-## Business Metrics Built
+## Kafka Topics
 
-### Payment Performance (`fct_monthly_payment_performance`)
-- Total Payment Volume (TPV) in GBP — monthly, by currency and channel
-- Completion rate, decline rate, fraud rate
-- Month-on-month volume growth
-- FX exposure by currency
-
-### Customer Intelligence (`dim_customers_360`)
-- **LTV Tier**: Platinum / Gold / Silver / Bronze based on total GBP spend
-- **Churn Risk Segment**: Active / Cooling / At Risk / Churned (based on recency)
-- **Engagement Score**: composite of active months, category breadth, transaction frequency
-- **Customer 360**: disputes, fraud flags, channel mix, tenure — all in one row
-
-### Cohort Retention (`fct_cohort_retention`)
-- Classic M0–M12 retention matrix by signup cohort
-- Shows what % of each month's signups were still transacting N months later
-
-### Risk (`fct_fraud_events`, `dim_merchant_risk_scorecard`)
-- Fraud events with dispute outcome and 30-day velocity signal
-- Per-merchant composite risk score (fraud rate + dispute rate + inherent risk)
-- Risk bands: Critical / Elevated / Standard
+| Topic | Partitions | Retention | Content |
+|---|---|---|---|
+| `fintech.transactions` | 3 | 7 days | All payment events, partitioned by customer_id |
+| `fintech.fraud_alerts` | 3 | 30 days | High risk transaction alerts |
+| `fintech.dlq` | 1 | 30 days | Dead letter queue — failed / malformed messages |
 
 ---
 
-## Sample Results (from 150k transactions, 2023–2024)
+## Airflow DAGs
+
+### `fintech_pipeline` — runs every hour
+
+```
+check_kafka_health          verify broker reachable, topics exist, consumer active
+      │
+health_check                verify DuckDB has data
+      │
+validate_raw_data           check for nulls, bad statuses, negative amounts
+      │
+merge_stream_data           pull new Kafka consumer events into main warehouse
+      │
+dbt_staging                 rebuild staging views
+      │
+dbt_intermediate            rebuild intermediate views
+      │
+┌─────┴──────────┬──────────────┐
+dbt_marts_payments  dbt_marts_customers  dbt_marts_risk   (parallel)
+└─────┬──────────┴──────────────┘
+      │
+dbt_tests                   run all 30 data quality tests
+      │
+branch_on_tests
+  ├── export_dashboard       regenerate dashboard.html
+  └── skip_export            (if any test failed)
+          │
+    pipeline_summary         log volume, completion %, fraud %, Kafka lag (always runs)
+```
+
+### `streaming_monitor` — runs every 5 minutes
+
+```
+check_kafka_lag         AdminClient: committed vs end offset per partition → total lag
+      │
+check_stream_freshness  DuckDB: minutes since last consumer write
+      │
+anomaly_detection       fraud rate spike, decline rate spike, avg amount anomaly
+      │
+stream_summary          rolling totals + full health report
+```
+
+---
+
+## Quick Start — No Docker Needed
+
+```bash
+# 1. Clone
+git clone https://github.com/tanvirpasha21/fintech-analytics-platform.git
+cd fintech-analytics-platform
+
+# 2. Virtual environment
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+
+# 3. Generate data + run dbt pipeline
+python scripts/generate_data.py
+cd fintech_dbt && dbt build --profiles-dir . && cd ..
+# Expected: 42 of 42 PASS (12 models + 30 tests)
+
+# 4. Open dashboard
+open dashboard.html
+
+# 5. Stream in simulation mode (no Kafka required)
+python streaming/consumer/transaction_consumer.py --simulate
+
+# 6. Run Airflow locally
+pip install apache-airflow==2.9.1
+
+export AIRFLOW_HOME=$(pwd)/airflow
+export AIRFLOW__CORE__DAGS_FOLDER=$(pwd)/airflow/dags
+export AIRFLOW__CORE__LOAD_EXAMPLES=False
+export AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:///$(pwd)/airflow/airflow.db
+export FINTECH_DB_PATH=$(pwd)/data/fintech.duckdb
+export FINTECH_STREAM_DB_PATH=$(pwd)/data/fintech_stream.duckdb
+export FINTECH_DBT_PATH=$(pwd)/fintech_dbt
+export FINTECH_SCRIPTS_PATH=$(pwd)/scripts
+export KAFKA_BOOTSTRAP_SERVERS=localhost:9092
+export KAFKA_CONSUMER_GROUP=fintech-duckdb-sink
+
+airflow db migrate
+airflow users create --username admin --password admin \
+    --firstname Tanvir --lastname Anjum \
+    --role Admin --email contact@voidstudio.tech
+
+airflow webserver --port 8081 &   # http://localhost:8081
+airflow scheduler
+```
+
+---
+
+## Full Stack — Docker (Kafka + Airflow + PostgreSQL)
+
+```bash
+# Start all 8 services
+docker compose up -d
+
+# Check everything is running
+docker compose ps
+
+# Wait ~60 seconds then open:
+# Kafka UI  →  http://localhost:8080
+# Airflow   →  http://localhost:8081  (admin / admin)
+```
+
+**Port conflict on 5432?** Change the postgres port mapping in docker-compose.yml:
+```yaml
+ports:
+  - "5433:5432"   # use 5433 if local PostgreSQL is already running
+```
+
+**Run the streaming pipeline:**
+```bash
+# Terminal 1 — producer (live transactions into Kafka)
+source venv/bin/activate
+python streaming/producer/transaction_producer.py --tps 3
+
+# Terminal 2 — consumer (Kafka → DuckDB)
+source venv/bin/activate
+python streaming/consumer/transaction_consumer.py
+```
+
+**Trigger the Airflow pipeline:**
+
+Go to http://localhost:8081 → click `fintech_pipeline` → click ▶ Trigger DAG
+
+---
+
+## Key Concepts Demonstrated
+
+### dbt
+- 3-layer architecture: staging → intermediate → marts
+- Incremental materialisation with `is_incremental()` guard (`fct_fraud_events`)
+- Reusable macros: `safe_divide`, `pct_of_total`, `convert_currency`, `generate_date_spine`
+- 30 data quality tests: uniqueness, not null, accepted values across all layers
+- Pre-aggregated intermediate layer to avoid redundant computation across marts
+
+### Apache Kafka
+- Partitioning by `customer_id` — ordering guaranteed per customer across all 3 partitions
+- Idempotent producer (`enable_idempotence=True`, `acks=all`) — no duplicates on retry
+- Manual offset commit — offsets committed only after successful DuckDB write (at-least-once)
+- Dead Letter Queue — malformed messages go to `fintech.dlq`, never block the pipeline
+- Simulation mode — full pipeline runs without a Kafka broker for local dev and CI
+
+### Apache Airflow
+- `merge_stream_data` task — connects the Kafka consumer database to the main warehouse before dbt runs, making the streaming and batch layers genuinely end-to-end
+- `check_kafka_health` — first task in every pipeline run, verifies broker, topics, and consumer group using the Kafka AdminClient
+- `check_kafka_lag` — real partition-level lag measurement (committed offset vs end offset) in the streaming monitor
+- PostgreSQL metadata database — replaces SQLite, required for parallel task execution
+- BranchPythonOperator — skips dashboard export if any dbt test fails
+- XCom — passes row counts, test results, merged event counts, and Kafka health between tasks
+- `TriggerRule.ALL_DONE` — pipeline summary always runs regardless of upstream failures
+- Exponential backoff retries on all tasks
+
+---
+
+## Results (150k transactions, 2023–2024)
 
 | Metric | Value |
 |---|---|
-| Monthly TPV (avg) | ~£420,000 GBP |
-| Overall completion rate | ~92% |
-| Fraud flag rate | ~1.9% |
-| Total fraud events detected | 2,881 |
-| Total disputed amount | £217,134 GBP |
-| Customers at churn risk | ~100% (data ends Dec 2024, expected) |
+| Total Payment Volume | £10.23M |
+| Avg Completion Rate | 92.3% |
+| Avg Fraud Rate | 1.96% |
+| Fraud Events Detected | 2,881 |
+| Total Disputed Amount | £217,134 |
+| RFM Segments | 12 |
+| dbt Models | 13 |
+| dbt Tests | 30 / 30 passing |
+| Airflow Tasks (pipeline DAG) | 13 |
+| Kafka Topics | 3 |
 
 ---
-
-## Getting Started
-
-```bash
-# 1. Clone and install
-git clone https://github.com/your-username/fintech-platform.git
-cd fintech-platform
-pip install -r requirements.txt
-
-# 2. Generate data and seed the warehouse
-python scripts/generate_data.py
-
-# 3. Run the full dbt pipeline
-cd fintech_dbt
-dbt run --profiles-dir .
-
-# 4. Run all tests (30 tests across sources and marts)
-dbt test --profiles-dir .
-
-# 5. Generate and serve documentation
-dbt docs generate --profiles-dir .
-dbt docs serve --profiles-dir .
-# Open http://localhost:8080 — full lineage graph + model docs
-```
-
----
-
-## dbt Tests
-
-30 data quality tests across all layers:
-
-- **Uniqueness** on all primary keys
-- **Not null** on all critical fields
-- **Accepted values** on all categorical fields (status, risk_band, ltv_tier, etc.)
-- **Source freshness** configuration ready for production use
-
-Run with: `dbt test --profiles-dir .`
-
----
-
-## CI/CD
-
-Every push to `main` or `develop` triggers:
-1. Python environment setup + dependency install
-2. `python scripts/generate_data.py` — seeds a fresh DuckDB
-3. `dbt build` — runs all 12 models + 30 tests in a single command
-4. Uploads dbt artifacts (manifest, run_results) for lineage inspection
-
-See `.github/workflows/dbt_ci.yml`.
-
----
-
-## What This Demonstrates
-
-| Skill | Where |
-|---|---|
-| dbt layered architecture (staging → intermediate → mart) | All models |
-| Incremental materialisation | `fct_fraud_events` |
-| Reusable SQL macros | `macros/finance_utils.sql` |
-| Window functions (velocity, cohort, MoM growth) | Multiple marts |
-| FX normalisation across currencies | `int_transactions_enriched` |
-| Data quality testing | `sources.yml`, `schema.yml` |
-| Business metric design (LTV, churn, cohort, risk score) | Mart layer |
-| GitHub Actions CI | `.github/workflows/dbt_ci.yml` |
-| Large dataset handling (150k rows, columnar warehouse) | DuckDB |
-| Executive analytical thinking | `analyses/executive_insights.sql` |
-
----
-
-## Lineage
-
-![dbt Lineage Graph](assets/lineage.png)
 
 ## Author
 
-**MD Tanvir Anjum** 
-[linkedin.com/in/mdtanviranjum21](https://linkedin.com/in/mdtanviranjum21)
+**MD Tanvir Anjum** — Co-Founder, Void Studio
+[linkedin.com/in/mdtanviranjum21](https://linkedin.com/in/mdtanviranjum21) · [voidstudiotech.co.uk](https://voidstudiotech.co.uk)
