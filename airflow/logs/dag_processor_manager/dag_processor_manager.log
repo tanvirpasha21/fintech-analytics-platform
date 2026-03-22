@@ -1,0 +1,106 @@
+[2026-03-22T13:36:29.771+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2026-03-22T13:36:29.773+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2026-03-22T13:36:29.775+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-03-22T13:36:29.777+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2026-03-22T13:36:29.783+0000] {manager.py:740} INFO - There are 2 files in /opt/airflow/dags
+[2026-03-22T13:36:29.965+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/fintech_pipeline.py      71  0.07s             0           0
+/opt/airflow/dags/streaming_monitor.py     68  0.10s             0           0
+================================================================================
+[2026-03-22T13:37:00.462+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py     78  0.03s             0           1  0.12s           2026-03-22T13:36:29
+/opt/airflow/dags/fintech_pipeline.py      81  0.01s             0           1  0.10s           2026-03-22T13:36:29
+================================================================================
+[2026-03-22T13:37:30.904+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py     88  0.06s             0           1  0.10s           2026-03-22T13:37:00
+/opt/airflow/dags/fintech_pipeline.py      91  0.01s             0           1  0.08s           2026-03-22T13:37:00
+================================================================================
+[2026-03-22T13:38:01.385+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py     98  0.06s             0           1  0.13s           2026-03-22T13:37:30
+/opt/airflow/dags/fintech_pipeline.py     101  0.01s             0           1  0.09s           2026-03-22T13:37:30
+================================================================================
+[2026-03-22T13:38:31.833+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py    108  0.04s             0           1  0.13s           2026-03-22T13:38:01
+/opt/airflow/dags/fintech_pipeline.py     111  0.00s             0           1  0.08s           2026-03-22T13:38:01
+================================================================================
+[2026-03-22T13:39:02.148+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py    118  0.04s             0           1  0.09s           2026-03-22T13:38:31
+/opt/airflow/dags/fintech_pipeline.py     121  0.00s             0           1  0.06s           2026-03-22T13:38:31
+================================================================================
+[2026-03-22T13:39:32.503+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py    128  0.03s             0           1  0.08s           2026-03-22T13:39:02
+/opt/airflow/dags/fintech_pipeline.py     131  0.01s             0           1  0.05s           2026-03-22T13:39:02
+================================================================================
+[2026-03-22T13:40:02.788+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py    138  0.02s             0           1  0.08s           2026-03-22T13:39:32
+/opt/airflow/dags/fintech_pipeline.py     141  0.00s             0           1  0.05s           2026-03-22T13:39:32
+================================================================================
+[2026-03-22T13:40:33.095+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py    148  0.03s             0           1  0.07s           2026-03-22T13:40:02
+/opt/airflow/dags/fintech_pipeline.py     151  0.00s             0           1  0.05s           2026-03-22T13:40:02
+================================================================================
+[2026-03-22T13:41:03.419+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py    158  0.04s             0           1  0.08s           2026-03-22T13:40:33
+/opt/airflow/dags/fintech_pipeline.py     161  0.01s             0           1  0.06s           2026-03-22T13:40:33
+================================================================================
+[2026-03-22T13:41:29.874+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2026-03-22T13:41:29.891+0000] {manager.py:740} INFO - There are 2 files in /opt/airflow/dags
+[2026-03-22T13:41:34.009+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+--------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/streaming_monitor.py    168  0.02s             0           1  0.12s           2026-03-22T13:41:03
+/opt/airflow/dags/fintech_pipeline.py     171  0.00s             0           1  0.09s           2026-03-22T13:41:03
+================================================================================

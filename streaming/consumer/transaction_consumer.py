@@ -123,7 +123,7 @@ def flush(con: duckdb.DuckDBPyConnection, batch: list, stats: dict):
     stats["written"] += len(rows)
     stats["batches"] += 1
     fraud = sum(1 for r in rows if r["is_flagged_fraud"])
-    print(f"  ✓ Batch {stats['batches']:>3}: {len(rows)} msgs written "
+    print(f"  Batch {stats['batches']:>3}: {len(rows)} msgs written "
           f"({fraud} fraud)  |  Total: {stats['written']:,}")
 
 
@@ -134,7 +134,7 @@ def print_stats(con: duckdb.DuckDBPyConnection):
                count(distinct customer_id)
         FROM stream.raw_transactions
     """).fetchone()
-    print(f"\n  📊  Events: {r[0]:,}  Volume: £{r[1]:,.2f}  "
+    print(f"\n  Events: {r[0]:,}  Volume: £{r[1]:,.2f}  "
           f"Fraud: {r[2]:,}  Customers: {r[3]:,}\n")
 
 
@@ -242,7 +242,7 @@ def run_kafka(con: duckdb.DuckDBPyConnection, stats: dict):
                     print(f"{msg.partition:<10} {msg.offset:<10} "
                           f"£{d.get('amount_gbp',0):>7.2f} "
                           f"{d.get('status','?'):<10} "
-                          f"{'⚠ FRAUD' if d.get('is_flagged_fraud') else '-'}")
+                          f"{'FRAUD' if d.get('is_flagged_fraud') else '-'}")
                 except Exception as e:
                     con.execute(
                         "INSERT INTO stream.dlq VALUES (?,?,?,?)",
