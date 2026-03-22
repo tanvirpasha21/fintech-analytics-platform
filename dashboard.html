@@ -4,577 +4,487 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fintech Analytics Platform</title>
-<script src="chart.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0e17;
-    --surface: #111827;
-    --surface2: #1a2235;
-    --border: #1e2d45;
-    --accent: #00d4ff;
-    --accent2: #7c3aed;
-    --accent3: #10b981;
-    --danger: #ef4444;
-    --warn: #f59e0b;
-    --text: #e2e8f0;
-    --muted: #64748b;
-    --font: 'IBM Plex Sans', sans-serif;
-    --mono: 'IBM Plex Mono', monospace;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px; min-height: 100vh; }
-
-  /* NAV */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(10,14,23,0.95); backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 0; padding: 0 24px;
-    height: 52px;
-  }
-  .nav-brand {
-    font-family: var(--mono); font-size: 13px; font-weight: 600;
-    color: var(--accent); letter-spacing: 0.05em; margin-right: 32px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .nav-brand::before { content:'◈'; font-size: 16px; }
-  .nav-tabs { display: flex; gap: 0; }
-  .nav-tab {
-    padding: 0 20px; height: 52px; display: flex; align-items: center;
-    font-size: 13px; font-weight: 500; color: var(--muted);
-    cursor: pointer; border-bottom: 2px solid transparent;
-    transition: all 0.2s; letter-spacing: 0.02em; text-transform: uppercase;
-  }
-  .nav-tab:hover { color: var(--text); }
-  .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-  .nav-meta { margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--muted); }
-
-  /* PAGES */
-  .page { display: none; padding: 28px 28px 60px; max-width: 1400px; margin: 0 auto; }
-  .page.active { display: block; animation: fadeIn 0.3s ease; }
-  @keyframes fadeIn { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform:none; } }
-
-  /* PAGE HEADER */
-  .page-header { margin-bottom: 28px; }
-  .page-title { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
-  .page-sub { font-size: 13px; color: var(--muted); font-family: var(--mono); }
-
-  /* KPI GRID */
-  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 28px; }
-  .kpi-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 8px; padding: 18px 20px;
-    position: relative; overflow: hidden;
-  }
-  .kpi-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--accent-color, var(--accent)), transparent);
-  }
-  .kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; }
-  .kpi-value { font-family: var(--mono); font-size: 26px; font-weight: 600; color: var(--accent-color, var(--accent)); line-height: 1; }
-  .kpi-sub { font-size: 11px; color: var(--muted); margin-top: 6px; font-family: var(--mono); }
-
-  /* CHART GRID */
-  .chart-grid { display: grid; gap: 18px; margin-bottom: 18px; }
-  .chart-grid-2 { grid-template-columns: 1fr 1fr; }
-  .chart-grid-3 { grid-template-columns: 2fr 1fr 1fr; }
-  .chart-grid-1 { grid-template-columns: 1fr; }
-
-  .chart-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 8px; padding: 20px;
-  }
-  .chart-title {
-    font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--muted); margin-bottom: 16px; font-family: var(--mono);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .chart-title::before { content:''; width:3px; height:12px; background: var(--accent); border-radius:2px; display:inline-block; }
-  .chart-wrap { position: relative; height: 220px; }
-  .chart-wrap.tall { height: 300px; }
-  .chart-wrap.short { height: 160px; }
-
-  /* TABLES */
-  .table-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 8px; overflow: hidden; margin-bottom: 18px;
-  }
-  .table-header {
-    padding: 14px 20px; border-bottom: 1px solid var(--border);
-    font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--muted); font-family: var(--mono);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .table-header::before { content:''; width:3px; height:12px; background: var(--accent2); border-radius:2px; display:inline-block; }
-  .table-wrap { overflow-x: auto; max-height: 380px; overflow-y: auto; }
-  table { width: 100%; border-collapse: collapse; }
-  thead th {
-    padding: 10px 14px; text-align: left; font-size: 11px;
-    text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
-    background: var(--surface2); border-bottom: 1px solid var(--border);
-    position: sticky; top: 0; font-weight: 500; white-space: nowrap;
-  }
-  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
-  tbody tr:hover { background: var(--surface2); }
-  tbody tr:last-child { border-bottom: none; }
-  td { padding: 10px 14px; font-size: 13px; white-space: nowrap; }
-  .mono { font-family: var(--mono); }
-
-  /* BADGES */
-  .badge {
-    display: inline-flex; align-items: center; padding: 2px 8px;
-    border-radius: 4px; font-size: 11px; font-weight: 600;
-    font-family: var(--mono); letter-spacing: 0.03em;
-  }
-  .badge-critical { background: rgba(239,68,68,0.15); color: #f87171; }
-  .badge-elevated { background: rgba(245,158,11,0.15); color: #fbbf24; }
-  .badge-standard { background: rgba(16,185,129,0.15); color: #34d399; }
-  .badge-high { background: rgba(0,212,255,0.15); color: var(--accent); }
-  .badge-growth { background: rgba(124,58,237,0.15); color: #a78bfa; }
-  .badge-slipping { background: rgba(245,158,11,0.15); color: #fbbf24; }
-  .badge-risk { background: rgba(239,68,68,0.15); color: #f87171; }
-  .badge-lost { background: rgba(100,116,139,0.15); color: #94a3b8; }
-  .badge-others { background: rgba(100,116,139,0.1); color: #64748b; }
-
-  /* COHORT TABLE */
-  .cohort-table td { text-align: center; font-family: var(--mono); font-size: 12px; padding: 7px 10px; }
-  .cohort-table th { text-align: center; }
-  .cohort-table td.cohort-label { text-align: left; font-weight: 600; color: var(--accent); }
-
-  /* SEGMENT BARS */
-  .seg-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-  .seg-label { width: 160px; font-size: 12px; color: var(--text); flex-shrink: 0; }
-  .seg-bar-wrap { flex: 1; background: var(--surface2); border-radius: 3px; height: 20px; overflow: hidden; }
-  .seg-bar { height: 100%; border-radius: 3px; transition: width 1s ease; display: flex; align-items: center; padding-left: 8px; }
-  .seg-bar span { font-size: 11px; font-family: var(--mono); color: rgba(255,255,255,0.85); font-weight: 600; }
-  .seg-count { width: 50px; text-align: right; font-family: var(--mono); font-size: 12px; color: var(--muted); }
-
-  /* DIVIDER */
-  .section-gap { height: 8px; }
-
-  /* SCROLL */
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: var(--surface); }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-
-  @media (max-width: 768px) {
-    .chart-grid-2, .chart-grid-3 { grid-template-columns: 1fr; }
-    .kpi-grid { grid-template-columns: 1fr 1fr; }
-  }
+:root {
+  --bg:#0a0e17; --surface:#111827; --surface2:#1a2235; --border:#1e2d45;
+  --accent:#00d4ff; --accent2:#7c3aed; --green:#10b981; --red:#ef4444;
+  --amber:#f59e0b; --text:#e2e8f0; --muted:#64748b;
+  --font:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,14,23,0.97);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;height:52px;gap:0}
+.nav-brand{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);margin-right:32px}
+.nav-tab{padding:0 20px;height:52px;display:flex;align-items:center;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;text-transform:uppercase;letter-spacing:.05em}
+.nav-tab:hover{color:var(--text)}
+.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.nav-meta{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.page{display:none;padding:28px;max-width:1400px;margin:0 auto;animation:fadeIn .3s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.page-title{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:4px}
+.page-sub{font-size:12px;color:var(--muted);font-family:var(--mono);margin-bottom:24px}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px 20px;position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--kpi-color,var(--accent))}
+.kpi-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px}
+.kpi-value{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--kpi-color,var(--accent));line-height:1}
+.kpi-sub{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--mono)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.grid1{display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:18px}
+.grid3{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-bottom:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px}
+.card-title{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:16px;font-family:var(--mono);display:flex;align-items:center;gap:8px}
+.card-title::before{content:'';width:3px;height:12px;background:var(--accent);border-radius:2px}
+canvas{display:block}
+.table-wrap{overflow-x:auto;max-height:400px;overflow-y:auto}
+table{width:100%;border-collapse:collapse}
+thead th{padding:9px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--border);position:sticky;top:0;white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
+tbody tr:hover{background:var(--surface2)}
+tbody tr:last-child{border-bottom:none}
+td{padding:9px 12px;font-size:13px;white-space:nowrap}
+.mono{font-family:var(--mono)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;font-family:var(--mono)}
+.b-critical{background:rgba(239,68,68,.15);color:#f87171}
+.b-elevated{background:rgba(245,158,11,.15);color:#fbbf24}
+.b-standard{background:rgba(16,185,129,.15);color:#34d399}
+.b-hv{background:rgba(0,212,255,.15);color:var(--accent)}
+.b-growth{background:rgba(124,58,237,.15);color:#a78bfa}
+.b-slipping{background:rgba(245,158,11,.15);color:#fbbf24}
+.b-risk{background:rgba(239,68,68,.15);color:#f87171}
+.b-lost{background:rgba(100,116,139,.15);color:#94a3b8}
+.seg-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.seg-label{width:160px;font-size:12px;flex-shrink:0}
+.seg-track{flex:1;background:var(--surface2);border-radius:3px;height:22px;overflow:hidden}
+.seg-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:8px;transition:width 1s ease}
+.seg-fill span{font-size:11px;font-family:var(--mono);color:rgba(255,255,255,.8);font-weight:600}
+.seg-num{width:40px;text-align:right;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.cohort-cell{text-align:center;font-family:var(--mono);font-size:12px;padding:7px 8px!important}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+@media(max-width:900px){.kpi-grid,.grid2,.grid3{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <nav>
-  <div class="nav-brand">FINTECH ANALYTICS</div>
-  <div class="nav-tabs">
-    <div class="nav-tab active" onclick="showPage('payments',this)">Payments</div>
-    <div class="nav-tab" onclick="showPage('customers',this)">Customers</div>
-    <div class="nav-tab" onclick="showPage('risk',this)">Risk & Fraud</div>
-  </div>
+  <div class="nav-brand">◈ FINTECH ANALYTICS</div>
+  <div class="nav-tab active" onclick="show('payments',this)">Payments</div>
+  <div class="nav-tab" onclick="show('customers',this)">Customers</div>
+  <div class="nav-tab" onclick="show('risk',this)">Risk & Fraud</div>
   <div class="nav-meta">dbt · DuckDB · 150k txns · 2023–2024</div>
 </nav>
 
-<!-- ══════════════════════════════════════════════
-     PAGE 1 — PAYMENTS
-══════════════════════════════════════════════ -->
+<!-- PAGE 1: PAYMENTS -->
 <div class="page active" id="page-payments">
-  <div class="page-header">
-    <div class="page-title">Payment Performance</div>
-    <div class="page-sub">fct_monthly_payment_performance · GBP-normalised · Jan 2023 – Dec 2024</div>
+  <div class="page-title">Payment Performance</div>
+  <div class="page-sub">fct_monthly_payment_performance · GBP-normalised · Jan 2023 – Dec 2024</div>
+  <div class="kpi-grid" id="kpi1"></div>
+  <div class="grid1">
+    <div class="card"><div class="card-title">Monthly Payment Volume (GBP)</div><canvas id="c-vol" height="220"></canvas></div>
   </div>
-
-  <div class="kpi-grid" id="kpi-payments"></div>
-
-  <div class="chart-grid chart-grid-1">
-    <div class="chart-card">
-      <div class="chart-title">Monthly Payment Volume (GBP)</div>
-      <div class="chart-wrap tall"><canvas id="chart-volume"></canvas></div>
-    </div>
+  <div class="grid2">
+    <div class="card"><div class="card-title">Completion Rate vs Fraud Rate</div><canvas id="c-rates" height="200"></canvas></div>
+    <div class="card"><div class="card-title">Monthly Fraud Events</div><canvas id="c-fraud-m" height="200"></canvas></div>
   </div>
-
-  <div class="chart-grid chart-grid-2">
-    <div class="chart-card">
-      <div class="chart-title">Completion Rate vs Fraud Rate</div>
-      <div class="chart-wrap"><canvas id="chart-rates"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">Monthly Fraud Events</div>
-      <div class="chart-wrap"><canvas id="chart-fraud-monthly"></canvas></div>
-    </div>
-  </div>
-
-  <div class="chart-grid chart-grid-2">
-    <div class="chart-card">
-      <div class="chart-title">Volume by Channel (GBP)</div>
-      <div class="chart-wrap"><canvas id="chart-channel"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">Currency Mix (% of Total Volume)</div>
-      <div class="chart-wrap"><canvas id="chart-currency"></canvas></div>
-    </div>
+  <div class="grid2">
+    <div class="card"><div class="card-title">Volume by Channel (GBP)</div><canvas id="c-channel" height="200"></canvas></div>
+    <div class="card"><div class="card-title">Currency Mix</div><canvas id="c-currency" height="200"></canvas></div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE 2 — CUSTOMERS
-══════════════════════════════════════════════ -->
+<!-- PAGE 2: CUSTOMERS -->
 <div class="page" id="page-customers">
-  <div class="page-header">
-    <div class="page-title">Customer Intelligence</div>
-    <div class="page-sub">fct_rfm_segmentation · dim_customers_360 · fct_cohort_retention</div>
+  <div class="page-title">Customer Intelligence</div>
+  <div class="page-sub">fct_rfm_segmentation · dim_customers_360 · fct_cohort_retention</div>
+  <div class="kpi-grid" id="kpi2"></div>
+  <div class="grid2">
+    <div class="card"><div class="card-title">RFM Segments — Customer Count</div><canvas id="c-rfm" height="260"></canvas></div>
+    <div class="card"><div class="card-title">Segment Groups — Total Spend</div><canvas id="c-seg-pie" height="260"></canvas></div>
   </div>
-
-  <div class="kpi-grid" id="kpi-customers"></div>
-
-  <div class="chart-grid chart-grid-2">
-    <div class="chart-card">
-      <div class="chart-title">RFM Segments — Customer Count</div>
-      <div class="chart-wrap tall"><canvas id="chart-rfm-bar"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">Segment Groups — Total Spend (GBP)</div>
-      <div class="chart-wrap tall"><canvas id="chart-seg-groups"></canvas></div>
+  <div class="grid1">
+    <div class="card"><div class="card-title">Segment Breakdown</div><div id="seg-bars"></div></div>
+  </div>
+  <div class="grid1">
+    <div class="card"><div class="card-title">Cohort Retention Matrix (M0–M6)</div>
+      <div class="table-wrap"><table id="t-cohort"></table></div>
     </div>
   </div>
-
-  <div class="chart-grid chart-grid-1">
-    <div class="chart-card">
-      <div class="chart-title">RFM Segment Breakdown</div>
-      <div id="seg-bars" style="padding:8px 0;"></div>
-    </div>
-  </div>
-
-  <div class="chart-grid chart-grid-1">
-    <div class="chart-card">
-      <div class="chart-title">Cohort Retention Matrix (M0–M6)</div>
-      <div class="table-wrap">
-        <table class="cohort-table" id="cohort-table"></table>
-      </div>
-    </div>
-  </div>
-
-  <div class="table-card">
-    <div class="table-header">Top Customers by LTV</div>
-    <div class="table-wrap">
-      <table id="table-customers"></table>
-    </div>
+  <div class="card"><div class="card-title">Top Customers by LTV</div>
+    <div class="table-wrap"><table id="t-customers"></table></div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE 3 — RISK
-══════════════════════════════════════════════ -->
+<!-- PAGE 3: RISK -->
 <div class="page" id="page-risk">
-  <div class="page-header">
-    <div class="page-title">Risk & Fraud Monitor</div>
-    <div class="page-sub">fct_fraud_events · dim_merchant_risk_scorecard · incremental model</div>
+  <div class="page-title">Risk & Fraud Monitor</div>
+  <div class="page-sub">fct_fraud_events · dim_merchant_risk_scorecard · incremental model</div>
+  <div class="kpi-grid" id="kpi3"></div>
+  <div class="grid2">
+    <div class="card"><div class="card-title">Fraud Events by Category</div><canvas id="c-fcat" height="260"></canvas></div>
+    <div class="card"><div class="card-title">Fraud Amount by Channel (GBP)</div><canvas id="c-fchan" height="260"></canvas></div>
   </div>
-
-  <div class="kpi-grid" id="kpi-risk"></div>
-
-  <div class="chart-grid chart-grid-2">
-    <div class="chart-card">
-      <div class="chart-title">Fraud Events by Category</div>
-      <div class="chart-wrap tall"><canvas id="chart-fraud-cat"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">Fraud Amount by Channel (GBP)</div>
-      <div class="chart-wrap tall"><canvas id="chart-fraud-channel"></canvas></div>
-    </div>
+  <div class="grid1">
+    <div class="card"><div class="card-title">Risk Band Overview</div><div id="risk-bars"></div></div>
   </div>
-
-  <div class="chart-grid chart-grid-1">
-    <div class="chart-card">
-      <div class="chart-title">Risk Band Summary</div>
-      <div id="risk-band-bars" style="padding: 8px 0;"></div>
-    </div>
-  </div>
-
-  <div class="table-card">
-    <div class="table-header">Top 20 Highest Risk Merchants</div>
-    <div class="table-wrap">
-      <table id="table-merchants"></table>
-    </div>
+  <div class="card"><div class="card-title">Top 20 Highest Risk Merchants</div>
+    <div class="table-wrap"><table id="t-merchants"></table></div>
   </div>
 </div>
 
 <script>
-// ── DATA ──────────────────────────────────────────────────────────────────────
 const D = {"monthly_volume": [{"month": "2023-01", "volume_gbp": 429861.55, "transactions": 6266.0, "completion_pct": 91.39, "fraud_pct": 2.223, "fraud_events": 116.0}, {"month": "2023-02", "volume_gbp": 383412.11, "transactions": 5686.0, "completion_pct": 91.66, "fraud_pct": 1.734, "fraud_events": 125.0}, {"month": "2023-03", "volume_gbp": 423174.23, "transactions": 6314.0, "completion_pct": 93.2, "fraud_pct": 2.148, "fraud_events": 116.0}, {"month": "2023-04", "volume_gbp": 421361.74, "transactions": 6145.0, "completion_pct": 91.82, "fraud_pct": 1.266, "fraud_events": 99.0}, {"month": "2023-05", "volume_gbp": 428426.4, "transactions": 6243.0, "completion_pct": 92.29, "fraud_pct": 1.97, "fraud_events": 136.0}, {"month": "2023-06", "volume_gbp": 426356.79, "transactions": 6188.0, "completion_pct": 91.94, "fraud_pct": 1.866, "fraud_events": 109.0}, {"month": "2023-07", "volume_gbp": 442049.35, "transactions": 6381.0, "completion_pct": 91.71, "fraud_pct": 2.295, "fraud_events": 119.0}, {"month": "2023-08", "volume_gbp": 426467.0, "transactions": 6250.0, "completion_pct": 91.4, "fraud_pct": 1.819, "fraud_events": 119.0}, {"month": "2023-09", "volume_gbp": 434073.98, "transactions": 6300.0, "completion_pct": 92.71, "fraud_pct": 3.258, "fraud_events": 134.0}, {"month": "2023-10", "volume_gbp": 413385.78, "transactions": 6270.0, "completion_pct": 92.49, "fraud_pct": 1.558, "fraud_events": 119.0}, {"month": "2023-11", "volume_gbp": 420428.31, "transactions": 6143.0, "completion_pct": 93.5, "fraud_pct": 1.817, "fraud_events": 100.0}, {"month": "2023-12", "volume_gbp": 441455.35, "transactions": 6498.0, "completion_pct": 91.53, "fraud_pct": 1.789, "fraud_events": 132.0}, {"month": "2024-01", "volume_gbp": 421757.0, "transactions": 6366.0, "completion_pct": 92.83, "fraud_pct": 1.595, "fraud_events": 138.0}, {"month": "2024-02", "volume_gbp": 404189.33, "transactions": 5994.0, "completion_pct": 93.76, "fraud_pct": 2.064, "fraud_events": 120.0}, {"month": "2024-03", "volume_gbp": 436814.95, "transactions": 6337.0, "completion_pct": 91.89, "fraud_pct": 1.595, "fraud_events": 107.0}, {"month": "2024-04", "volume_gbp": 426768.88, "transactions": 6107.0, "completion_pct": 92.33, "fraud_pct": 1.849, "fraud_events": 113.0}, {"month": "2024-05", "volume_gbp": 433182.47, "transactions": 6377.0, "completion_pct": 93.82, "fraud_pct": 1.905, "fraud_events": 118.0}, {"month": "2024-06", "volume_gbp": 422818.46, "transactions": 6180.0, "completion_pct": 92.2, "fraud_pct": 2.104, "fraud_events": 128.0}, {"month": "2024-07", "volume_gbp": 438140.73, "transactions": 6320.0, "completion_pct": 92.48, "fraud_pct": 1.995, "fraud_events": 123.0}, {"month": "2024-08", "volume_gbp": 435219.15, "transactions": 6353.0, "completion_pct": 92.03, "fraud_pct": 1.952, "fraud_events": 124.0}, {"month": "2024-09", "volume_gbp": 426636.33, "transactions": 6157.0, "completion_pct": 91.97, "fraud_pct": 2.267, "fraud_events": 104.0}, {"month": "2024-10", "volume_gbp": 444375.45, "transactions": 6557.0, "completion_pct": 91.67, "fraud_pct": 1.771, "fraud_events": 129.0}, {"month": "2024-11", "volume_gbp": 412406.02, "transactions": 6141.0, "completion_pct": 92.24, "fraud_pct": 2.677, "fraud_events": 133.0}, {"month": "2024-12", "volume_gbp": 435355.46, "transactions": 6427.0, "completion_pct": 91.7, "fraud_pct": 1.544, "fraud_events": 120.0}], "kpis": [{"total_volume_m": 10.23, "total_transactions": 150000.0, "avg_completion_pct": 92.3, "avg_fraud_pct": 1.96, "total_fraud_events": 2881.0}]};
 
-// ── HELPERS ───────────────────────────────────────────────────────────────────
-const fmt = (n, decimals=0) => n == null ? '—' : Number(n).toLocaleString('en-GB', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
-const fmtGBP = n => '£' + fmt(n);
-const fmtPct = (n, d=1) => fmt(n,d) + '%';
-const COLORS = {
-  accent: '#00d4ff', accent2: '#7c3aed', green: '#10b981',
-  red: '#ef4444', amber: '#f59e0b', blue: '#3b82f6',
-  palette: ['#00d4ff','#7c3aed','#10b981','#f59e0b','#ef4444','#f97316','#ec4899','#14b8a6','#a855f7','#84cc16'],
-};
-const chartDefaults = {
-  responsive: true, maintainAspectRatio: false,
-  plugins: { legend: { display: false }, tooltip: { backgroundColor: '#1a2235', borderColor: '#1e2d45', borderWidth: 1, titleColor: '#e2e8f0', bodyColor: '#94a3b8', padding: 10 } },
-  scales: {
-    x: { grid: { color: '#1e2d45', drawBorder: false }, ticks: { color: '#64748b', font: { size: 10, family: "'IBM Plex Mono'" } } },
-    y: { grid: { color: '#1e2d45', drawBorder: false }, ticks: { color: '#64748b', font: { size: 10, family: "'IBM Plex Mono'" } } }
-  }
-};
+// ── UTILS ─────────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const fmt = (n,d=0) => n==null?'—':Number(n).toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtK = n => n>=1e6?'£'+(n/1e6).toFixed(2)+'M':n>=1e3?'£'+(n/1e3).toFixed(0)+'k':'£'+fmt(n);
 
-// ── NAV ───────────────────────────────────────────────────────────────────────
-function showPage(id, el) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
+const COLORS = ['#00d4ff','#7c3aed','#10b981','#f59e0b','#ef4444','#f97316','#ec4899','#14b8a6','#a855f7','#84cc16','#06b6d4','#8b5cf6'];
+const SEG_COLORS = {'High Value':'#00d4ff','Growth':'#7c3aed','Slipping':'#f59e0b','At Risk':'#ef4444','Lost':'#64748b','Others':'#475569'};
+
+function show(id, el) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  $('page-'+id).classList.add('active');
   el.classList.add('active');
+  setTimeout(drawAll, 50);
 }
 
-// ── KPI CARDS ─────────────────────────────────────────────────────────────────
-function kpiCard(label, value, sub, color='var(--accent)') {
-  return `<div class="kpi-card" style="--accent-color:${color}">
-    <div class="kpi-label">${label}</div>
-    <div class="kpi-value">${value}</div>
-    ${sub ? `<div class="kpi-sub">${sub}</div>` : ''}
-  </div>`;
+// ── KPI CARDS ──────────────────────────────────────────────────────────────
+function kpi(el, items) {
+  $(el).innerHTML = items.map(({label,value,sub,color})=>`
+    <div class="kpi-card" style="--kpi-color:${color}">
+      <div class="kpi-label">${label}</div>
+      <div class="kpi-value">${value}</div>
+      ${sub?`<div class="kpi-sub">${sub}</div>`:''}
+    </div>`).join('');
 }
 
-// PAYMENTS KPIs
-const k = D.kpis[0];
-document.getElementById('kpi-payments').innerHTML =
-  kpiCard('Total Volume', `£${k.total_volume_m}M`, 'Jan 2023 – Dec 2024', COLORS.accent) +
-  kpiCard('Total Transactions', fmt(k.total_transactions), '150k payments', '#7c3aed') +
-  kpiCard('Avg Completion Rate', fmtPct(k.avg_completion_pct), 'target > 93%', COLORS.green) +
-  kpiCard('Avg Fraud Rate', fmtPct(k.avg_fraud_pct), `${fmt(k.total_fraud_events)} events`, COLORS.red);
+const k=D.kpis[0], r=D.rfm_kpis[0], fk=D.fraud_kpis[0];
+kpi('kpi1',[
+  {label:'Total Volume',value:`£${k.total_volume_m}M`,sub:'Jan 2023 – Dec 2024',color:'#00d4ff'},
+  {label:'Total Transactions',value:fmt(k.total_transactions),sub:'150k payments',color:'#7c3aed'},
+  {label:'Avg Completion Rate',value:k.avg_completion_pct+'%',sub:'target > 93%',color:'#10b981'},
+  {label:'Avg Fraud Rate',value:k.avg_fraud_pct+'%',sub:fmt(k.total_fraud_events)+' events',color:'#ef4444'},
+]);
+kpi('kpi2',[
+  {label:'Total Customers',value:fmt(r.total_customers),sub:'active base',color:'#00d4ff'},
+  {label:'High Value',value:fmt(r.high_value),sub:'Champions + Loyal',color:'#7c3aed'},
+  {label:'At Risk',value:fmt(r.at_risk),sub:'need win-back',color:'#ef4444'},
+  {label:'Total LTV',value:'£'+(r.total_ltv_gbp/1e6).toFixed(2)+'M',sub:'aggregate spend',color:'#10b981'},
+]);
+kpi('kpi3',[
+  {label:'Fraud Events',value:fmt(fk.total_fraud_events),sub:'flagged transactions',color:'#ef4444'},
+  {label:'Fraud Amount',value:'£'+fmt(fk.total_fraud_gbp),sub:'GBP-normalised',color:'#f97316'},
+  {label:'Disputed',value:fmt(fk.disputed),sub:'customer raised',color:'#f59e0b'},
+  {label:'Affected Customers',value:fmt(fk.affected_customers),sub:(fk.affected_customers/2000*100).toFixed(0)+'% of base',color:'#a855f7'},
+]);
 
-// CUSTOMERS KPIs
-const r = D.rfm_kpis[0];
-document.getElementById('kpi-customers').innerHTML =
-  kpiCard('Total Customers', fmt(r.total_customers), 'active base', COLORS.accent) +
-  kpiCard('High Value', fmt(r.high_value), 'Champions + Loyal', '#7c3aed') +
-  kpiCard('At Risk', fmt(r.at_risk), 'need win-back', COLORS.red) +
-  kpiCard('Total LTV', `£${(r.total_ltv_gbp/1e6).toFixed(2)}M`, 'aggregate spend', COLORS.green);
-
-// RISK KPIs
-const f = D.fraud_kpis[0];
-document.getElementById('kpi-risk').innerHTML =
-  kpiCard('Fraud Events', fmt(f.total_fraud_events), 'flagged transactions', COLORS.red) +
-  kpiCard('Fraud Amount', fmtGBP(f.total_fraud_gbp), 'GBP-normalised', '#f97316') +
-  kpiCard('Disputed', fmt(f.disputed), 'customer raised', COLORS.amber) +
-  kpiCard('Affected Customers', fmt(f.affected_customers), `${fmtPct(f.affected_customers/2000*100)} of base`, '#a855f7');
-
-// ── CHARTS ─────────────────────────────────────────────────────────────────────
-// P1: Volume
-new Chart(document.getElementById('chart-volume'), {
-  type: 'bar',
-  data: {
-    labels: D.monthly_volume.map(d => d.month),
-    datasets: [{
-      data: D.monthly_volume.map(d => d.volume_gbp),
-      backgroundColor: D.monthly_volume.map((d,i) => i >= 12 ? 'rgba(0,212,255,0.7)' : 'rgba(0,212,255,0.35)'),
-      borderColor: COLORS.accent, borderWidth: 1, borderRadius: 3,
-    }]
-  },
-  options: { ...chartDefaults,
-    plugins: { ...chartDefaults.plugins,
-      tooltip: { ...chartDefaults.plugins.tooltip, callbacks: { label: ctx => ' £' + fmt(ctx.raw) } }
-    },
-    scales: { ...chartDefaults.scales,
-      x: { ...chartDefaults.scales.x, ticks: { ...chartDefaults.scales.x.ticks, maxRotation: 45 } },
-      y: { ...chartDefaults.scales.y, ticks: { ...chartDefaults.scales.y.ticks, callback: v => '£' + (v/1000).toFixed(0) + 'k' } }
-    }
-  }
-});
-
-// P1: Rates dual axis
-new Chart(document.getElementById('chart-rates'), {
-  type: 'line',
-  data: {
-    labels: D.monthly_volume.map(d => d.month),
-    datasets: [
-      { label: 'Completion %', data: D.monthly_volume.map(d => d.completion_pct), borderColor: COLORS.green, backgroundColor: 'rgba(16,185,129,0.1)', tension: 0.4, fill: true, pointRadius: 2 },
-      { label: 'Fraud %', data: D.monthly_volume.map(d => d.fraud_pct), borderColor: COLORS.red, backgroundColor: 'rgba(239,68,68,0.05)', tension: 0.4, fill: true, pointRadius: 2, yAxisID: 'y1' }
-    ]
-  },
-  options: { ...chartDefaults,
-    plugins: { ...chartDefaults.plugins, legend: { display: true, labels: { color: '#64748b', font: { size: 11, family: "'IBM Plex Mono'" }, boxWidth: 12 } } },
-    scales: {
-      x: chartDefaults.scales.x,
-      y: { ...chartDefaults.scales.y, ticks: { ...chartDefaults.scales.y.ticks, callback: v => v + '%' }, min: 88, max: 96 },
-      y1: { ...chartDefaults.scales.y, position: 'right', ticks: { ...chartDefaults.scales.y.ticks, callback: v => v + '%' }, grid: { display: false }, min: 0, max: 5 }
-    }
-  }
-});
-
-// P1: Fraud events bar
-new Chart(document.getElementById('chart-fraud-monthly'), {
-  type: 'bar',
-  data: {
-    labels: D.monthly_volume.map(d => d.month),
-    datasets: [{ data: D.monthly_volume.map(d => d.fraud_events), backgroundColor: 'rgba(239,68,68,0.6)', borderColor: COLORS.red, borderWidth: 1, borderRadius: 2 }]
-  },
-  options: { ...chartDefaults }
-});
-
-// P1: Channel
-new Chart(document.getElementById('chart-channel'), {
-  type: 'bar',
-  data: {
-    labels: D.channel_mix.map(d => d.channel.toUpperCase()),
-    datasets: [{ data: D.channel_mix.map(d => d.volume_gbp), backgroundColor: COLORS.palette.slice(0,4).map(c => c + 'aa'), borderColor: COLORS.palette.slice(0,4), borderWidth: 1, borderRadius: 4 }]
-  },
-  options: { ...chartDefaults,
-    scales: { ...chartDefaults.scales, y: { ...chartDefaults.scales.y, ticks: { ...chartDefaults.scales.y.ticks, callback: v => '£' + (v/1e6).toFixed(1) + 'M' } } }
-  }
-});
-
-// P1: Currency pie
-new Chart(document.getElementById('chart-currency'), {
-  type: 'doughnut',
-  data: {
-    labels: D.currency_mix.map(d => d.currency),
-    datasets: [{ data: D.currency_mix.map(d => d.pct), backgroundColor: COLORS.palette.slice(0,6), borderWidth: 2, borderColor: '#111827' }]
-  },
-  options: { ...chartDefaults,
-    cutout: '62%',
-    plugins: { ...chartDefaults.plugins, legend: { display: true, position: 'right', labels: { color: '#94a3b8', font: { size: 11, family: "'IBM Plex Mono'" }, boxWidth: 12, padding: 8 } } }
-  }
-});
-
-// P2: RFM bar
-new Chart(document.getElementById('chart-rfm-bar'), {
-  type: 'bar',
-  data: {
-    labels: D.rfm_segments.map(d => d.rfm_segment),
-    datasets: [{ data: D.rfm_segments.map(d => d.customers), backgroundColor: D.rfm_segments.map(d => {
-      const g = d.segment_group;
-      return g==='High Value'?'rgba(0,212,255,0.7)':g==='Growth'?'rgba(124,58,237,0.7)':g==='At Risk'?'rgba(239,68,68,0.7)':g==='Slipping'?'rgba(245,158,11,0.7)':'rgba(100,116,139,0.5)';
-    }), borderWidth: 0, borderRadius: 3 }]
-  },
-  options: { ...chartDefaults, indexAxis: 'y',
-    scales: { x: chartDefaults.scales.x, y: { ...chartDefaults.scales.y, ticks: { ...chartDefaults.scales.y.ticks, font: { size: 11, family: "'IBM Plex Sans'" } } } }
-  }
-});
-
-// P2: Segment groups donut
-new Chart(document.getElementById('chart-seg-groups'), {
-  type: 'doughnut',
-  data: {
-    labels: D.segment_groups.map(d => d.segment_group),
-    datasets: [{ data: D.segment_groups.map(d => d.total_spend),
-      backgroundColor: ['rgba(0,212,255,0.8)','rgba(124,58,237,0.8)','rgba(100,116,139,0.6)','rgba(245,158,11,0.8)','rgba(239,68,68,0.8)','rgba(148,163,184,0.5)'],
-      borderWidth: 2, borderColor: '#111827' }]
-  },
-  options: { ...chartDefaults, cutout: '55%',
-    plugins: { ...chartDefaults.plugins, legend: { display: true, position: 'bottom', labels: { color: '#94a3b8', font: { size: 10, family: "'IBM Plex Mono'" }, boxWidth: 12, padding: 6 } },
-      tooltip: { ...chartDefaults.plugins.tooltip, callbacks: { label: ctx => ` £${fmt(ctx.raw)}` } }
-    }
-  }
-});
-
-// P2: Segment bars
-const maxCust = Math.max(...D.rfm_segments.map(d => d.customers));
-const segColors = { 'High Value':'#00d4ff','Growth':'#7c3aed','Slipping':'#f59e0b','At Risk':'#ef4444','Lost':'#64748b','Others':'#475569' };
-document.getElementById('seg-bars').innerHTML = D.rfm_segments.map(d => `
-  <div class="seg-row">
-    <div class="seg-label">${d.rfm_segment}</div>
-    <div class="seg-bar-wrap">
-      <div class="seg-bar" style="width:${(d.customers/maxCust*100)}%;background:${segColors[d.segment_group]||'#475569'}20;border-left:3px solid ${segColors[d.segment_group]||'#475569'}">
-        <span style="color:${segColors[d.segment_group]||'#475569'}">${d.segment_group}</span>
-      </div>
-    </div>
-    <div class="seg-count">${d.customers}</div>
-  </div>`).join('');
-
-// P2: Cohort table
-const cohorts = [...new Set(D.cohort_retention.map(d => d.cohort))].slice(-12);
-const months = [0,1,2,3,4,5,6];
-const cohortMap = {};
-D.cohort_retention.forEach(d => { if(!cohortMap[d.cohort]) cohortMap[d.cohort]={}; cohortMap[d.cohort][d.months_since_signup]=d.retention_pct; });
-function retColor(v) {
-  if(v==null) return '#1a2235';
-  if(v>=95) return 'rgba(16,185,129,0.3)';
-  if(v>=90) return 'rgba(0,212,255,0.2)';
-  if(v>=85) return 'rgba(245,158,11,0.2)';
-  return 'rgba(239,68,68,0.2)';
+// ── CANVAS CHARTING ENGINE ─────────────────────────────────────────────────
+function setupCanvas(id) {
+  const canvas = $(id);
+  const parent = canvas.parentElement;
+  canvas.width  = parent.clientWidth - 40;
+  canvas.height = parseInt(canvas.getAttribute('height'));
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  return {ctx, W: canvas.width, H: canvas.height};
 }
-document.getElementById('cohort-table').innerHTML =
-  `<thead><tr><th>Cohort</th><th>Size</th>${months.map(m=>`<th>M${m}</th>`).join('')}</tr></thead>` +
-  `<tbody>${cohorts.map(c => {
-    const row = cohortMap[c]||{};
-    const size = D.cohort_retention.find(d=>d.cohort===c)?.cohort_size||'—';
-    return `<tr><td class="cohort-label mono">${c}</td><td class="mono" style="color:#64748b">${size}</td>${months.map(m => {
-      const v = row[m];
-      return `<td style="background:${retColor(v)};color:${v==null?'#1e2d45':'#e2e8f0'}">${v!=null?v+'%':'—'}</td>`;
-    }).join('')}</tr>`;
-  }).join('')}</tbody>`;
 
-// P2: Top customers table
-document.getElementById('table-customers').innerHTML =
-  `<thead><tr><th>Name</th><th>Country</th><th>Tier</th><th>Segment</th><th>Spend (GBP)</th><th>Txns</th><th>Last Active</th><th>RFM Score</th><th>Recommended Action</th></tr></thead>` +
-  `<tbody>${D.top_customers.map(d => {
-    const sg = d.segment_group?.toLowerCase().replace(' ','-')||'others';
-    return `<tr>
-      <td style="font-weight:500">${d.full_name}</td>
-      <td class="mono" style="color:#64748b">${d.country_code}</td>
-      <td><span class="badge badge-${d.account_tier==='business'?'high':d.account_tier==='premium'?'growth':'others'}">${d.account_tier}</span></td>
-      <td><span class="badge badge-${sg}">${d.rfm_segment}</span></td>
-      <td class="mono" style="color:#00d4ff">£${fmt(d.spend_gbp)}</td>
-      <td class="mono">${fmt(d.frequency)}</td>
-      <td class="mono" style="color:#64748b">${d.recency_days}d ago</td>
-      <td class="mono" style="color:#7c3aed;font-weight:600">${d.rfm_total}</td>
-      <td style="color:#94a3b8;font-size:12px">${d.recommended_action}</td>
-    </tr>`;
-  }).join('')}</tbody>`;
-
-// P3: Fraud by category
-new Chart(document.getElementById('chart-fraud-cat'), {
-  type: 'bar',
-  data: {
-    labels: D.fraud_by_category.map(d => d.merchant_category),
-    datasets: [{ data: D.fraud_by_category.map(d => d.fraud_events), backgroundColor: 'rgba(239,68,68,0.65)', borderColor: COLORS.red, borderWidth: 1, borderRadius: 3 }]
-  },
-  options: { ...chartDefaults, indexAxis: 'y' }
-});
-
-// P3: Fraud by channel
-new Chart(document.getElementById('chart-fraud-channel'), {
-  type: 'bar',
-  data: {
-    labels: D.fraud_by_channel.map(d => d.channel.toUpperCase()),
-    datasets: [{ data: D.fraud_by_channel.map(d => d.fraud_amount), backgroundColor: COLORS.palette.slice(0,4).map(c => c+'99'), borderColor: COLORS.palette.slice(0,4), borderWidth: 1, borderRadius: 4 }]
-  },
-  options: { ...chartDefaults,
-    scales: { ...chartDefaults.scales, y: { ...chartDefaults.scales.y, ticks: { ...chartDefaults.scales.y.ticks, callback: v => '£' + (v/1000).toFixed(0) + 'k' } } }
+// Draw axes grid
+function drawGrid(ctx, W, H, pad, yMin, yMax, ySteps, labels, fmtY) {
+  const plotW = W - pad.l - pad.r;
+  const plotH = H - pad.t - pad.b;
+  ctx.strokeStyle = '#1e2d45';
+  ctx.lineWidth = 1;
+  // horizontal gridlines
+  for (let i=0; i<=ySteps; i++) {
+    const y = pad.t + plotH - (i/ySteps)*plotH;
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l+plotW, y); ctx.stroke();
+    const val = yMin + (yMax-yMin)*(i/ySteps);
+    ctx.fillStyle='#64748b'; ctx.font='10px IBM Plex Mono,monospace';
+    ctx.textAlign='right'; ctx.fillText(fmtY(val), pad.l-6, y+4);
   }
-});
+  // x labels
+  ctx.textAlign='center'; ctx.fillStyle='#64748b'; ctx.font='10px IBM Plex Mono,monospace';
+  const step = Math.ceil(labels.length/12);
+  labels.forEach((l,i) => {
+    if(i%step===0) {
+      const x = pad.l + (i/(labels.length-1||1))*plotW;
+      ctx.fillText(l, x, H-pad.b+16);
+    }
+  });
+}
 
-// P3: Risk band bars
-const maxVol = Math.max(...D.risk_bands.map(d => d.total_volume));
-const bandColors = { critical: '#ef4444', elevated: '#f59e0b', standard: '#10b981' };
-document.getElementById('risk-band-bars').innerHTML = D.risk_bands.map(d => `
-  <div class="seg-row">
-    <div class="seg-label" style="text-transform:capitalize">${d.risk_band} <span style="font-size:11px;color:#64748b">(${d.merchants} merchants)</span></div>
-    <div class="seg-bar-wrap">
-      <div class="seg-bar" style="width:${(d.total_volume/maxVol*100)}%;background:${bandColors[d.risk_band]}22;border-left:3px solid ${bandColors[d.risk_band]}">
-        <span style="color:${bandColors[d.risk_band]}">£${(d.total_volume/1e6).toFixed(2)}M vol · ${d.avg_fraud_pct}% fraud</span>
-      </div>
-    </div>
-  </div>`).join('');
+// BAR CHART
+function barChart(id, labels, datasets, opts={}) {
+  const {ctx,W,H} = setupCanvas(id);
+  const pad = opts.pad || {l:55,r:20,t:15,b:35};
+  const plotW = W-pad.l-pad.r, plotH = H-pad.t-pad.b;
+  const allVals = datasets.flatMap(d=>d.data).filter(v=>v!=null);
+  const yMin = 0, yMax = (opts.yMax || Math.ceil(Math.max(...allVals)*1.15));
+  const fmtY = opts.fmtY || (v => v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?(v/1e3).toFixed(0)+'k':v.toFixed(0));
+  drawGrid(ctx,W,H,pad,yMin,yMax,5,labels,fmtY);
+  const nGroups = labels.length;
+  const nSeries = datasets.length;
+  const groupW = plotW/nGroups;
+  const barW = Math.min(groupW*0.7/nSeries, 40);
+  datasets.forEach((ds,si) => {
+    ds.data.forEach((v,i) => {
+      if(v==null) return;
+      const x = pad.l + i*groupW + groupW/2 - (nSeries*barW)/2 + si*barW;
+      const barH = (v/yMax)*plotH;
+      const y = pad.t+plotH-barH;
+      ctx.fillStyle = ds.color || COLORS[si%COLORS.length];
+      ctx.beginPath();
+      ctx.roundRect ? ctx.roundRect(x,y,barW-2,barH,3) : ctx.rect(x,y,barW-2,barH);
+      ctx.fill();
+    });
+  });
+}
 
-// P3: Merchant risk table
-document.getElementById('table-merchants').innerHTML =
-  `<thead><tr><th>Merchant</th><th>Category</th><th>Transactions</th><th>Volume (GBP)</th><th>Fraud %</th><th>Dispute %</th><th>Risk Score</th><th>Band</th></tr></thead>` +
-  `<tbody>${D.merchant_risk.map(d => `<tr>
-    <td style="font-weight:500">${d.merchant_name}</td>
-    <td style="color:#94a3b8">${d.merchant_category}</td>
-    <td class="mono">${fmt(d.total_transactions)}</td>
-    <td class="mono" style="color:#94a3b8">£${fmt(d.volume_gbp)}</td>
-    <td class="mono" style="color:${d.fraud_pct>4?'#f87171':d.fraud_pct>2?'#fbbf24':'#34d399'}">${d.fraud_pct}%</td>
-    <td class="mono" style="color:#94a3b8">${d.dispute_pct}%</td>
-    <td class="mono" style="color:#7c3aed;font-weight:600">${d.risk_score}</td>
-    <td><span class="badge badge-${d.risk_band}">${d.risk_band}</span></td>
-  </tr>`).join('')}</tbody>`;
+// HORIZONTAL BAR
+function hBarChart(id, labels, values, colors) {
+  const {ctx,W,H} = setupCanvas(id);
+  const pad = {l:130,r:50,t:10,b:10};
+  const plotW = W-pad.l-pad.r, plotH = H-pad.t-pad.b;
+  const maxV = Math.max(...values)*1.1;
+  const rowH = plotH/labels.length;
+  labels.forEach((label,i) => {
+    const y = pad.t + i*rowH;
+    const bW = (values[i]/maxV)*plotW;
+    const color = colors?colors[i%colors.length]:COLORS[i%COLORS.length];
+    // bar bg
+    ctx.fillStyle = color+'22';
+    ctx.beginPath();
+    ctx.roundRect ? ctx.roundRect(pad.l,y+rowH*.15,plotW,rowH*.7,3) : ctx.rect(pad.l,y+rowH*.15,plotW,rowH*.7);
+    ctx.fill();
+    // bar fill
+    ctx.fillStyle = color+'cc';
+    ctx.beginPath();
+    ctx.roundRect ? ctx.roundRect(pad.l,y+rowH*.15,bW,rowH*.7,3) : ctx.rect(pad.l,y+rowH*.15,bW,rowH*.7);
+    ctx.fill();
+    // label
+    ctx.fillStyle='#e2e8f0'; ctx.font='12px IBM Plex Sans,sans-serif';
+    ctx.textAlign='right'; ctx.fillText(label, pad.l-8, y+rowH*0.65);
+    // value
+    ctx.fillStyle='#94a3b8'; ctx.font='11px IBM Plex Mono,monospace';
+    ctx.textAlign='left'; ctx.fillText(fmt(values[i]), pad.l+bW+6, y+rowH*0.65);
+  });
+}
+
+// LINE CHART
+function lineChart(id, labels, datasets, opts={}) {
+  const {ctx,W,H} = setupCanvas(id);
+  const pad = opts.pad||{l:52,r:50,t:15,b:35};
+  const plotW = W-pad.l-pad.r, plotH = H-pad.t-pad.b;
+  datasets.forEach((ds,si) => {
+    const vals = ds.data;
+    const yMin = opts.yMin!=null?opts.yMin:Math.min(...vals)*0.995;
+    const yMax = opts.yMax!=null?opts.yMax:Math.max(...vals)*1.005;
+    const range = yMax-yMin||1;
+    const fmtY = opts.fmtY||(v=>v.toFixed(1));
+    if(si===0) drawGrid(ctx,W,H,pad,yMin,yMax,5,labels,fmtY);
+    // area fill
+    ctx.beginPath();
+    vals.forEach((v,i)=>{
+      const x=pad.l+(i/(labels.length-1))*plotW;
+      const y=pad.t+plotH-((v-yMin)/range)*plotH;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    const lastX=pad.l+plotW, firstX=pad.l;
+    ctx.lineTo(lastX,pad.t+plotH); ctx.lineTo(firstX,pad.t+plotH); ctx.closePath();
+    ctx.fillStyle=(ds.color||COLORS[si])+'18'; ctx.fill();
+    // line
+    ctx.beginPath(); ctx.strokeStyle=ds.color||COLORS[si]; ctx.lineWidth=2;
+    ctx.lineJoin='round';
+    vals.forEach((v,i)=>{
+      const x=pad.l+(i/(labels.length-1))*plotW;
+      const y=pad.t+plotH-((v-yMin)/range)*plotH;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+    // dots
+    ctx.fillStyle=ds.color||COLORS[si];
+    vals.forEach((v,i)=>{
+      const x=pad.l+(i/(labels.length-1))*plotW;
+      const y=pad.t+plotH-((v-yMin)/range)*plotH;
+      ctx.beginPath(); ctx.arc(x,y,3,0,Math.PI*2); ctx.fill();
+    });
+    // legend
+    ctx.fillStyle=ds.color||COLORS[si];
+    ctx.fillRect(W-45+si*0,12+si*16,10,3);
+    ctx.fillStyle='#94a3b8'; ctx.font='10px IBM Plex Mono,monospace';
+    ctx.textAlign='left'; ctx.fillText(ds.label||'', W-30+si*0, 16+si*16);
+  });
+}
+
+// DONUT CHART
+function donutChart(id, labels, values, colors) {
+  const {ctx,W,H} = setupCanvas(id);
+  const cx=W/2-60, cy=H/2, r=Math.min(H,W)*0.38, inner=r*0.58;
+  const total=values.reduce((a,b)=>a+b,0);
+  let angle=-Math.PI/2;
+  values.forEach((v,i)=>{
+    const slice=(v/total)*Math.PI*2;
+    ctx.beginPath(); ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,r,angle,angle+slice);
+    ctx.closePath(); ctx.fillStyle=colors[i%colors.length]; ctx.fill();
+    angle+=slice;
+  });
+  // inner hole
+  ctx.beginPath(); ctx.arc(cx,cy,inner,0,Math.PI*2);
+  ctx.fillStyle='#111827'; ctx.fill();
+  // legend
+  const legendX=W-120, legendY=H/2-(labels.length*18)/2;
+  labels.forEach((l,i)=>{
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.fillRect(legendX,legendY+i*20,10,10);
+    ctx.fillStyle='#94a3b8'; ctx.font='11px IBM Plex Mono,monospace';
+    ctx.textAlign='left';
+    const pct=((values[i]/total)*100).toFixed(1);
+    ctx.fillText(`${l} ${pct}%`,legendX+14,legendY+i*20+10);
+  });
+}
+
+// ── DRAW ALL CHARTS ────────────────────────────────────────────────────────
+function drawAll() {
+  const mv = D.monthly_volume;
+  const labels = mv.map(d=>d.month.slice(2)); // '23-01' format
+
+  // P1 charts
+  if($('c-vol') && $('page-payments').classList.contains('active')) {
+    barChart('c-vol', labels,
+      [{data:mv.map(d=>d.volume_gbp), color:'#00d4ff'}],
+      {fmtY:v=>'£'+(v/1000).toFixed(0)+'k', pad:{l:65,r:20,t:15,b:35}});
+
+    lineChart('c-rates', labels,
+      [{data:mv.map(d=>d.completion_pct),label:'Completion%',color:'#10b981'},
+       {data:mv.map(d=>d.fraud_pct*10),label:'Fraud%×10',color:'#ef4444'}],
+      {yMin:88,yMax:100,fmtY:v=>v.toFixed(0)+'%'});
+
+    barChart('c-fraud-m', labels,
+      [{data:mv.map(d=>d.fraud_events),color:'#ef4444'}],
+      {fmtY:v=>v.toFixed(0)});
+
+    const ch=D.channel_mix;
+    barChart('c-channel', ch.map(d=>d.channel.toUpperCase()),
+      [{data:ch.map(d=>d.volume_gbp),color:'#7c3aed'}],
+      {fmtY:v=>'£'+(v/1e6).toFixed(1)+'M'});
+
+    donutChart('c-currency',
+      D.currency_mix.map(d=>d.currency),
+      D.currency_mix.map(d=>d.volume_gbp),
+      COLORS);
+  }
+
+  // P2 charts
+  if($('c-rfm') && $('page-customers').classList.contains('active')) {
+    hBarChart('c-rfm',
+      D.rfm_segments.map(d=>d.rfm_segment),
+      D.rfm_segments.map(d=>d.customers),
+      D.rfm_segments.map(d=>SEG_COLORS[d.segment_group]||'#475569'));
+
+    donutChart('c-seg-pie',
+      D.segment_groups.map(d=>d.segment_group),
+      D.segment_groups.map(d=>d.total_spend),
+      ['#00d4ff','#7c3aed','#64748b','#f59e0b','#ef4444','#94a3b8']);
+
+    // segment bars
+    const maxC=Math.max(...D.rfm_segments.map(d=>d.customers));
+    $('seg-bars').innerHTML=D.rfm_segments.map(d=>`
+      <div class="seg-row">
+        <div class="seg-label">${d.rfm_segment}</div>
+        <div class="seg-track">
+          <div class="seg-fill" style="width:${(d.customers/maxC*100)}%;background:${SEG_COLORS[d.segment_group]||'#475569'}33;border-left:3px solid ${SEG_COLORS[d.segment_group]||'#475569'}">
+            <span style="color:${SEG_COLORS[d.segment_group]||'#475569'}">${d.segment_group} · avg £${fmt(d.avg_spend)}</span>
+          </div>
+        </div>
+        <div class="seg-num">${d.customers}</div>
+      </div>`).join('');
+
+    // cohort table
+    const cohorts=[...new Set(D.cohort_retention.map(d=>d.cohort))].slice(-10);
+    const months=[0,1,2,3,4,5,6];
+    const map={};
+    D.cohort_retention.forEach(d=>{if(!map[d.cohort])map[d.cohort]={};map[d.cohort][d.months_since_signup]=d.retention_pct;});
+    function rc(v){if(v==null)return'#0f172a';if(v>=95)return'rgba(16,185,129,.35)';if(v>=90)return'rgba(0,212,255,.2)';if(v>=85)return'rgba(245,158,11,.2)';return'rgba(239,68,68,.2)';}
+    $('t-cohort').innerHTML=
+      `<thead><tr><th>Cohort</th><th>Size</th>${months.map(m=>`<th>M${m}</th>`).join('')}</tr></thead>`+
+      `<tbody>${cohorts.map(c=>{
+        const size=D.cohort_retention.find(d=>d.cohort===c)?.cohort_size||'—';
+        return`<tr><td class="mono" style="color:#00d4ff">${c}</td><td class="mono" style="color:#64748b">${size}</td>${months.map(m=>{const v=map[c]?.[m];return`<td class="cohort-cell" style="background:${rc(v)}">${v!=null?v+'%':'—'}</td>`;}).join('')}</tr>`;
+      }).join('')}</tbody>`;
+
+    // top customers
+    $('t-customers').innerHTML=
+      `<thead><tr><th>Name</th><th>Country</th><th>Tier</th><th>Segment</th><th>Spend (GBP)</th><th>Txns</th><th>Last Active</th><th>RFM Score</th><th>Action</th></tr></thead>`+
+      `<tbody>${D.top_customers.map(d=>{
+        const sg=d.segment_group;
+        const bc=sg==='High Value'?'b-hv':sg==='Growth'?'b-growth':sg==='At Risk'?'b-risk':sg==='Slipping'?'b-slipping':'b-lost';
+        return`<tr>
+          <td style="font-weight:500">${d.full_name}</td>
+          <td class="mono" style="color:#64748b">${d.country_code}</td>
+          <td><span class="badge ${d.account_tier==='business'?'b-hv':d.account_tier==='premium'?'b-growth':'b-lost'}">${d.account_tier}</span></td>
+          <td><span class="badge ${bc}">${d.rfm_segment}</span></td>
+          <td class="mono" style="color:#00d4ff">£${fmt(d.spend_gbp)}</td>
+          <td class="mono">${d.frequency}</td>
+          <td class="mono" style="color:#64748b">${d.recency_days}d ago</td>
+          <td class="mono" style="color:#7c3aed;font-weight:600">${d.rfm_total}</td>
+          <td style="color:#94a3b8;font-size:11px;max-width:180px;white-space:normal">${d.recommended_action}</td>
+        </tr>`;
+      }).join('')}</tbody>`;
+  }
+
+  // P3 charts
+  if($('c-fcat') && $('page-risk').classList.contains('active')) {
+    hBarChart('c-fcat',
+      D.fraud_by_category.map(d=>d.merchant_category),
+      D.fraud_by_category.map(d=>d.fraud_events),
+      D.fraud_by_category.map((_,i)=>['#ef4444','#f87171','#fca5a5','#fecaca','#fee2e2','#fef2f2','#ef4444','#f87171','#fca5a5','#fecaca'][i]));
+
+    barChart('c-fchan',
+      D.fraud_by_channel.map(d=>d.channel.toUpperCase()),
+      [{data:D.fraud_by_channel.map(d=>d.fraud_amount),color:'#f97316'}],
+      {fmtY:v=>'£'+(v/1000).toFixed(0)+'k'});
+
+    // risk band bars
+    const maxV=Math.max(...D.risk_bands.map(d=>d.total_volume));
+    const bandColors={critical:'#ef4444',elevated:'#f59e0b',standard:'#10b981'};
+    $('risk-bars').innerHTML=D.risk_bands.map(d=>`
+      <div class="seg-row">
+        <div class="seg-label" style="text-transform:capitalize;width:180px">
+          ${d.risk_band} <span style="color:#64748b;font-size:11px">(${d.merchants} merchants)</span>
+        </div>
+        <div class="seg-track">
+          <div class="seg-fill" style="width:${(d.total_volume/maxV*100)}%;background:${bandColors[d.risk_band]}22;border-left:3px solid ${bandColors[d.risk_band]}">
+            <span style="color:${bandColors[d.risk_band]}">£${(d.total_volume/1e6).toFixed(2)}M vol · ${d.avg_fraud_pct}% fraud rate</span>
+          </div>
+        </div>
+      </div>`).join('');
+
+    $('t-merchants').innerHTML=
+      `<thead><tr><th>Merchant</th><th>Category</th><th>Transactions</th><th>Volume</th><th>Fraud %</th><th>Dispute %</th><th>Risk Score</th><th>Band</th></tr></thead>`+
+      `<tbody>${D.merchant_risk.map(d=>`<tr>
+        <td style="font-weight:500">${d.merchant_name}</td>
+        <td style="color:#94a3b8">${d.merchant_category}</td>
+        <td class="mono">${fmt(d.total_transactions)}</td>
+        <td class="mono" style="color:#94a3b8">£${fmt(d.volume_gbp)}</td>
+        <td class="mono" style="color:${d.fraud_pct>4?'#f87171':d.fraud_pct>2?'#fbbf24':'#34d399'}">${d.fraud_pct}%</td>
+        <td class="mono" style="color:#94a3b8">${d.dispute_pct}%</td>
+        <td class="mono" style="color:#7c3aed;font-weight:600">${d.risk_score}</td>
+        <td><span class="badge b-${d.risk_band}">${d.risk_band}</span></td>
+      </tr>`).join('')}</tbody>`;
+  }
+}
+
+// Initial draw + redraw on resize
+drawAll();
+window.addEventListener('resize', ()=>{ setTimeout(drawAll,100); });
 </script>
 </body>
 </html>

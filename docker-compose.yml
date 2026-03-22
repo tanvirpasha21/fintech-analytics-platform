@@ -1,0 +1,193 @@
+version: "3.9"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Fintech Analytics Platform — Full Stack
+#
+# Services:
+#   zookeeper         Kafka coordination
+#   kafka             Message broker (3 partitions per topic)
+#   kafka-ui          Kafka browser  → http://localhost:8080
+#   kafka-init        Creates topics on first boot
+#   airflow-init      Initialises Airflow DB + admin user
+#   airflow-web       Airflow UI     → http://localhost:8081
+#   airflow-scheduler Runs DAGs on schedule
+#
+# Quick start:
+#   docker compose up -d
+#   # wait ~60s for init, then open:
+#   #   http://localhost:8080  — Kafka UI
+#   #   http://localhost:8081  — Airflow (admin / admin)
+#
+#   # In a separate terminal, stream transactions:
+#   python streaming/producer/transaction_producer.py --tps 5
+#
+# Stop everything:
+#   docker compose down -v
+# ─────────────────────────────────────────────────────────────────────────────
+
+x-airflow-common: &airflow-common
+  image: apache/airflow:2.9.1-python3.11
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/dags
+    AIRFLOW__LOGGING__LOG_LEVEL: WARNING
+    AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT: "60"
+    FINTECH_DB_PATH: /opt/airflow/data/fintech.duckdb
+    PYTHONPATH: /opt/airflow
+  volumes:
+    - ./airflow/dags:/opt/airflow/dags:ro
+    - ./airflow/logs:/opt/airflow/logs
+    - ./data:/opt/airflow/data
+    - ./fintech_dbt:/opt/airflow/fintech_dbt:ro
+    - ./scripts:/opt/airflow/scripts:ro
+
+services:
+
+  # ── KAFKA ─────────────────────────────────────────────────────────────────
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.0
+    container_name: fintech_zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    volumes:
+      - zookeeper_data:/var/lib/zookeeper/data
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.0
+    container_name: fintech_kafka
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_LOG_RETENTION_HOURS: 168
+      KAFKA_LOG_SEGMENT_BYTES: 1073741824
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+    restart: unless-stopped
+
+  kafka-init:
+    image: confluentinc/cp-kafka:7.6.0
+    container_name: fintech_kafka_init
+    depends_on:
+      kafka:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-c"]
+    command: |
+      "
+      echo 'Creating Kafka topics...'
+
+      kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists \
+        --topic fintech.transactions \
+        --partitions 3 \
+        --replication-factor 1 \
+        --config retention.ms=604800000 \
+        --config compression.type=gzip
+
+      kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists \
+        --topic fintech.fraud_alerts \
+        --partitions 3 \
+        --replication-factor 1 \
+        --config retention.ms=2592000000
+
+      kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists \
+        --topic fintech.dlq \
+        --partitions 1 \
+        --replication-factor 1
+
+      echo 'Topics ready:'
+      kafka-topics --bootstrap-server kafka:29092 --list
+      "
+    restart: "no"
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: fintech_kafka_ui
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: fintech-local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    depends_on:
+      kafka:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ── AIRFLOW ───────────────────────────────────────────────────────────────
+  airflow-init:
+    <<: *airflow-common
+    container_name: fintech_airflow_init
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        echo "Installing Python dependencies..."
+        pip install dbt-duckdb==1.8.0 duckdb==0.10.0 pandas faker kafka-python --quiet
+        echo "Initialising Airflow database..."
+        airflow db migrate
+        echo "Creating admin user..."
+        airflow users create \
+          --username admin \
+          --password admin \
+          --firstname Tanvir \
+          --lastname Anjum \
+          --role Admin \
+          --email contact@voidstudio.tech 2>/dev/null || echo "User already exists."
+        echo "Airflow ready!"
+    restart: "no"
+
+  airflow-web:
+    <<: *airflow-common
+    container_name: fintech_airflow_web
+    ports:
+      - "8081:8080"
+    command: webserver
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: fintech_airflow_scheduler
+    command: scheduler
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  zookeeper_data:
+  kafka_data:
