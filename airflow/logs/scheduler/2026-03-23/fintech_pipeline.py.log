@@ -1258,3 +1258,1165 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'duckdb'
 [2026-03-23T11:14:14.069+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
 [2026-03-23T11:14:14.101+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.061 seconds
+[2026-03-23T11:14:44.498+0000] {processor.py:161} INFO - Started process (PID=2591) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:14:44.499+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:14:44.502+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:14:44.501+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:14:44.511+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:14:44.509+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:14:44.511+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:14:44.537+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.047 seconds
+[2026-03-23T11:15:15.004+0000] {processor.py:161} INFO - Started process (PID=2601) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:15:15.006+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:15:15.007+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:15:15.007+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:15:15.022+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:15:15.015+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:15:15.022+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:15:15.047+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.053 seconds
+[2026-03-23T11:15:45.388+0000] {processor.py:161} INFO - Started process (PID=2611) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:15:45.392+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:15:45.393+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:15:45.392+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:15:45.402+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:15:45.400+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:15:45.403+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:15:45.437+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.055 seconds
+[2026-03-23T11:16:15.816+0000] {processor.py:161} INFO - Started process (PID=2621) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:16:15.817+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:16:15.818+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:16:15.818+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:16:15.829+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:16:15.826+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:16:15.832+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:16:15.854+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.042 seconds
+[2026-03-23T11:16:46.173+0000] {processor.py:161} INFO - Started process (PID=2631) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:16:46.174+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:16:46.174+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:16:46.174+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:16:46.185+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:16:46.182+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:16:46.186+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:16:46.213+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.048 seconds
+[2026-03-23T11:17:16.519+0000] {processor.py:161} INFO - Started process (PID=2641) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:17:16.520+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:17:16.521+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:17:16.521+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:17:16.529+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:17:16.528+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:17:16.530+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:17:16.553+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.039 seconds
+[2026-03-23T11:17:46.882+0000] {processor.py:161} INFO - Started process (PID=2651) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:17:46.884+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:17:46.886+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:17:46.885+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:17:46.897+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:17:46.895+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:17:46.898+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:17:46.933+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.061 seconds
+[2026-03-23T11:18:17.251+0000] {processor.py:161} INFO - Started process (PID=2661) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:18:17.252+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:18:17.253+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:18:17.253+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:18:17.261+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:18:17.259+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:18:17.262+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:18:17.281+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.034 seconds
+[2026-03-23T11:18:47.946+0000] {processor.py:161} INFO - Started process (PID=2671) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:18:47.949+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:18:47.950+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:18:47.950+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:18:47.964+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:18:47.960+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:18:47.965+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:18:47.989+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.055 seconds
+[2026-03-23T11:19:18.293+0000] {processor.py:161} INFO - Started process (PID=2681) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:19:18.294+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:19:18.296+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:19:18.296+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:19:18.304+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:19:18.301+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:19:18.306+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:19:18.326+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.037 seconds
+[2026-03-23T11:19:48.658+0000] {processor.py:161} INFO - Started process (PID=2691) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:19:48.659+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:19:48.661+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:19:48.660+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:19:48.672+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:19:48.670+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:19:48.673+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:19:48.708+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.055 seconds
+[2026-03-23T11:20:18.964+0000] {processor.py:161} INFO - Started process (PID=2701) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:20:18.965+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:20:18.966+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:20:18.966+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:20:18.974+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:20:18.972+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:20:18.974+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:20:18.996+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.038 seconds
+[2026-03-23T11:20:49.354+0000] {processor.py:161} INFO - Started process (PID=2711) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:20:49.356+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:20:49.358+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:20:49.358+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:20:49.368+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:20:49.366+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:20:49.369+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:20:49.389+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.049 seconds
+[2026-03-23T11:21:19.612+0000] {processor.py:161} INFO - Started process (PID=2721) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:21:19.615+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:21:19.616+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:21:19.616+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:21:19.633+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:21:19.628+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:21:19.634+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:21:19.660+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.056 seconds
+[2026-03-23T11:21:49.939+0000] {processor.py:161} INFO - Started process (PID=2731) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:21:49.940+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:21:49.942+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:21:49.941+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:21:49.950+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:21:49.947+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:21:49.950+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:21:49.970+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.036 seconds
+[2026-03-23T11:22:20.307+0000] {processor.py:161} INFO - Started process (PID=2741) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:22:20.308+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:22:20.310+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:22:20.310+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:22:20.321+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:22:20.319+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:22:20.321+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:22:20.354+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.061 seconds
+[2026-03-23T11:22:50.764+0000] {processor.py:161} INFO - Started process (PID=2751) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:22:50.765+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:22:50.766+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:22:50.766+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:22:50.780+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:22:50.776+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:22:50.781+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:22:50.817+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.061 seconds
+[2026-03-23T11:23:21.204+0000] {processor.py:161} INFO - Started process (PID=2761) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:23:21.207+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:23:21.208+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:23:21.208+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:23:21.222+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:23:21.220+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:23:21.223+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:23:21.260+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.065 seconds
+[2026-03-23T11:23:51.665+0000] {processor.py:161} INFO - Started process (PID=2771) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:23:51.667+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:23:51.669+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:23:51.668+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:23:51.677+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:23:51.675+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:23:51.677+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:23:51.703+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.043 seconds
+[2026-03-23T11:24:22.110+0000] {processor.py:161} INFO - Started process (PID=2781) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:24:22.111+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:24:22.111+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:24:22.111+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:24:22.119+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:24:22.118+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:24:22.120+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:24:22.150+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.045 seconds
+[2026-03-23T11:24:52.538+0000] {processor.py:161} INFO - Started process (PID=2791) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:24:52.539+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:24:52.541+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:24:52.540+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:24:52.555+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:24:52.553+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:24:52.556+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:24:52.593+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.066 seconds
+[2026-03-23T11:25:23.044+0000] {processor.py:161} INFO - Started process (PID=2801) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:25:23.047+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:25:23.047+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:25:23.047+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:25:23.060+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:25:23.056+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:25:23.062+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:25:23.089+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.052 seconds
+[2026-03-23T11:25:53.701+0000] {processor.py:161} INFO - Started process (PID=2811) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:25:53.703+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:25:53.704+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:25:53.704+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:25:53.717+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:25:53.715+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:25:53.718+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:25:53.750+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.061 seconds
+[2026-03-23T11:26:24.156+0000] {processor.py:161} INFO - Started process (PID=2821) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:26:24.158+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:26:24.159+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:26:24.159+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:26:24.171+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:26:24.169+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:26:24.173+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:26:24.202+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.058 seconds
+[2026-03-23T11:26:54.724+0000] {processor.py:161} INFO - Started process (PID=2831) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:26:54.726+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:26:54.726+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:26:54.726+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:26:54.735+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:26:54.733+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:26:54.735+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:26:54.761+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.047 seconds
+[2026-03-23T11:27:25.468+0000] {processor.py:161} INFO - Started process (PID=2841) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:27:25.469+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:27:25.471+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:27:25.471+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:27:25.483+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:27:25.481+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:27:25.484+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:27:25.517+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.063 seconds
+[2026-03-23T11:27:55.854+0000] {processor.py:161} INFO - Started process (PID=2851) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:27:55.855+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:27:55.857+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:27:55.857+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:27:55.865+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:27:55.862+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:27:55.866+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:27:55.886+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.036 seconds
+[2026-03-23T11:28:26.391+0000] {processor.py:161} INFO - Started process (PID=2861) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:28:26.392+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:28:26.392+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:28:26.392+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:28:26.404+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:28:26.402+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:28:26.404+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:28:26.430+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.043 seconds
+[2026-03-23T11:28:56.786+0000] {processor.py:161} INFO - Started process (PID=2871) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:28:56.787+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:28:56.788+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:28:56.788+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:28:56.796+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:28:56.794+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:28:56.797+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:28:56.818+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.039 seconds
+[2026-03-23T11:29:27.226+0000] {processor.py:161} INFO - Started process (PID=2881) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:29:27.227+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:29:27.228+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:29:27.228+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:29:27.236+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:29:27.235+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:29:27.237+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:29:27.257+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.039 seconds
+[2026-03-23T11:29:58.775+0000] {processor.py:161} INFO - Started process (PID=2891) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:29:58.777+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:29:58.778+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:29:58.778+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:29:58.786+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:29:58.785+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:29:58.787+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:29:58.813+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.044 seconds
+[2026-03-23T11:30:29.231+0000] {processor.py:161} INFO - Started process (PID=2901) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:30:29.232+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:30:29.233+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:30:29.233+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:30:29.241+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:30:29.239+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:30:29.241+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:30:29.263+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.038 seconds
+[2026-03-23T11:30:59.605+0000] {processor.py:161} INFO - Started process (PID=2911) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:30:59.606+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:30:59.607+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:30:59.607+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:30:59.615+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:30:59.614+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:30:59.616+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:30:59.638+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.038 seconds
+[2026-03-23T11:31:29.972+0000] {processor.py:161} INFO - Started process (PID=2921) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:31:29.976+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:31:29.976+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:31:29.976+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:31:29.988+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:31:29.985+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:31:29.989+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:31:30.008+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.044 seconds
+[2026-03-23T11:32:00.368+0000] {processor.py:161} INFO - Started process (PID=2931) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:32:00.369+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:32:00.370+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:32:00.369+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:32:00.379+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:32:00.376+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:32:00.379+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:32:00.400+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.037 seconds
+[2026-03-23T11:32:41.973+0000] {processor.py:161} INFO - Started process (PID=2941) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:32:41.974+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:32:41.976+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:32:41.976+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:32:41.986+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:32:41.984+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:32:41.986+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:32:42.016+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.052 seconds
+[2026-03-23T11:33:12.428+0000] {processor.py:161} INFO - Started process (PID=2951) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:33:12.429+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:33:12.430+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:33:12.430+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:33:12.439+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:33:12.437+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:33:12.440+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:33:12.457+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.036 seconds
+[2026-03-23T11:33:42.804+0000] {processor.py:161} INFO - Started process (PID=2961) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:33:42.805+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:33:42.806+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:33:42.806+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:33:42.820+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:33:42.819+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:33:42.821+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:33:42.840+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.045 seconds
+[2026-03-23T11:34:13.134+0000] {processor.py:161} INFO - Started process (PID=2971) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:34:13.135+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:34:13.136+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:34:13.135+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:34:13.145+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:34:13.142+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:34:13.146+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:34:13.166+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.038 seconds
+[2026-03-23T11:34:43.474+0000] {processor.py:161} INFO - Started process (PID=2981) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:34:43.476+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:34:43.476+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:34:43.476+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:34:43.485+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:34:43.484+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:34:43.487+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:34:43.512+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.044 seconds
+[2026-03-23T11:35:13.843+0000] {processor.py:161} INFO - Started process (PID=2991) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:35:13.844+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:35:13.845+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:35:13.845+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:35:13.852+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:35:13.850+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:35:13.854+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:35:13.882+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.044 seconds
+[2026-03-23T11:35:44.632+0000] {processor.py:161} INFO - Started process (PID=3001) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:35:44.633+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:35:44.634+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:35:44.634+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:35:44.647+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:35:44.645+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:35:44.649+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:35:44.678+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.052 seconds
+[2026-03-23T11:53:53.203+0000] {processor.py:161} INFO - Started process (PID=3010) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:53:53.204+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T11:53:53.207+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:53:53.207+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:53:53.213+0000] {logging_mixin.py:188} INFO - [2026-03-23T11:53:53.211+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T11:53:53.214+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T11:53:53.233+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.036 seconds
+[2026-03-23T12:26:09.472+0000] {processor.py:161} INFO - Started process (PID=3021) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T12:26:09.475+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T12:26:09.476+0000] {logging_mixin.py:188} INFO - [2026-03-23T12:26:09.476+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T12:26:09.488+0000] {logging_mixin.py:188} INFO - [2026-03-23T12:26:09.484+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T12:26:09.488+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T12:26:09.515+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.061 seconds
+[2026-03-23T12:26:39.841+0000] {processor.py:161} INFO - Started process (PID=3031) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T12:26:39.842+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T12:26:39.843+0000] {logging_mixin.py:188} INFO - [2026-03-23T12:26:39.843+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T12:26:39.852+0000] {logging_mixin.py:188} INFO - [2026-03-23T12:26:39.850+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T12:26:39.852+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T12:26:39.869+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.033 seconds
+[2026-03-23T12:45:13.430+0000] {processor.py:161} INFO - Started process (PID=3041) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T12:45:13.431+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T12:45:13.432+0000] {logging_mixin.py:188} INFO - [2026-03-23T12:45:13.432+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T12:45:13.441+0000] {logging_mixin.py:188} INFO - [2026-03-23T12:45:13.438+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T12:45:13.441+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T12:45:13.460+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.038 seconds
+[2026-03-23T13:02:49.797+0000] {processor.py:161} INFO - Started process (PID=3051) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:02:49.799+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T13:02:49.800+0000] {logging_mixin.py:188} INFO - [2026-03-23T13:02:49.799+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:02:49.814+0000] {logging_mixin.py:188} INFO - [2026-03-23T13:02:49.808+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T13:02:49.816+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:02:49.838+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.052 seconds
+[2026-03-23T13:20:29.513+0000] {processor.py:161} INFO - Started process (PID=3061) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:20:29.515+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T13:20:29.516+0000] {logging_mixin.py:188} INFO - [2026-03-23T13:20:29.516+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:20:29.533+0000] {logging_mixin.py:188} INFO - [2026-03-23T13:20:29.523+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T13:20:29.534+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:20:29.560+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.058 seconds
+[2026-03-23T13:21:06.575+0000] {processor.py:161} INFO - Started process (PID=3071) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:21:06.580+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T13:21:06.581+0000] {logging_mixin.py:188} INFO - [2026-03-23T13:21:06.580+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:21:06.590+0000] {logging_mixin.py:188} INFO - [2026-03-23T13:21:06.587+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T13:21:06.593+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:21:06.659+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.111 seconds
+[2026-03-23T13:36:55.596+0000] {processor.py:161} INFO - Started process (PID=3081) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:36:55.597+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T13:36:55.599+0000] {logging_mixin.py:188} INFO - [2026-03-23T13:36:55.598+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:36:55.607+0000] {logging_mixin.py:188} INFO - [2026-03-23T13:36:55.605+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T13:36:55.608+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T13:36:55.624+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.034 seconds
+[2026-03-23T14:10:57.167+0000] {processor.py:161} INFO - Started process (PID=3091) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:10:57.168+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T14:10:57.170+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:10:57.170+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:10:57.178+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:10:57.176+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T14:10:57.180+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:10:57.199+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.039 seconds
+[2026-03-23T14:11:35.316+0000] {processor.py:161} INFO - Started process (PID=3101) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:11:35.317+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T14:11:35.318+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:11:35.318+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:11:35.329+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:11:35.325+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T14:11:35.331+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:11:35.352+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.049 seconds
+[2026-03-23T14:12:09.332+0000] {processor.py:161} INFO - Started process (PID=3111) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:12:09.332+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T14:12:09.334+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:12:09.334+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:12:09.341+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:12:09.340+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T14:12:09.341+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:12:09.366+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.038 seconds
+[2026-03-23T14:12:46.511+0000] {processor.py:161} INFO - Started process (PID=3121) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:12:46.513+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T14:12:46.515+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:12:46.514+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:12:46.523+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:12:46.522+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T14:12:46.524+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:12:46.552+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.056 seconds
+[2026-03-23T14:13:18.167+0000] {processor.py:161} INFO - Started process (PID=3131) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:13:18.167+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T14:13:18.168+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:13:18.168+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:13:18.181+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:13:18.179+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T14:13:18.181+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:13:18.205+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.042 seconds
+[2026-03-23T14:13:54.821+0000] {processor.py:161} INFO - Started process (PID=3141) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:13:54.822+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T14:13:54.823+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:13:54.823+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:13:54.829+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:13:54.828+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T14:13:54.829+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:13:54.855+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.039 seconds
+[2026-03-23T14:37:47.025+0000] {processor.py:161} INFO - Started process (PID=3151) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:37:47.026+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T14:37:47.028+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:37:47.027+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:37:47.045+0000] {logging_mixin.py:188} INFO - [2026-03-23T14:37:47.040+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T14:37:47.046+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T14:37:47.077+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.060 seconds
+[2026-03-23T15:07:55.858+0000] {processor.py:161} INFO - Started process (PID=3161) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:07:55.859+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:07:55.860+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:07:55.859+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:07:55.870+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:07:55.866+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:07:55.871+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:07:55.899+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.049 seconds
+[2026-03-23T15:08:26.296+0000] {processor.py:161} INFO - Started process (PID=3171) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:08:26.298+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:08:26.300+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:08:26.298+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:08:26.311+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:08:26.309+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:08:26.312+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:08:26.345+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.056 seconds
+[2026-03-23T15:08:56.859+0000] {processor.py:161} INFO - Started process (PID=3181) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:08:56.860+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:08:56.861+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:08:56.861+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:08:56.873+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:08:56.867+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:08:56.874+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:08:56.899+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.043 seconds
+[2026-03-23T15:09:27.167+0000] {processor.py:161} INFO - Started process (PID=3191) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:09:27.168+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:09:27.170+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:09:27.169+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:09:27.177+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:09:27.176+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:09:27.177+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:09:27.202+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.041 seconds
+[2026-03-23T15:09:57.527+0000] {processor.py:161} INFO - Started process (PID=3201) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:09:57.529+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:09:57.530+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:09:57.529+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:09:57.544+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:09:57.540+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:09:57.545+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:09:57.577+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.058 seconds
+[2026-03-23T15:10:27.983+0000] {processor.py:161} INFO - Started process (PID=3211) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:10:27.986+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:10:27.986+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:10:27.986+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:10:27.998+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:10:27.994+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:10:27.998+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:10:28.041+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.069 seconds
+[2026-03-23T15:10:58.315+0000] {processor.py:161} INFO - Started process (PID=3221) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:10:58.317+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:10:58.319+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:10:58.318+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:10:58.326+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:10:58.324+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:10:58.326+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:10:58.371+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.066 seconds
+[2026-03-23T15:11:28.611+0000] {processor.py:161} INFO - Started process (PID=3231) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:11:28.612+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:11:28.614+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:11:28.614+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:11:28.622+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:11:28.621+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:11:28.623+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:11:28.645+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.039 seconds
+[2026-03-23T15:11:59.000+0000] {processor.py:161} INFO - Started process (PID=3241) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:11:59.001+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:11:59.004+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:11:59.003+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:11:59.014+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:11:59.010+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:11:59.014+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:11:59.046+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.052 seconds
+[2026-03-23T15:12:29.393+0000] {processor.py:161} INFO - Started process (PID=3251) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:12:29.394+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:12:29.395+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:12:29.395+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:12:29.408+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:12:29.405+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:12:29.408+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:12:29.448+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.063 seconds
+[2026-03-23T15:12:59.946+0000] {processor.py:161} INFO - Started process (PID=3261) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:12:59.947+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:12:59.948+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:12:59.948+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:12:59.955+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:12:59.954+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:12:59.957+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:12:59.975+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.033 seconds
+[2026-03-23T15:13:30.389+0000] {processor.py:161} INFO - Started process (PID=3271) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:13:30.391+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:13:30.392+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:13:30.391+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:13:30.400+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:13:30.399+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:13:30.401+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:13:30.435+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.052 seconds
+[2026-03-23T15:14:00.960+0000] {processor.py:161} INFO - Started process (PID=3281) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:14:00.963+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:14:00.964+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:14:00.964+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:14:00.978+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:14:00.975+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:14:00.978+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:14:01.012+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.061 seconds
+[2026-03-23T15:14:31.393+0000] {processor.py:161} INFO - Started process (PID=3291) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:14:31.394+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:14:31.395+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:14:31.395+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:14:31.409+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:14:31.407+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:14:31.410+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:14:31.439+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.058 seconds
+[2026-03-23T15:15:01.767+0000] {processor.py:161} INFO - Started process (PID=3301) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:15:01.768+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:15:01.769+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:15:01.769+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:15:01.779+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:15:01.778+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:15:01.780+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:15:01.799+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.037 seconds
+[2026-03-23T15:15:32.092+0000] {processor.py:161} INFO - Started process (PID=3311) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:15:32.093+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:15:32.094+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:15:32.094+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:15:32.103+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:15:32.100+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:15:32.106+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:15:32.126+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.038 seconds
+[2026-03-23T15:16:02.492+0000] {processor.py:161} INFO - Started process (PID=3321) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:16:02.494+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:16:02.495+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:16:02.495+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:16:02.503+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:16:02.501+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:16:02.503+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:16:02.528+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.041 seconds
+[2026-03-23T15:16:32.819+0000] {processor.py:161} INFO - Started process (PID=3331) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:16:32.821+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:16:32.822+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:16:32.822+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:16:32.836+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:16:32.834+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:16:32.836+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:16:32.861+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.047 seconds
+[2026-03-23T15:17:03.160+0000] {processor.py:161} INFO - Started process (PID=3341) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:17:03.161+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:17:03.162+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:17:03.162+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:17:03.170+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:17:03.169+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:17:03.171+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:17:03.188+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.032 seconds
+[2026-03-23T15:17:33.478+0000] {processor.py:161} INFO - Started process (PID=3351) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:17:33.480+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:17:33.481+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:17:33.481+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:17:33.492+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:17:33.490+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:17:33.495+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:17:33.521+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.048 seconds
+[2026-03-23T15:18:03.912+0000] {processor.py:161} INFO - Started process (PID=3361) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:18:03.913+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:18:03.914+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:18:03.913+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:18:03.926+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:18:03.924+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:18:03.927+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:18:03.956+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.056 seconds
+[2026-03-23T15:18:34.425+0000] {processor.py:161} INFO - Started process (PID=3371) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:18:34.426+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:18:34.426+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:18:34.426+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:18:34.441+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:18:34.439+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:18:34.442+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:18:34.482+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.063 seconds
+[2026-03-23T15:19:04.864+0000] {processor.py:161} INFO - Started process (PID=3381) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:19:04.865+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:19:04.866+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:19:04.866+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:19:04.879+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:19:04.877+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:19:04.880+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:19:04.918+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.059 seconds
+[2026-03-23T15:19:35.198+0000] {processor.py:161} INFO - Started process (PID=3391) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:19:35.199+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:19:35.200+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:19:35.200+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:19:35.207+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:19:35.205+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:19:35.208+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:19:35.235+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.041 seconds
+[2026-03-23T15:20:05.696+0000] {processor.py:161} INFO - Started process (PID=3401) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:20:05.698+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:20:05.700+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:20:05.699+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:20:05.713+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:20:05.710+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:20:05.713+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:20:05.745+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.057 seconds
+[2026-03-23T15:20:36.060+0000] {processor.py:161} INFO - Started process (PID=3411) to work on /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:20:36.061+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/fintech_pipeline.py for tasks to queue
+[2026-03-23T15:20:36.062+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:20:36.062+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:20:36.074+0000] {logging_mixin.py:188} INFO - [2026-03-23T15:20:36.070+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/fintech_pipeline.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/fintech_pipeline.py", line 43, in <module>
+    import duckdb
+ModuleNotFoundError: No module named 'duckdb'
+[2026-03-23T15:20:36.075+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/fintech_pipeline.py
+[2026-03-23T15:20:36.101+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/fintech_pipeline.py took 0.048 seconds
