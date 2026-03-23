@@ -224,7 +224,7 @@ class DbtEngine:
     def _write_profiles(self):
         """Write profiles.yml pointing at the user's DuckDB file."""
         abs_path = os.path.abspath(self._db_path) if self._db_path != ":memory:" else ":memory:"
-        prof = f"""fintech_analytics:
+        prof = f"""fintech_platform:
   target: dev
   outputs:
     dev:
