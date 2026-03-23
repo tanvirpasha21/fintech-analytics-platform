@@ -222,9 +222,16 @@ class DbtEngine:
             console.print(f"  raw.disputes:     0 rows (stub) ✓")
 
     def _write_profiles(self):
-        """Write profiles.yml pointing at the user's DuckDB file."""
+        """
+        Write profiles.yml with profile name matching dbt_project.yml.
+
+        Written to two locations:
+          1. self._prof_dir/profiles.yml   — passed via --profiles-dir
+          2. dbt_project/profiles.yml      — dbt fallback lookup location
+        Both must match the profile name in dbt_project.yml: 'fintech_platform'
+        """
         abs_path = os.path.abspath(self._db_path) if self._db_path != ":memory:" else ":memory:"
-        prof = f"""fintech_platform:
+        prof_content = f"""fintech_platform:
   target: dev
   outputs:
     dev:
@@ -232,9 +239,16 @@ class DbtEngine:
       path: "{abs_path}"
       threads: 4
 """
-        (self._prof_dir / "profiles.yml").write_text(prof)
+        # Write to the dedicated profiles directory (passed via --profiles-dir)
+        (self._prof_dir / "profiles.yml").write_text(prof_content)
+
+        # Also write directly into the dbt project dir as a fallback
+        # dbt always checks the project directory for profiles.yml
+        dbt_project_dir = self._work_dir / "dbt_project"
+        (dbt_project_dir / "profiles.yml").write_text(prof_content)
+
         if self._verbose:
-            console.print(f"  [dim]profiles.yml → {abs_path}[/dim]")
+            console.print(f"  [dim]profiles.yml (fintech_platform) → {abs_path}[/dim]")
 
     def _run_dbt_build(self) -> dict:
         """
@@ -245,7 +259,9 @@ class DbtEngine:
         the same file, then reopen it after dbt finishes.
         """
         dbt_dir = str(self._work_dir / "dbt_project")
-        prof    = str(self._prof_dir)
+        # Use the dbt project dir itself as --profiles-dir
+        # profiles.yml is written there by _write_profiles() so dbt always finds it
+        prof = dbt_dir
 
         # ── CLOSE Python connection so dbt can acquire the lock ───────────────
         if self._db_path != ":memory:":
