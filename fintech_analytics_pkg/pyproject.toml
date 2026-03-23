@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fintech-analytics"
+version = "0.1.0"
+description = "The dbt-powered Python library for financial analytics — schema-aware, compliance-ready, and ML-native."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "MD Tanvir Anjum", email = "contact@voidstudio.tech"}
+]
+keywords = [
+    "fintech", "analytics", "fraud-detection", "rfm", "dbt",
+    "duckdb", "machine-learning", "compliance", "payments"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "duckdb>=0.10.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "xgboost>=2.0.0",
+    "lightgbm>=4.0.0",
+    "shap>=0.44.0",
+    "rich>=13.0.0",
+    "typer>=0.9.0",
+    "pydantic>=2.0.0",
+    "python-dateutil>=2.8.0",
+    "fuzzywuzzy>=0.18.0",
+    "python-Levenshtein>=0.21.0",
+    "matplotlib>=3.7.0",
+    "plotly>=5.18.0",
+]
+
+[project.optional-dependencies]
+dbt = [
+    "dbt-core>=1.7.0",
+    "dbt-duckdb>=1.7.0",
+]
+kaggle = [
+    "kaggle>=1.5.16",
+]
+streaming = [
+    "kafka-python>=2.0.2",
+]
+all = [
+    "fintech-analytics[dbt,kaggle,streaming]",
+]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+]
+
+[project.scripts]
+fintech-analytics = "fintech_analytics.cli.main:app"
+
+[project.urls]
+Homepage = "https://github.com/tanvirpasha21/fintech-analytics-platform"
+Documentation = "https://github.com/tanvirpasha21/fintech-analytics-platform#readme"
+Repository = "https://github.com/tanvirpasha21/fintech-analytics-platform"
+Issues = "https://github.com/tanvirpasha21/fintech-analytics-platform/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["fintech_analytics*"]
+
+[tool.setuptools.package-data]
+fintech_analytics = [
+    "pipeline/dbt_project/**/*.sql",
+    "pipeline/dbt_project/**/*.yml",
+    "pipeline/dbt_project/**/*.yaml",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I"]

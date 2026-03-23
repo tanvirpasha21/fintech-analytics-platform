@@ -1,4 +1,4 @@
-name: dbt CI
+name: CI
 
 on:
   push:
@@ -7,36 +7,31 @@ on:
     branches: [main]
 
 jobs:
-  dbt-ci:
+
+  #JOB 1: dbt pipeline (portfolio project) 
+  dbt-pipeline:
     name: dbt build + test
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Cache pip dependencies
+      - name: Cache pip
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: Install dbt
+        run: pip install dbt-duckdb duckdb pandas faker
 
-      - name: Generate synthetic data + seed DuckDB
+      - name: Generate synthetic data
         run: python scripts/generate_data.py
 
-      - name: dbt deps
-        working-directory: fintech_dbt
-        run: dbt deps --profiles-dir .
-
-      - name: dbt build (run + test in one command)
+      - name: dbt build (models + tests)
         working-directory: fintech_dbt
         run: dbt build --profiles-dir .
         env:
@@ -50,3 +45,56 @@ jobs:
           path: |
             fintech_dbt/target/manifest.json
             fintech_dbt/target/run_results.json
+
+  # ── JOB 2: Python package tests ───────────────────────────────────────────────
+  package-tests:
+    name: Package (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pkg-${{ matrix.python-version }}-${{ hashFiles('fintech_analytics_pkg/pyproject.toml') }}
+
+      - name: Install package
+        run: |
+          cd fintech_analytics_pkg
+          pip install -e ".[dev]"
+          pip install dbt-duckdb
+
+      - name: Run tests
+        run: |
+          cd fintech_analytics_pkg
+          pytest tests/ -v --tb=short
+
+      - name: Verify CLI
+        run: fintech-analytics --help
+
+  # ── JOB 3: SQL sync check ─────────────────────────────────────────────────────
+  sync-check:
+    name: SQL sync check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check SQL files are in sync
+        run: |
+          diff -r --brief \
+            fintech_dbt/models \
+            fintech_analytics_pkg/fintech_analytics/pipeline/dbt_project/models
+          if [ $? -ne 0 ]; then
+            echo "ERROR: SQL files out of sync. Run:"
+            echo "  cp -r fintech_dbt/models fintech_analytics_pkg/fintech_analytics/pipeline/dbt_project/"
+            exit 1
+          fi
+          echo "SQL in sync ✓"

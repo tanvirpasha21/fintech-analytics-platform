@@ -1,0 +1,32 @@
+name: 'fintech_platform'
+version: '1.0.0'
+config-version: 2
+
+profile: 'fintech_platform'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths:  ["tests"]
+seed-paths:  ["seeds"]
+analysis-paths: ["analyses"]
+
+target-path:  "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  fintech_platform:
+    staging:
+      +materialized: view
+      +schema: staging
+    intermediate:
+      +materialized: view
+      +schema: intermediate
+    marts:
+      +materialized: table
+      payments:
+        +schema: marts_payments
+      customers:
+        +schema: marts_customers
+      risk:
+        +schema: marts_risk
+        # incremental model lives here
