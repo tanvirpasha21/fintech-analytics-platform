@@ -172,56 +172,132 @@ class Pipeline:
         db_path: Optional[str] = None,
         currency: str = "USD",
         verbose: bool = True,
+        kaggle_username: Optional[str] = None,
+        kaggle_key: Optional[str] = None,
     ) -> "Pipeline":
         """
         Download and load a Kaggle dataset.
 
-        Requires kaggle package and ~/.kaggle/kaggle.json credentials.
+        Built-in presets — no schema_mapping needed for popular datasets:
+            mlg-ulb/creditcardfraud
+            kartik2112/fraud-detection
+            ybifoundation/credit-card-fraud-detection-prediction
+
+        Authentication (pick any one):
+            1. Pass directly:
+               Pipeline.from_kaggle(dataset, kaggle_username="u", kaggle_key="key")
+            2. Environment variables:
+               export KAGGLE_USERNAME=your_username
+               export KAGGLE_KEY=your_api_key
+            3. File: ~/.kaggle/kaggle.json
+               {"username": "your_username", "key": "your_api_key"}
+
+            Get your API key at: https://www.kaggle.com/settings/account
 
         Args:
-            dataset:  Kaggle dataset identifier (e.g. "mlg-ulb/creditcardfraud")
-            filename: Specific CSV file in dataset. None = auto-detect first CSV.
-
-        Example:
-            p = Pipeline.from_kaggle("mlg-ulb/creditcardfraud")
+            dataset:          "owner/dataset-name" from the Kaggle URL
+            filename:         Specific CSV if dataset has multiple. None = largest CSV.
+            kaggle_username:  Kaggle username (or set KAGGLE_USERNAME env var)
+            kaggle_key:       Kaggle API key  (or set KAGGLE_KEY env var)
         """
+        import os
+        from fintech_analytics.schema.detector import KAGGLE_PRESETS
+
+        # ── Apply built-in preset if available ────────────────────────────────
+        if schema_mapping is None and dataset in KAGGLE_PRESETS:
+            schema_mapping = KAGGLE_PRESETS[dataset]
+            if verbose:
+                console.print(f"[dim]  Using built-in preset for {dataset}[/dim]")
+
+        # ── Inject credentials into environment ───────────────────────────────
+        if kaggle_username:
+            os.environ["KAGGLE_USERNAME"] = kaggle_username
+        if kaggle_key:
+            os.environ["KAGGLE_KEY"] = kaggle_key
+
+        # ── Check credentials exist ───────────────────────────────────────────
+        has_json = Path.home().joinpath(".kaggle", "kaggle.json").exists()
+        has_env  = bool(
+            os.environ.get("KAGGLE_USERNAME") and os.environ.get("KAGGLE_KEY")
+        )
+
+        if not has_json and not has_env:
+            raise RuntimeError(
+                "Kaggle credentials not found.\n\n"
+                "Option 1 — Pass directly to from_kaggle():\n"
+                "  Pipeline.from_kaggle(\n"
+                "      \'mlg-ulb/creditcardfraud\',\n"
+                "      kaggle_username=\'your_username\',\n"
+                "      kaggle_key=\'your_api_key\',\n"
+                "  )\n\n"
+                "Option 2 — Environment variables:\n"
+                "  export KAGGLE_USERNAME=your_username\n"
+                "  export KAGGLE_KEY=your_api_key\n\n"
+                "Option 3 — Create ~/.kaggle/kaggle.json:\n"
+                "  {\'username\': \'your_username\', \'key\': \'your_api_key\'}\n\n"
+                "Get your API key: https://www.kaggle.com/settings/account"
+            )
+
+        # ── Import kaggle package ─────────────────────────────────────────────
         try:
             import kaggle
         except ImportError:
             raise ImportError(
-                "kaggle package required for Kaggle integration.\n"
-                "Install with: pip install fintech-analytics[kaggle]"
+                "kaggle package not installed.\n"
+                "Run: pip install fintech-analytics[kaggle]"
+            )
+
+        # ── Authenticate ──────────────────────────────────────────────────────
+        try:
+            kaggle.api.authenticate()
+        except Exception as e:
+            raise RuntimeError(
+                f"Kaggle authentication failed: {e}\n"
+                "Check credentials at https://www.kaggle.com/settings/account"
             )
 
         if verbose:
-            console.print(f"[cyan]Downloading[/cyan] Kaggle dataset: {dataset}")
+            console.print(f"[cyan]Downloading[/cyan] {dataset} from Kaggle...")
 
+        # ── Download and read ─────────────────────────────────────────────────
         with tempfile.TemporaryDirectory() as tmpdir:
-            kaggle.api.dataset_download_files(dataset, path=tmpdir, unzip=True)
-            csv_files = list(Path(tmpdir).glob("**/*.csv"))
+            try:
+                kaggle.api.dataset_download_files(dataset, path=tmpdir, unzip=True)
+            except Exception as e:
+                raise RuntimeError(
+                    f"Download failed for \'{dataset}\': {e}\n"
+                    "Check the dataset name matches the Kaggle URL."
+                )
 
+            csv_files = list(Path(tmpdir).glob("**/*.csv"))
             if not csv_files:
-                raise ValueError(f"No CSV files found in dataset: {dataset}")
+                raise ValueError(f"No CSV files found in dataset \'{dataset}\'")
 
             if filename:
                 target = next((f for f in csv_files if f.name == filename), None)
                 if not target:
+                    names = [f.name for f in csv_files]
                     raise ValueError(
-                        f"File '{filename}' not found. Available: {[f.name for f in csv_files]}"
+                        f"File \'{filename}\' not found. Available: {names}"
                     )
             else:
-                target = csv_files[0]
+                # Use largest CSV — it's almost always the main data file
+                target = max(csv_files, key=lambda f: f.stat().st_size)
                 if verbose and len(csv_files) > 1:
+                    others = [f.name for f in csv_files if f != target]
                     console.print(
-                        f"[yellow]Multiple CSVs found. Using: {target.name}[/yellow]\n"
-                        f"Others: {[f.name for f in csv_files[1:]]}"
+                        f"[dim]  Multiple CSVs — using largest: {target.name}[/dim]\n"
+                        f"[dim]  Others: {others}[/dim]"
                     )
 
             df = pd.read_csv(target)
             if verbose:
-                console.print(f"[green]✓[/green] Downloaded {len(df):,} rows from {dataset}")
+                console.print(
+                    f"[green]✓[/green] {len(df):,} rows × {len(df.columns)} columns"
+                )
 
         return cls(df, schema_mapping, db_path, currency, verbose)
+
 
     # ── SCHEMA DETECTION ──────────────────────────────────────────────────────
 
@@ -240,11 +316,12 @@ class Pipeline:
         if self._verbose:
             detector.print_report(mapping)
 
-        if not valid:
+        # Only hard-fail if amount is missing — everything else is auto-generated
+        if "amount" not in mapping.mapping:
+            cols = list(self._raw_df.columns)
             raise ValueError(
-                f"Required columns not detected: {missing}\n"
-                f"Your columns: {list(self._raw_df.columns)}\n"
-                f"Fix with: Pipeline.from_csv('file.csv', schema_mapping={{'transaction_id': 'your_col'}})"
+                f"Cannot detect amount column in {cols}. "
+                "Specify it: Pipeline.from_csv(f, schema_mapping={'amount': 'your_col'})"
             )
 
         self._mapping    = mapping

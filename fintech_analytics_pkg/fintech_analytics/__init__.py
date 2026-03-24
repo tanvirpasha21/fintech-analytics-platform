@@ -21,7 +21,7 @@ from fintech_analytics.pipeline.core import Pipeline
 from fintech_analytics.schema.detector import SchemaDetector
 from fintech_analytics.schema.mapping import ColumnMapping
 
-__version__ = "0.1.0"
+__version__ = "0.1.2"
 __author__  = "MD Tanvir Anjum"
 __email__   = "contact@voidstudio.tech"
 

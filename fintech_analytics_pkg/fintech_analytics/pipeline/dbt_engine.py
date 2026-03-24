@@ -121,12 +121,26 @@ class DbtEngine:
             df["ip_country"] = df["country"]
         if "ip_country" not in df.columns:
             df["ip_country"] = "GB"
+        # Add every column that dbt staging models require
+        # so any sparse dataset (including Kaggle) works without errors
+        if "status" not in df.columns:
+            df["status"] = "completed"
         if "channel" not in df.columns:
             df["channel"] = "card"
         if "merchant_category" not in df.columns:
             df["merchant_category"] = "Other"
         if "merchant_name" not in df.columns:
             df["merchant_name"] = "Unknown Merchant"
+        if "currency" not in df.columns:
+            df["currency"] = "USD"
+        if "customer_id" not in df.columns:
+            import uuid as _uuid
+            df["customer_id"] = [str(_uuid.uuid4()) for _ in range(len(df))]
+        if "merchant_id" not in df.columns:
+            import uuid as _uuid2
+            df["merchant_id"] = df["merchant_name"].apply(
+                lambda x: str(_uuid2.uuid5(_uuid2.NAMESPACE_DNS, str(x)))
+            )
 
         self._con.execute("DROP TABLE IF EXISTS raw.transactions")
         self._con.execute("CREATE TABLE raw.transactions AS SELECT * FROM df")

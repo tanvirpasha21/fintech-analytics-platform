@@ -23,6 +23,42 @@ from rich.table import Table
 
 console = Console()
 
+# ── KAGGLE DATASET PRESETS ────────────────────────────────────────────────────
+# Built-in column mappings for popular Kaggle financial datasets.
+# These are used automatically when from_kaggle() is called.
+KAGGLE_PRESETS = {
+    "mlg-ulb/creditcardfraud": {
+        # Columns: Time, V1-V28 (PCA), Amount, Class
+        "amount":         "Amount",
+        "transaction_at": "Time",    # seconds from start — converted to timestamps
+        "is_fraud":       "Class",   # 0=legit, 1=fraud
+        # No transaction_id, customer_id, merchant — auto-generated
+    },
+    "ealtman2/us-consumer-finance-complaints": {
+        "transaction_at": "Date received",
+        "amount":         "Complaint ID",   # use as proxy
+    },
+    "mlg-ulb/creditcard": {
+        "amount":         "Amount",
+        "transaction_at": "Time",
+        "is_fraud":       "Class",
+    },
+    "kartik2112/fraud-detection": {
+        "transaction_id":  "trans_num",
+        "transaction_at":  "trans_date_trans_time",
+        "amount":          "amt",
+        "customer_id":     "cc_num",
+        "merchant_name":   "merchant",
+        "merchant_category": "category",
+        "is_fraud":        "is_fraud",
+    },
+    "ybifoundation/credit-card-fraud-detection-prediction": {
+        "amount":     "Amount",
+        "transaction_at": "Time",
+        "is_fraud":   "Class",
+    },
+}
+
 # ── CANONICAL SCHEMA ─────────────────────────────────────────────────────────
 # These are the internal column names the pipeline expects.
 # Each entry has aliases that fuzzy-match against user column names.
@@ -39,11 +75,7 @@ SCHEMA_ALIASES: dict[str, list[str]] = {
         "trans_amt", "payment_amount", "sum", "total", "price",
         "charge", "debit", "credit", "gbp_amount", "usd_amount",
     ],
-    "transaction_at": [
-        "transaction_at", "timestamp", "date", "datetime", "trans_date",
-        "transaction_date", "created_at", "time", "trans_time",
-        "payment_date", "occurred_at", "event_time", "dt",
-    ],
+
     # Optional but important
     "customer_id": [
         "customer_id", "user_id", "client_id", "account_id",
@@ -79,6 +111,11 @@ SCHEMA_ALIASES: dict[str, list[str]] = {
         "country", "country_code", "ip_country", "location",
         "region", "geo", "origin_country",
     ],
+    "transaction_at": [
+        "transaction_at", "timestamp", "date", "datetime", "trans_date",
+        "transaction_date", "created_at", "time", "trans_time",
+        "payment_date", "occurred_at", "event_time", "dt", "step",
+    ],
     "is_fraud": [
         "is_fraud", "fraud", "is_fraudulent", "fraud_flag",
         "fraud_label", "class", "label", "target",
@@ -90,7 +127,8 @@ SCHEMA_ALIASES: dict[str, list[str]] = {
 }
 
 # Required columns — pipeline cannot run without these
-REQUIRED_COLUMNS = {"transaction_id", "amount", "transaction_at"}
+# Only amount is truly required — transaction_id and timestamp auto-generated if missing
+REQUIRED_COLUMNS = {"amount"}
 
 # Columns with known value mappings
 STATUS_VALUES = {

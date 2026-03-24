@@ -15,7 +15,7 @@ from rich.console import Console
 
 console = Console()
 
-REQUIRED_COLUMNS = {"transaction_id", "amount", "transaction_at"}
+REQUIRED_COLUMNS = {"amount"}  # Only amount required — everything else auto-generated
 
 @dataclass
 class ColumnMapping:
@@ -77,9 +77,10 @@ class ColumnMapping:
         """
         valid, missing = self.is_valid()
         if not valid:
+            cols = list(df.columns)
             raise ValueError(
-                f"Cannot normalise: missing required columns: {missing}\n"
-                f"Use mapping.override() to specify these columns manually."
+                f"Cannot normalise: 'amount' column not detected in {cols}. "
+                "Fix: Pipeline.from_csv('file.csv', schema_mapping={'amount': 'your_col'})"
             )
 
         # Rename user columns → canonical names
@@ -91,15 +92,15 @@ class ColumnMapping:
         out = out[[c for c in known if c in out.columns]].copy()
 
         # ── TRANSACTION ID ────────────────────────────────────────────────────
-        if "transaction_id" in out.columns:
+        if "transaction_id" not in out.columns:
+            # Auto-generate UUIDs — many datasets (e.g. Kaggle creditcardfraud) have no ID
+            console.print("[dim]  transaction_id not found — generating UUIDs[/dim]")
+            out["transaction_id"] = [str(uuid.uuid4()) for _ in range(len(out))]
+        else:
             null_mask = out["transaction_id"].isna()
             if null_mask.any():
-                console.print(
-                    f"[yellow]⚠  {null_mask.sum()} null transaction_ids "
-                    f"— generating UUIDs[/yellow]"
-                )
                 out.loc[null_mask, "transaction_id"] = [
-                    str(uuid.uuid4()) for _ in range(null_mask.sum())
+                    str(uuid.uuid4()) for _ in range(int(null_mask.sum()))
                 ]
             out["transaction_id"] = out["transaction_id"].astype(str)
 
@@ -114,14 +115,33 @@ class ColumnMapping:
                 out["amount"] = out["amount"].abs()
 
         # ── TIMESTAMP ─────────────────────────────────────────────────────────
-        if "transaction_at" in out.columns:
-            out["transaction_at"] = pd.to_datetime(out["transaction_at"], errors="coerce")
+        if "transaction_at" not in out.columns:
+            # No date column — synthesise timestamps starting from 2023-01-01
+            console.print("[dim]  transaction_at not found — generating synthetic timestamps[/dim]")
+            base = pd.Timestamp("2023-01-01")
+            out["transaction_at"] = [
+                base + pd.Timedelta(seconds=int(i * 30))
+                for i in range(len(out))
+            ]
+        else:
+            # Handle numeric timestamps (e.g. Kaggle Time column = seconds elapsed)
+            if pd.api.types.is_numeric_dtype(out["transaction_at"]):
+                console.print("[dim]  Numeric timestamp detected — converting from seconds[/dim]")
+                base = pd.Timestamp("2023-01-01")
+                out["transaction_at"] = out["transaction_at"].apply(
+                    lambda s: base + pd.Timedelta(seconds=float(s)) if pd.notna(s) else pd.NaT
+                )
+            else:
+                out["transaction_at"] = pd.to_datetime(out["transaction_at"], errors="coerce")
             nat = out["transaction_at"].isna().sum()
             if nat > 0:
-                console.print(
-                    f"[yellow]⚠  {nat} unparseable timestamps — these rows will be dropped[/yellow]"
-                )
-                out = out.dropna(subset=["transaction_at"])
+                console.print(f"[yellow]⚠  {nat} unparseable timestamps — filling with synthetic[/yellow]")
+                base = pd.Timestamp("2023-01-01")
+                fill_mask = out["transaction_at"].isna()
+                out.loc[fill_mask, "transaction_at"] = [
+                    base + pd.Timedelta(seconds=int(i * 30))
+                    for i in range(int(fill_mask.sum()))
+                ]
 
         # ── STATUS NORMALISATION ──────────────────────────────────────────────
         if "status" in out.columns:
