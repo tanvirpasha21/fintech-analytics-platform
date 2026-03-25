@@ -5,6 +5,7 @@ RFM segmentation and customer analytics accessor.
 """
 
 from __future__ import annotations
+from typing import Optional
 import pandas as pd
 import duckdb
 from rich.console import Console
@@ -100,6 +101,60 @@ class SegmentAccessor:
             "SELECT * FROM analytics.rfm WHERE segment = ? ORDER BY monetary DESC",
             [segment_name]
         ).df()
+
+    def explain(self, customer_id: str) -> "SegmentExplanation":
+        """
+        Explain why a specific customer is in their current segment,
+        what behaviours drove it, and exactly what they need to do to move up.
+
+        Args:
+            customer_id: The customer to explain
+
+        Returns:
+            SegmentExplanation with full breakdown, drivers, and action steps.
+
+        Example:
+            exp = p.segment.explain("cust_123")
+            print(exp)                    # plain text
+            p.segment.print_explain("cust_123")  # rich formatted
+        """
+        from fintech_analytics.analytics.explain import SegmentExplainer
+        return SegmentExplainer(self._con).explain(customer_id)
+
+    def print_explain(self, customer_id: str):
+        """
+        Print a rich formatted segment explanation for a customer.
+
+        Shows: current segment, RFM scores, why they're there,
+        what's holding them back, and exact steps to move up.
+
+        Example:
+            p.segment.print_explain("cust_123")
+        """
+        from fintech_analytics.analytics.explain import SegmentExplainer
+        SegmentExplainer(self._con).print_explain(customer_id)
+
+    def batch_explain(
+        self,
+        segment_filter: "Optional[str]" = None,
+    ) -> "pd.DataFrame":
+        """
+        Explain all customers as a DataFrame — great for CRM export.
+
+        Args:
+            segment_filter: Only explain this segment (e.g. "At Risk")
+                            None = all customers
+
+        Returns:
+            DataFrame with customer_id, segment, key_driver,
+            recommended_action, next_segment, next_step
+
+        Example:
+            at_risk = p.segment.batch_explain("At Risk")
+            at_risk.to_csv("at_risk_actions.csv", index=False)
+        """
+        from fintech_analytics.analytics.explain import SegmentExplainer
+        return SegmentExplainer(self._con).batch_explain(segment_filter)
 
     def print_summary(self):
         """Print a rich table of segment summary."""

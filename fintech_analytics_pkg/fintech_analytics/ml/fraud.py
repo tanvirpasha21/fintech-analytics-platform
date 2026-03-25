@@ -336,6 +336,50 @@ class FraudAccessor:
         console.print(f"\n  [bold]Recommended Action:[/bold]")
         console.print(f"    {result['recommended_action']}\n")
 
+    def drift(self, other_pipeline) -> "DriftReport":
+        """
+        Detect model drift by comparing this pipeline to another.
+
+        Uses Population Stability Index (PSI) — the industry standard
+        for determining when a fraud model needs retraining.
+
+        Args:
+            other_pipeline: A second Pipeline instance representing the
+                            current period to compare against.
+                            Can also pass a normalised DataFrame directly.
+
+        Returns:
+            DriftReport with PSI scores, status, and recommendations.
+
+        Example:
+            p_jan = Pipeline.from_csv("jan.csv"); p_jan.run()
+            p_feb = Pipeline.from_csv("feb.csv"); p_feb.run()
+
+            report = p_jan.fraud.drift(p_feb)
+            report.print_report()
+
+            if report.should_retrain:
+                print("Model needs retraining!")
+        """
+        from fintech_analytics.ml.drift import DriftDetector
+
+        # Accept either a Pipeline object or a raw DataFrame
+        if hasattr(other_pipeline, "_normalised"):
+            other_df = other_pipeline._normalised
+        elif isinstance(other_pipeline, pd.DataFrame):
+            other_df = other_pipeline
+        else:
+            raise TypeError(
+                "Pass a Pipeline instance or a pandas DataFrame. "
+                "Example: p_jan.fraud.drift(p_feb)"
+            )
+
+        detector = DriftDetector(
+            reference_df = self._df,
+            current_df   = other_df,
+        )
+        return detector.detect()
+
     def summary(self) -> dict:
         """Quick fraud summary statistics."""
         results = self.detect()

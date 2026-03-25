@@ -100,6 +100,7 @@ class Pipeline:
         self._merchants  = None
         self._compliance = None
         self._metrics    = None
+        self._forecast_obj = None
 
         # dbt engine (set when engine="dbt" is used)
         self._dbt_engine  = None
@@ -872,6 +873,15 @@ class Pipeline:
             from fintech_analytics.compliance.checks import ComplianceAccessor
             self._compliance = ComplianceAccessor(self._con, self._normalised)
         return self._compliance
+
+    @property
+    def forecast(self) -> "Forecaster":
+        """Revenue and fraud rate forecasting accessor."""
+        self._check_run()
+        if self._forecast_obj is None:
+            from fintech_analytics.analytics.forecast import Forecaster
+            self._forecast_obj = Forecaster(self._con)
+        return self._forecast_obj
 
     # ── DASHBOARD ─────────────────────────────────────────────────────────────
 

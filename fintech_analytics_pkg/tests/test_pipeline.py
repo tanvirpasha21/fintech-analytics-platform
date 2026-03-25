@@ -359,3 +359,218 @@ class TestDbtEngine:
         rfm = p.segment.rfm()
         assert len(rfm) > 0
         assert "segment" in rfm.columns
+
+
+# ── DRIFT DETECTION ───────────────────────────────────────────────────────────
+
+class TestDriftDetection:
+
+    def test_drift_returns_report(self, sample_df):
+        """Drift report is returned without errors."""
+        p1 = Pipeline.from_dataframe(sample_df.iloc[:250].copy(), verbose=False)
+        p1.run()
+        p2 = Pipeline.from_dataframe(sample_df.iloc[250:].copy(), verbose=False)
+        p2.run()
+        report = p1.fraud.drift(p2)
+        assert report is not None
+        assert hasattr(report, "overall_psi")
+        assert hasattr(report, "should_retrain")
+        assert hasattr(report, "status")
+
+    def test_drift_status_valid(self, sample_df):
+        """Status is one of the three valid values."""
+        p1 = Pipeline.from_dataframe(sample_df.iloc[:250].copy(), verbose=False)
+        p1.run()
+        p2 = Pipeline.from_dataframe(sample_df.iloc[250:].copy(), verbose=False)
+        p2.run()
+        report = p1.fraud.drift(p2)
+        assert report.status in {"stable", "monitor", "retrain"}
+
+    def test_drift_psi_non_negative(self, sample_df):
+        """PSI scores are always non-negative."""
+        p1 = Pipeline.from_dataframe(sample_df.iloc[:250].copy(), verbose=False)
+        p1.run()
+        p2 = Pipeline.from_dataframe(sample_df.iloc[250:].copy(), verbose=False)
+        p2.run()
+        report = p1.fraud.drift(p2)
+        assert report.overall_psi >= 0
+        for feat, psi in report.feature_psi.items():
+            assert psi >= 0, f"Negative PSI for {feat}"
+
+    def test_drift_identical_data_is_stable(self, sample_df):
+        """Same data compared to itself should be stable (PSI ≈ 0)."""
+        p1 = Pipeline.from_dataframe(sample_df.copy(), verbose=False)
+        p1.run()
+        p2 = Pipeline.from_dataframe(sample_df.copy(), verbose=False)
+        p2.run()
+        report = p1.fraud.drift(p2)
+        assert report.overall_psi < 0.10, f"Expected stable PSI, got {report.overall_psi}"
+        assert report.status == "stable"
+
+    def test_drift_summary_has_required_keys(self, sample_df):
+        """Summary dict has all expected keys."""
+        p1 = Pipeline.from_dataframe(sample_df.iloc[:250].copy(), verbose=False)
+        p1.run()
+        p2 = Pipeline.from_dataframe(sample_df.iloc[250:].copy(), verbose=False)
+        p2.run()
+        report = p1.fraud.drift(p2)
+        s = report.summary()
+        for key in ["overall_psi", "status", "should_retrain",
+                    "fraud_rate_ref", "fraud_rate_cur", "volume_ref", "volume_cur"]:
+            assert key in s, f"Missing key: {key}"
+
+    def test_drift_accepts_dataframe(self, sample_df):
+        """drift() accepts a raw DataFrame, not just a Pipeline."""
+        p1 = Pipeline.from_dataframe(sample_df.copy(), verbose=False)
+        p1.run()
+        report = p1.fraud.drift(sample_df.copy())
+        assert report is not None
+
+    def test_drift_recommendations_non_empty(self, sample_df):
+        """Drift report always includes at least one recommendation."""
+        p1 = Pipeline.from_dataframe(sample_df.iloc[:250].copy(), verbose=False)
+        p1.run()
+        p2 = Pipeline.from_dataframe(sample_df.iloc[250:].copy(), verbose=False)
+        p2.run()
+        report = p1.fraud.drift(p2)
+        assert len(report.recommendations) >= 1
+
+
+# ── SEGMENT EXPLAINABILITY ────────────────────────────────────────────────────
+
+class TestSegmentExplainability:
+
+    def test_explain_returns_explanation(self, pipeline):
+        """explain() returns a SegmentExplanation object."""
+        cid = pipeline._normalised["customer_id"].iloc[0]
+        exp = pipeline.segment.explain(str(cid))
+        assert exp is not None
+        assert hasattr(exp, "segment")
+        assert hasattr(exp, "r_score")
+        assert hasattr(exp, "recommended_action")
+
+    def test_explain_segment_is_valid(self, pipeline):
+        """Explanation segment name is a known RFM segment."""
+        valid = {
+            "Champions", "Loyal Customers", "Potential Loyalists",
+            "Recent Customers", "Promising", "Need Attention",
+            "About to Sleep", "At Risk", "Cannot Lose Them",
+            "Hibernating", "Lost", "Others"
+        }
+        cid = pipeline._normalised["customer_id"].iloc[0]
+        exp = pipeline.segment.explain(str(cid))
+        assert exp.segment in valid, f"Unknown segment: {exp.segment}"
+
+    def test_explain_scores_in_range(self, pipeline):
+        """RFM scores are all between 1 and 5."""
+        cid = pipeline._normalised["customer_id"].iloc[0]
+        exp = pipeline.segment.explain(str(cid))
+        assert 1 <= exp.r_score <= 5
+        assert 1 <= exp.f_score <= 5
+        assert 1 <= exp.m_score <= 5
+
+    def test_explain_has_drivers(self, pipeline):
+        """Explanation always has at least one driver."""
+        cid = pipeline._normalised["customer_id"].iloc[0]
+        exp = pipeline.segment.explain(str(cid))
+        assert len(exp.what_drives_this) >= 1
+
+    def test_explain_str_works(self, pipeline):
+        """str(explanation) returns non-empty string."""
+        cid = pipeline._normalised["customer_id"].iloc[0]
+        exp = pipeline.segment.explain(str(cid))
+        assert len(str(exp)) > 50
+
+    def test_explain_invalid_customer_raises(self, pipeline):
+        """Unknown customer_id raises ValueError."""
+        with pytest.raises(ValueError, match="not found"):
+            pipeline.segment.explain("nonexistent_customer_xyz")
+
+    def test_batch_explain_returns_dataframe(self, pipeline):
+        """batch_explain() returns a non-empty DataFrame."""
+        df = pipeline.segment.batch_explain()
+        assert isinstance(df, pd.DataFrame)
+        assert len(df) > 0
+        assert "segment" in df.columns
+        assert "recommended_action" in df.columns
+
+    def test_batch_explain_segment_filter(self, pipeline):
+        """batch_explain() with segment filter only returns that segment."""
+        # Get a segment that exists
+        existing = pipeline.segment.rfm()["segment"].iloc[0]
+        df = pipeline.segment.batch_explain(segment_filter=existing)
+        assert isinstance(df, pd.DataFrame)
+        if len(df) > 0:
+            assert (df["segment"] == existing).all()
+
+
+# ── REVENUE FORECASTING ───────────────────────────────────────────────────────
+
+class TestForecasting:
+
+    def test_forecast_returns_result(self, pipeline):
+        """forecast() returns a ForecastResult."""
+        result = pipeline.forecast.forecast(months=3)
+        assert result is not None
+        assert hasattr(result, "revenue")
+        assert hasattr(result, "fraud_rate")
+        assert hasattr(result, "months_forecast")
+
+    def test_forecast_correct_number_of_months(self, pipeline):
+        """forecast() returns the requested number of months."""
+        result = pipeline.forecast.forecast(months=3)
+        if not result.revenue.empty:
+            assert len(result.revenue) == 3
+        if not result.fraud_rate.empty:
+            assert len(result.fraud_rate) == 3
+
+    def test_forecast_revenue_non_negative(self, pipeline):
+        """Forecast revenue values are always non-negative."""
+        result = pipeline.forecast.forecast(months=3)
+        if not result.revenue.empty:
+            assert (result.revenue["predicted"] >= 0).all()
+            assert (result.revenue["lower_95"]  >= 0).all()
+
+    def test_forecast_fraud_rate_in_range(self, pipeline):
+        """Fraud rate forecast is between 0% and 15%."""
+        result = pipeline.forecast.forecast(months=3)
+        if not result.fraud_rate.empty:
+            assert (result.fraud_rate["predicted"].between(0, 15)).all()
+
+    def test_forecast_has_confidence_intervals(self, pipeline):
+        """Forecast includes lower_95 and upper_95 columns."""
+        result = pipeline.forecast.forecast(months=3)
+        if not result.revenue.empty:
+            assert "lower_95" in result.revenue.columns
+            assert "upper_95" in result.revenue.columns
+        if not result.fraud_rate.empty:
+            assert "lower_95" in result.fraud_rate.columns
+            assert "upper_95" in result.fraud_rate.columns
+
+    def test_forecast_model_used_is_valid(self, pipeline):
+        """model_used is a known model name."""
+        result = pipeline.forecast.forecast(months=3)
+        assert result.model_used in {"prophet", "linear_trend", "none"}
+
+    def test_forecast_confidence_is_valid(self, pipeline):
+        """confidence field is one of the three valid values."""
+        result = pipeline.forecast.forecast(months=3)
+        assert result.confidence in {"high", "medium", "low"}
+
+    def test_forecast_summary_has_keys(self, pipeline):
+        """summary() returns dict with expected keys."""
+        result = pipeline.forecast.forecast(months=3)
+        s = result.summary()
+        assert "months_forecast" in s
+        assert "model" in s
+        assert "confidence" in s
+
+    def test_forecast_months_clamped(self, pipeline):
+        """Requesting more than 12 months is clamped to 12."""
+        result = pipeline.forecast.forecast(months=24)
+        assert result.months_forecast <= 12
+
+    def test_forecast_1_month(self, pipeline):
+        """1 month forecast works without error."""
+        result = pipeline.forecast.forecast(months=1)
+        assert result is not None
