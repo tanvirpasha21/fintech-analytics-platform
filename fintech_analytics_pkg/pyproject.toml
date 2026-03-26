@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fintech-analytics"
-version = "0.1.2"
+version = "0.1.3"
 description = "The dbt-powered Python library for financial analytics — schema-aware, compliance-ready, and ML-native."
 readme = "README.md"
 license = {text = "MIT"}
