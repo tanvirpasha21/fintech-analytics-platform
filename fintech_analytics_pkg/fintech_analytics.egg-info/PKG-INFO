@@ -1,0 +1,569 @@
+Metadata-Version: 2.4
+Name: fintech-analytics
+Version: 0.1.3
+Summary: The dbt-powered Python library for financial analytics — schema-aware, compliance-ready, and ML-native.
+Author-email: MD Tanvir Anjum <contact@voidstudio.tech>
+License: MIT
+Project-URL: Homepage, https://github.com/tanvirpasha21/fintech-analytics-platform
+Project-URL: Documentation, https://github.com/tanvirpasha21/fintech-analytics-platform#readme
+Project-URL: Repository, https://github.com/tanvirpasha21/fintech-analytics-platform
+Project-URL: Issues, https://github.com/tanvirpasha21/fintech-analytics-platform/issues
+Keywords: fintech,analytics,fraud-detection,rfm,dbt,duckdb,machine-learning,compliance,payments
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: duckdb>=0.10.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: xgboost>=2.0.0
+Requires-Dist: lightgbm>=4.0.0
+Requires-Dist: shap>=0.44.0
+Requires-Dist: rich>=13.0.0
+Requires-Dist: typer>=0.9.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: python-dateutil>=2.8.0
+Requires-Dist: fuzzywuzzy>=0.18.0
+Requires-Dist: python-Levenshtein>=0.21.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: plotly>=5.18.0
+Provides-Extra: dbt
+Requires-Dist: dbt-core>=1.7.0; extra == "dbt"
+Requires-Dist: dbt-duckdb>=1.7.0; extra == "dbt"
+Provides-Extra: kaggle
+Requires-Dist: kaggle>=1.5.16; extra == "kaggle"
+Provides-Extra: streaming
+Requires-Dist: kafka-python>=2.0.2; extra == "streaming"
+Provides-Extra: all
+Requires-Dist: fintech-analytics[dbt,kaggle,streaming]; extra == "all"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: mypy>=1.5.0; extra == "dev"
+
+# fintech-analytics
+
+> The dbt-powered Python library for financial analytics — schema-aware, compliance-ready, ML-native, and now with drift detection, segment explainability, and revenue forecasting.
+
+[![PyPI version](https://img.shields.io/pypi/v/fintech-analytics)](https://pypi.org/project/fintech-analytics/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue)](https://python.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Tests](https://github.com/tanvirpasha21/fintech-analytics-platform/actions/workflows/dbt_ci.yml/badge.svg)](https://github.com/tanvirpasha21/fintech-analytics-platform/actions)
+
+From raw transactions to fraud scores, RFM segments, cohort retention, AML compliance, revenue forecasts, and model drift detection — in one library.
+
+---
+
+## Install
+
+```bash
+pip install fintech-analytics
+
+# With Kaggle integration
+pip install "fintech-analytics[kaggle]"
+
+# With dbt engine (runs real .sql models)
+pip install "fintech-analytics[dbt]"
+
+# Everything
+pip install "fintech-analytics[all]"
+```
+
+---
+
+## Quick Start
+
+```python
+from fintech_analytics import Pipeline
+
+p = Pipeline.from_csv("transactions.csv")
+p.run()
+
+# Core metrics
+print(p.metrics)
+
+# RFM segmentation
+print(p.segment.summary())
+
+# Fraud detection with plain-English explanation
+p.fraud.detect()
+p.fraud.print_explain("txn_123")
+
+# Segment explainability — why is this customer "At Risk"?
+p.segment.print_explain("cust_456")
+
+# Revenue + fraud rate forecast (next 3 months)
+forecast = p.forecast.forecast(months=3)
+forecast.print_report()
+
+# Fraud model drift detection
+p_next_month = Pipeline.from_csv("next_month.csv")
+p_next_month.run()
+drift = p.fraud.drift(p_next_month)
+drift.print_report()
+
+# AML compliance checks
+p.compliance.print_report()
+
+# Interactive dashboard (opens in browser)
+p.dashboard()
+
+# Export everything to CSV
+p.export("results/")
+```
+
+---
+
+## Schema Auto-Detection
+
+Works with any CSV column naming — no renaming required:
+
+```python
+# Your CSV might have columns named anything:
+# trans_amt, ref_number, date, result, description...
+p = Pipeline.from_csv("transactions.csv")
+# fintech-analytics detects and maps them automatically
+
+# Or override specific columns
+p = Pipeline.from_csv(
+    "transactions.csv",
+    schema_mapping={
+        "transaction_id": "ref_number",
+        "amount":         "trans_amt",
+        "transaction_at": "date",
+    }
+)
+```
+
+Only the `amount` column is required. Everything else — including `transaction_id` and timestamps — is auto-generated if missing.
+
+---
+
+## Kaggle Integration
+
+```python
+# Built-in presets for popular datasets — no schema_mapping needed
+p = Pipeline.from_kaggle(
+    "mlg-ulb/creditcardfraud",
+    kaggle_username="your_username",   # or set KAGGLE_USERNAME env var
+    kaggle_key="your_api_key",         # or set KAGGLE_KEY env var
+)
+p.run()
+print(p.fraud.detect(mode="supervised").head())
+```
+
+**Supported presets (no schema mapping needed):**
+- `mlg-ulb/creditcardfraud`
+- `kartik2112/fraud-detection`
+- `ybifoundation/credit-card-fraud-detection-prediction`
+
+**Get credentials:** [kaggle.com/settings/account](https://www.kaggle.com/settings/account)
+
+---
+
+## Command Line Interface
+
+```bash
+# Full pipeline
+fintech-analytics run --input transactions.csv --output results/
+
+# Fraud detection
+fintech-analytics fraud --input transactions.csv
+fintech-analytics fraud --input transactions.csv --explain txn_123
+
+# RFM segmentation
+fintech-analytics rfm --input transactions.csv
+fintech-analytics rfm --input transactions.csv --export crm.csv --segment "At Risk"
+
+# AML compliance
+fintech-analytics compliance --input transactions.csv
+
+# Benchmark against industry
+fintech-analytics benchmark --input transactions.csv --industry payments_uk
+
+# Dashboard
+fintech-analytics dashboard --input transactions.csv --port 8080
+```
+
+---
+
+## Full API Reference
+
+### `p.metrics` — KPI Summary
+
+```python
+{
+    "total_transactions": 150000,
+    "unique_customers":   2000,
+    "unique_merchants":   300,
+    "total_volume":       10230000.0,
+    "avg_transaction":    84.39,
+    "completion_pct":     92.3,
+    "fraud_rate_pct":     1.96,
+    "date_from":          "2023-01-01",
+    "date_to":            "2024-12-31",
+}
+```
+
+---
+
+### `p.segment` — Customer Segmentation
+
+```python
+p.segment.rfm()                        # full RFM table (customer_id, scores, segment)
+p.segment.summary()                    # per-segment counts, avg spend, total revenue
+p.segment.champions                    # Champions DataFrame
+p.segment.at_risk                      # At Risk + Cannot Lose Them
+p.segment.lost                         # Hibernating + Lost
+p.segment.get_segment("Promising")     # any segment by name
+p.segment.print_summary()             # rich table output
+```
+
+#### Segment Explainability (new in v0.1.2)
+
+```python
+# Explain why a customer is in their current segment
+p.segment.print_explain("cust_123")
+# ┌─────────────────────────────────────────────────────────────────┐
+# │ Segment Explanation — cust_123                                  │
+# │ Segment:    About to Sleep  (R=2  F=3  M=2  Total=7/15)        │
+# │ Last txn:   47 days ago                                         │
+# │ Frequency:  12 transactions                                     │
+# │ Lifetime $: $843.20                                             │
+# │                                                                 │
+# │ Why this segment:                                               │
+# │  • Recency 2/5 — 47 days ago (avg: 12 days) — significantly lapsed│
+# │  • Frequency 3/5 — 12 txns (avg: 10) — average engagement      │
+# │  • Monetary 2/5 — $843 spend (avg: $1,240) — below average     │
+# │                                                                 │
+# │ What's holding them back:                                       │
+# │  • Needs to transact within 20 days to reach top quartile      │
+# │  • $397 more spend needed to reach top 25%                     │
+# │                                                                 │
+# │ To move up:                                                     │
+# │  → Need Attention: Make one transaction in next 60 days        │
+# │  → Promising: Return within 60 days and make 2+ purchases      │
+# │                                                                 │
+# │ Action now: Reconnect. Share relevant products.                 │
+# └─────────────────────────────────────────────────────────────────┘
+
+exp = p.segment.explain("cust_123")   # returns SegmentExplanation object
+print(exp.segment)                     # "About to Sleep"
+print(exp.to_move_up)                  # dict of next segments → exact steps
+print(exp.recommended_action)         # "Reconnect. Share relevant products."
+
+# Batch explain — CRM-ready DataFrame for all At Risk customers
+df = p.segment.batch_explain("At Risk")
+df.to_csv("at_risk_actions.csv", index=False)
+# Columns: customer_id, segment, key_driver, recommended_action, next_segment, next_step
+```
+
+---
+
+### `p.fraud` — Fraud Detection
+
+```python
+p.fraud.detect()                         # all transactions scored
+p.fraud.detect(mode="supervised")        # XGBoost (needs is_fraud labels)
+p.fraud.detect(mode="unsupervised")      # Isolation Forest (no labels)
+p.fraud.explain("txn_123")              # dict: probability, reasons, action
+p.fraud.print_explain("txn_123")        # rich formatted output
+p.fraud.summary()                        # aggregate fraud stats
+```
+
+#### Fraud Model Drift Detection (new in v0.1.2)
+
+Uses **Population Stability Index (PSI)** — the industry standard for determining when a fraud model needs retraining (Basel II / model risk management).
+
+```python
+# Compare last month to this month
+p_jan = Pipeline.from_csv("january.csv"); p_jan.run()
+p_feb = Pipeline.from_csv("february.csv"); p_feb.run()
+
+report = p_jan.fraud.drift(p_feb)
+report.print_report()
+# ┌──────────────────────────────────────────────────────────────────┐
+# │ Fraud Model Drift Report — MONITOR                               │
+# │ Overall PSI: 0.142  (stable<0.10, monitor<0.20, retrain≥0.20)  │
+# │                                                                  │
+# │ Metric           Reference    Current      Change               │
+# │ Volume           45,000       51,200       +13.8%              │
+# │ Fraud Rate       1.96%        2.41%        +0.45%              │
+# │ Overall PSI      —            0.142        monitor             │
+# │                                                                  │
+# │ Per-Feature PSI:                                                 │
+# │ amount           0.1823       monitor                          │
+# │ amount_log       0.1823       monitor                          │
+# │ hour             0.0041       stable                           │
+# │                                                                  │
+# │ Recommendations:                                                 │
+# │ • PSI 0.142 in warning zone — schedule retraining soon         │
+# │ • Feature 'amount' has high drift — investigate distribution    │
+# └──────────────────────────────────────────────────────────────────┘
+
+report.should_retrain    # True / False
+report.status            # "stable" | "monitor" | "retrain"
+report.overall_psi       # 0.142
+report.feature_psi       # {"amount": 0.1823, "hour": 0.0041, ...}
+report.summary()         # plain dict
+report.to_json("drift_report.json")
+
+# PSI thresholds:
+#   < 0.10  → stable    — no action needed
+#   0.10–0.20 → monitor — consider retraining soon
+#   > 0.20  → retrain   — significant drift, retrain immediately
+```
+
+---
+
+### `p.forecast` — Revenue & Fraud Rate Forecasting (new in v0.1.2)
+
+Forecasts next N months of revenue and fraud rate using Prophet (when installed) or linear trend as fallback.
+
+```python
+forecast = p.forecast.forecast(months=3)
+forecast.print_report()
+# ┌──────────────────────────────────────────────────────────────────┐
+# │ Forecast Report                                                  │
+# │ 3-month forecast · 24 months history · model: prophet · high   │
+# │                                                                  │
+# │ Revenue Forecast                                                 │
+# │ Month      Predicted      Low (95%)    High (95%)  vs History  │
+# │ 2025-01    $892,400       $841,200     $943,600    +2.1%       │
+# │ 2025-02    $910,100       $855,400     $964,800    +4.2%       │
+# │ 2025-03    $934,800       $876,100     $993,500    +6.9%       │
+# │                                                                  │
+# │ Fraud Rate Forecast                                              │
+# │ Month      Predicted    Low (95%)    High (95%)                │
+# │ 2025-01    2.103%       1.821%       2.385%                    │
+# │ 2025-02    2.087%       1.805%       2.369%                    │
+# │ 2025-03    2.071%       1.789%       2.353%                    │
+# └──────────────────────────────────────────────────────────────────┘
+
+forecast.revenue           # DataFrame: month, predicted, lower_95, upper_95
+forecast.fraud_rate        # DataFrame: month, predicted, lower_95, upper_95
+forecast.summary()         # dict with next_month_revenue, next_month_fraud_rate_pct
+forecast.model_used        # "prophet" or "linear_trend"
+forecast.confidence        # "high" | "medium" | "low"
+
+# Install Prophet for best accuracy (optional)
+# pip install prophet
+```
+
+---
+
+### `p.cohorts` — Cohort Analytics
+
+```python
+p.cohorts.retention()              # full retention table
+p.cohorts.retention_matrix()       # pivot table (heatmap-ready, M0–M12)
+p.cohorts.best_cohort()            # highest M3 retention cohort
+p.cohorts.average_retention()      # average across all cohorts per month
+```
+
+---
+
+### `p.merchants` — Merchant Intelligence
+
+```python
+p.merchants.risk_scorecard()       # all merchants ordered by fraud rate
+p.merchants.critical()             # fraud rate > 5%
+p.merchants.elevated()             # fraud rate 2–5%
+p.merchants.top_by_volume(10)      # top 10 by transaction volume
+p.merchants.category_summary()     # aggregated by merchant category
+p.merchants.velocity_alerts()      # merchants with unusual transaction spikes
+```
+
+---
+
+### `p.compliance` — AML Checks
+
+```python
+p.compliance.aml_flags()           # all flags as DataFrame
+p.compliance.print_report()        # rich formatted report
+```
+
+**AML checks performed:**
+- **Structuring (smurfing)** — multiple transactions just below reporting threshold (default £10,000)
+- **Velocity anomalies** — unusual transaction frequency in short time window
+- **Round number bias** — high proportion of round-number transactions (manual fraud signal)
+- **Dormant account activity** — sudden transactions on previously inactive accounts
+- **Large cash transactions** — ATM/transfer amounts above threshold
+
+---
+
+### `p.query()` — Custom SQL
+
+```python
+# Run any SQL against the pipeline database
+p.query("SELECT * FROM analytics.rfm WHERE segment = 'Champions'")
+p.query("SELECT * FROM raw.transactions WHERE amount > 5000")
+p.query("""
+    SELECT segment, count(*) as n, round(avg(monetary), 2) as avg_spend
+    FROM analytics.rfm
+    GROUP BY segment
+    ORDER BY avg_spend DESC
+""")
+```
+
+**Tables available:**
+| Table | Contents |
+|---|---|
+| `raw.transactions` | Normalised input data |
+| `analytics.rfm` | RFM segments |
+| `analytics.cohort_retention` | Cohort retention matrix |
+| `analytics.merchant_scorecard` | Merchant risk scores |
+| `analytics.payment_performance` | Monthly KPIs |
+
+---
+
+## dbt Engine
+
+The package ships the production dbt SQL models from the fintech-analytics-platform repo. When you use `engine="dbt"`, your data runs through the real `.sql` files — not a Python approximation.
+
+```python
+# engine="dbt"    → runs 13 real .sql dbt models (requires dbt-duckdb)
+# engine="python" → pure Python fallback, no dbt needed
+# engine="auto"   → uses dbt if installed, otherwise python (default)
+
+p = Pipeline.from_csv("transactions.csv", engine="dbt")
+p.run()
+# Running bundled dbt models (production-grade SQL pipeline)
+#   raw.transactions: 150,000 rows ✓
+#   Running dbt build (13 models + 30 tests)...
+#   Done. PASS=43 WARN=0 ERROR=0
+```
+
+---
+
+## Supported Data Formats
+
+| Format | Method |
+|---|---|
+| CSV file | `Pipeline.from_csv("file.csv")` |
+| pandas DataFrame | `Pipeline.from_dataframe(df)` |
+| Kaggle dataset | `Pipeline.from_kaggle("owner/dataset")` |
+
+---
+
+## RFM Segments
+
+| Segment | Description | Recommended Action |
+|---|---|---|
+| Champions | High R, F, and M | Reward them. Ask for reviews. Upsell. |
+| Loyal Customers | High F and M | Offer loyalty programme. Upsell tier. |
+| Potential Loyalists | Recent, moderate F | Offer membership. Personalise. |
+| Recent Customers | High R, low F | Onboarding support. Build habit. |
+| Promising | Moderate R and F | Brand awareness. Free trials. |
+| Need Attention | Moderate R, low F, high M | Reactivation campaign. Limited offer. |
+| About to Sleep | Low R, low F | Reconnect. Share relevant products. |
+| At Risk | Low R, high historical F and M | Win-back campaign. Personalised email. |
+| Cannot Lose Them | Very low R, very high F | Renew. Call them directly. |
+| Hibernating | Very low R and F | Relevant discount offer. |
+| Lost | Lowest R and F | Revive with new offering or ignore. |
+
+---
+
+## Architecture
+
+```
+fintech_analytics/
+├── schema/
+│   ├── detector.py      # fuzzy column name auto-detection + Kaggle presets
+│   └── mapping.py       # normalisation, UUID generation, numeric timestamp handling
+├── pipeline/
+│   ├── core.py          # Pipeline class — main entry point
+│   ├── dbt_engine.py    # runs bundled .sql dbt models on user data
+│   └── dashboard.py     # self-contained HTML dashboard server
+├── analytics/
+│   ├── segmentation.py  # RFM segments + explain() + batch_explain()
+│   ├── explain.py       # SegmentExplainer — PSI-driven segment explanations
+│   ├── cohorts.py       # cohort retention matrix
+│   ├── merchants.py     # merchant risk scoring + velocity alerts
+│   └── forecast.py      # revenue + fraud rate forecasting (Prophet / linear)
+├── ml/
+│   ├── fraud.py         # XGBoost + Isolation Forest + SHAP explainability
+│   └── drift.py         # PSI-based fraud model drift detection
+└── compliance/
+    └── checks.py        # AML checks: structuring, velocity, round numbers, dormant, cash
+```
+
+---
+
+## Optional Dependencies
+
+```bash
+# Kaggle dataset download
+pip install "fintech-analytics[kaggle]"
+
+# dbt SQL engine (runs real .sql models)
+pip install "fintech-analytics[dbt]"
+
+# Prophet for accurate forecasting (otherwise uses linear trend)
+pip install prophet
+
+# SHAP explainability for fraud
+pip install shap
+
+# Kafka streaming
+pip install "fintech-analytics[streaming]"
+
+# Everything
+pip install "fintech-analytics[all]"
+```
+
+---
+
+## What's New
+
+### v0.1.2
+- **Fraud drift detection** — `p.fraud.drift(p2)` with PSI scores, per-feature breakdown, retrain recommendations
+- **Segment explainability** — `p.segment.explain(cid)` and `p.segment.batch_explain()` with CRM-ready export
+- **Revenue forecasting** — `p.forecast.forecast(months=3)` with Prophet + linear trend fallback
+
+### v0.1.1
+- Kaggle auth via `kaggle_username`/`kaggle_key` parameters
+- `transaction_id` and timestamp auto-generated when missing
+- Built-in Kaggle dataset presets (creditcardfraud, fraud-detection)
+- Only `amount` column required — everything else is optional
+
+### v0.1.0
+- Initial release
+
+---
+
+## Contributing
+
+```bash
+git clone https://github.com/tanvirpasha21/fintech-analytics-platform
+cd fintech-analytics-platform/fintech_analytics_pkg
+
+pip install -e ".[dev]"
+pip install dbt-duckdb  # for dbt engine tests
+
+pytest tests/ -v
+```
+
+---
+
+## License
+
+MIT — free to use, modify, and distribute.
+
+---
+
+## Author
+
+**MD Tanvir Anjum** — Founder, Void Studio
+[github.com/tanvirpasha21](https://github.com/tanvirpasha21) · [voidstudiotech.co.uk](https://voidstudiotech.co.uk) · [linkedin.com/in/mdtanviranjum21](https://linkedin.com/in/mdtanviranjum21)

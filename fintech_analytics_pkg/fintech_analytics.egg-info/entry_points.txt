@@ -1,0 +1,2 @@
+[console_scripts]
+fintech-analytics = fintech_analytics.cli.main:app
